@@ -26,15 +26,16 @@ public abstract class Personagem : MonoBehaviour
     public void Andar()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        Vector2 dir = new Vector2(horizontal, 0);
-        rb2d.velocity = dir.normalized * velocidade;
+        Vector2 dir = new Vector2(horizontal,0);
+        dir.Normalize();
+        rb2d.velocity = new Vector2(dir.x * velocidade, rb2d.velocity.y);
     }
 
     public void Pular()
     {
         if (Input.GetButtonDown("Jump") && colisaoChao.estaNoChao)
         {
-            rb2d.AddForce(new Vector2(rb2d.velocity.x,forcaPulo),ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(rb2d.velocity.x, forcaPulo), ForceMode2D.Impulse);
         }
     }
 
