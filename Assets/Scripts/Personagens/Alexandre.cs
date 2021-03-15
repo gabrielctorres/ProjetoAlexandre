@@ -16,9 +16,9 @@ public class Alexandre : Personagem
         base.FixedUpdate();
     }
 
-    void Update()
+    public override void Update()
     {
-
+        base.Update();
     }
 
     public override void Ataque()
