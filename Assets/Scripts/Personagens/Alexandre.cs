@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Alexandre : Personagem
 {
-    
+    float attackRate = 1;
+    float nextAttack = 0;
+
     public override void Start()
     {
         base.Start();
@@ -23,6 +25,15 @@ public class Alexandre : Personagem
 
     public override void Ataque()
     {
-        throw new System.NotImplementedException();
+        if (Input.GetButtonDown("Fire1") && Time.time > nextAttack)
+        {
+            nextAttack = Time.time + attackRate;
+            spriteAnimation.SetBool("AtacouNormal", true);
+        }
+            
+       else
+            spriteAnimation.SetBool("AtacouNormal", false);
     }
+
+    
 }

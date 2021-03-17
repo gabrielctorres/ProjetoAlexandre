@@ -1,0 +1,1652 @@
+fileFormatVersion: 2
+guid: 7d3a26268a0c1924fb15ecfdc6d04ae1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2201484806388734606
+    second: Sprite_Sheet_Alexandre-export_0
+  - first:
+      213: -588519522964066502
+    second: Sprite_Sheet_Alexandre-export_1
+  - first:
+      213: 4516378177161970315
+    second: Sprite_Sheet_Alexandre-export_2
+  - first:
+      213: -4962701873339196781
+    second: Sprite_Sheet_Alexandre-export_3
+  - first:
+      213: -3162016310783890363
+    second: Sprite_Sheet_Alexandre-export_4
+  - first:
+      213: 1728082852724908676
+    second: Sprite_Sheet_Alexandre-export_5
+  - first:
+      213: 2215196086250153627
+    second: Sprite_Sheet_Alexandre-export_6
+  - first:
+      213: 7360292779483329871
+    second: Sprite_Sheet_Alexandre-export_7
+  - first:
+      213: 8498626497515493631
+    second: Sprite_Sheet_Alexandre-export_8
+  - first:
+      213: 8505850104319235010
+    second: Sprite_Sheet_Alexandre-export_9
+  - first:
+      213: 1886293618160450177
+    second: Sprite_Sheet_Alexandre-export_10
+  - first:
+      213: 7543134825054180810
+    second: Sprite_Sheet_Alexandre-export_11
+  - first:
+      213: -4207799158287256486
+    second: Sprite_Sheet_Alexandre-export_12
+  - first:
+      213: -6480129452498825686
+    second: Sprite_Sheet_Alexandre-export_13
+  - first:
+      213: -2404237407833502370
+    second: Sprite_Sheet_Alexandre-export_14
+  - first:
+      213: -6659983004343974873
+    second: Sprite_Sheet_Alexandre-export_15
+  - first:
+      213: 3571429649556984986
+    second: Sprite_Sheet_Alexandre-export_16
+  - first:
+      213: 6723811719473280429
+    second: Sprite_Sheet_Alexandre-export_17
+  - first:
+      213: 1220342288847952029
+    second: Sprite_Sheet_Alexandre-export_18
+  - first:
+      213: 8261378643832098538
+    second: Sprite_Sheet_Alexandre-export_19
+  - first:
+      213: -4798983022227326742
+    second: Sprite_Sheet_Alexandre-export_20
+  - first:
+      213: -6662822119216644636
+    second: Sprite_Sheet_Alexandre-export_21
+  - first:
+      213: 2092590685047160820
+    second: Sprite_Sheet_Alexandre-export_22
+  - first:
+      213: 999741492476772193
+    second: Sprite_Sheet_Alexandre-export_23
+  - first:
+      213: 8658897910845972427
+    second: Sprite_Sheet_Alexandre-export_24
+  - first:
+      213: -6711206066097683122
+    second: Sprite_Sheet_Alexandre-export_25
+  - first:
+      213: -4332396038342713067
+    second: Sprite_Sheet_Alexandre-export_26
+  - first:
+      213: -6510937859480241761
+    second: Sprite_Sheet_Alexandre-export_27
+  - first:
+      213: -4363530311955755344
+    second: Sprite_Sheet_Alexandre-export_28
+  - first:
+      213: 1658849707397696947
+    second: Sprite_Sheet_Alexandre-export_29
+  - first:
+      213: 8504955294962806803
+    second: Sprite_Sheet_Alexandre-export_30
+  - first:
+      213: -5301480650538022000
+    second: Sprite_Sheet_Alexandre-export_31
+  - first:
+      213: -9027598502676600052
+    second: Sprite_Sheet_Alexandre-export_32
+  - first:
+      213: -8700287954231048551
+    second: Sprite_Sheet_Alexandre-export_33
+  - first:
+      213: -3670120442086036428
+    second: Sprite_Sheet_Alexandre-export_34
+  - first:
+      213: -2909670541972573585
+    second: Sprite_Sheet_Alexandre-export_24
+  - first:
+      213: -8004801206198935729
+    second: Sprite_Sheet_Alexandre-export_0
+  - first:
+      213: 2191015898380447138
+    second: Sprite_Sheet_Alexandre-export_1
+  - first:
+      213: -3209996456379336546
+    second: Sprite_Sheet_Alexandre-export_2
+  - first:
+      213: -8772564318637189829
+    second: Sprite_Sheet_Alexandre-export_3
+  - first:
+      213: -8992446823125626278
+    second: Sprite_Sheet_Alexandre-export_4
+  - first:
+      213: -5529742174666038283
+    second: Sprite_Sheet_Alexandre-export_5
+  - first:
+      213: 8066664758881298084
+    second: Sprite_Sheet_Alexandre-export_6
+  - first:
+      213: -6315193452442779601
+    second: Sprite_Sheet_Alexandre-export_7
+  - first:
+      213: -1530064075137788480
+    second: Sprite_Sheet_Alexandre-export_8
+  - first:
+      213: -2080391451803255099
+    second: Sprite_Sheet_Alexandre-export_9
+  - first:
+      213: 73359192265027756
+    second: Sprite_Sheet_Alexandre-export_10
+  - first:
+      213: 1579286391224059637
+    second: Sprite_Sheet_Alexandre-export_11
+  - first:
+      213: -3742526536349769597
+    second: Sprite_Sheet_Alexandre-export_12
+  - first:
+      213: 5306903227334867939
+    second: Sprite_Sheet_Alexandre-export_13
+  - first:
+      213: 4528178757706834849
+    second: Sprite_Sheet_Alexandre-export_14
+  - first:
+      213: 2635555408089449140
+    second: Sprite_Sheet_Alexandre-export_15
+  - first:
+      213: 2038785312112851570
+    second: Sprite_Sheet_Alexandre-export_16
+  - first:
+      213: -1260968991911252431
+    second: Sprite_Sheet_Alexandre-export_17
+  - first:
+      213: 3970353263576617790
+    second: Sprite_Sheet_Alexandre-export_18
+  - first:
+      213: 2289997274753284990
+    second: Sprite_Sheet_Alexandre-export_19
+  - first:
+      213: 4321077820804129069
+    second: Sprite_Sheet_Alexandre-export_20
+  - first:
+      213: 5876288200533067205
+    second: Sprite_Sheet_Alexandre-export_21
+  - first:
+      213: -7166636586204653545
+    second: Sprite_Sheet_Alexandre-export_22
+  - first:
+      213: 2274261776363211606
+    second: Sprite_Sheet_Alexandre-export_23
+  - first:
+      213: -7194553934785643372
+    second: Sprite_Sheet_Alexandre-export_25
+  - first:
+      213: 8401379060032273528
+    second: Sprite_Sheet_Alexandre-export_26
+  - first:
+      213: -350472954626487579
+    second: Sprite_Sheet_Alexandre-export_27
+  - first:
+      213: -4034246050409445337
+    second: Sprite_Sheet_Alexandre-export_28
+  - first:
+      213: -2833563124604632196
+    second: Sprite_Sheet_Alexandre-export_29
+  - first:
+      213: 2970941596674841314
+    second: Sprite_Sheet_Alexandre-export_30
+  - first:
+      213: -8225742397140055707
+    second: Sprite_Sheet_Alexandre-export_31
+  - first:
+      213: 8631300926232370487
+    second: Sprite_Sheet_Alexandre-export_32
+  - first:
+      213: 5339796169987480536
+    second: Sprite_Sheet_Alexandre-export_33
+  - first:
+      213: -8510815512237289856
+    second: Sprite_Sheet_Alexandre-export_35
+  - first:
+      213: 7016106507748390929
+    second: Sprite_Sheet_Alexandre-export_36
+  - first:
+      213: 6845258997416943519
+    second: Sprite_Sheet_Alexandre-export_37
+  - first:
+      213: -3500707315877042847
+    second: Sprite_Sheet_Alexandre-export_38
+  - first:
+      213: 176238541476632314
+    second: Sprite_Sheet_Alexandre-export_39
+  - first:
+      213: -7194809131439651981
+    second: Sprite_Sheet_Alexandre-export_40
+  - first:
+      213: 684616802139800512
+    second: Sprite_Sheet_Alexandre-export_41
+  - first:
+      213: 8665755735735266436
+    second: Sprite_Sheet_Alexandre-export_42
+  - first:
+      213: 7936464959188929887
+    second: Sprite_Sheet_Alexandre-export_43
+  - first:
+      213: 5563992383675144607
+    second: Sprite_Sheet_Alexandre-export_44
+  - first:
+      213: 4976276744127152840
+    second: Sprite_Sheet_Alexandre-export_45
+  - first:
+      213: 535603009453714804
+    second: Sprite_Sheet_Alexandre-export_46
+  - first:
+      213: 4408078104541651106
+    second: Sprite_Sheet_Alexandre-export_47
+  - first:
+      213: -4484179104528191321
+    second: Sprite_Sheet_Alexandre-export_48
+  - first:
+      213: 2406788735427542345
+    second: Sprite_Sheet_Alexandre-export_49
+  - first:
+      213: 4150745808510053860
+    second: Sprite_Sheet_Alexandre-export_50
+  - first:
+      213: 1477331432843556203
+    second: Sprite_Sheet_Alexandre-export_51
+  - first:
+      213: -6454700930696326687
+    second: Sprite_Sheet_Alexandre-export_52
+  - first:
+      213: -9108680392904617587
+    second: Sprite_Sheet_Alexandre-export_53
+  - first:
+      213: -52544674284900473
+    second: Sprite_Sheet_Alexandre-export_54
+  - first:
+      213: 3003566482142560726
+    second: Sprite_Sheet_Alexandre-export_55
+  - first:
+      213: -7796004985196398789
+    second: Sprite_Sheet_Alexandre-export_34
+  - first:
+      213: 3454136640088989501
+    second: Sprite_Sheet_Alexandre-export_35
+  - first:
+      213: -211935044323312548
+    second: Sprite_Sheet_Alexandre-export_36
+  - first:
+      213: 7913359982782737498
+    second: Sprite_Sheet_Alexandre-export_37
+  - first:
+      213: 5510034010110097623
+    second: Sprite_Sheet_Alexandre-export_38
+  - first:
+      213: 771269690877223603
+    second: Sprite_Sheet_Alexandre-export_39
+  - first:
+      213: -7816966203165787872
+    second: Sprite_Sheet_Alexandre-export_40
+  - first:
+      213: 8225051383089751783
+    second: Sprite_Sheet_Alexandre-export_41
+  - first:
+      213: 3152699786123444978
+    second: Sprite_Sheet_Alexandre-export_42
+  - first:
+      213: -8916055963819951878
+    second: Sprite_Sheet_Alexandre-export_43
+  - first:
+      213: -695349862773656003
+    second: Sprite_Sheet_Alexandre-export_44
+  - first:
+      213: 6165005055603869304
+    second: Sprite_Sheet_Alexandre-export_45
+  - first:
+      213: -6677722957392187475
+    second: Sprite_Sheet_Alexandre-export_46
+  - first:
+      213: 6232472064935873224
+    second: Sprite_Sheet_Alexandre-export_47
+  - first:
+      213: -938996999220812436
+    second: Sprite_Sheet_Alexandre-export_48
+  - first:
+      213: -4698158879032850178
+    second: Sprite_Sheet_Alexandre-export_49
+  - first:
+      213: -2862830924104509702
+    second: Sprite_Sheet_Alexandre-export_50
+  - first:
+      213: 5351316838167303815
+    second: Sprite_Sheet_Alexandre-export_51
+  - first:
+      213: 1711765839309029774
+    second: Sprite_Sheet_Alexandre-export_52
+  - first:
+      213: 7441153921697454078
+    second: Sprite_Sheet_Alexandre-export_53
+  - first:
+      213: -9068800241329028633
+    second: Sprite_Sheet_Alexandre-export_54
+  - first:
+      213: -1995919140985260015
+    second: Sprite_Sheet_Alexandre-export_55
+  - first:
+      213: -4544252675186820132
+    second: Sprite_Sheet_Alexandre-export_56
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fd4e6d6bb39e090800000000000000
+      internalID: -8004801206198935729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad2330e95d086e10800000000000000
+      internalID: 2191015898380447138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e983f3fea3dc373d0800000000000000
+      internalID: -3209996456379336546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b351d523b37914680800000000000000
+      internalID: -8772564318637189829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52d1062249643380800000000000000
+      internalID: -8992446823125626278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3e88b3ac86243b0800000000000000
+      internalID: -5529742174666038283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a62843fbdc82ff60800000000000000
+      internalID: 8066664758881298084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20864ba30deb58a0800000000000000
+      internalID: -6315193452442779601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c553dd84de14cae0800000000000000
+      internalID: -1530064075137788480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cef1893ff6f023e0800000000000000
+      internalID: -2080391451803255099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca077f3fbcf940100800000000000000
+      internalID: 73359192265027756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6c48bfa90cae510800000000000000
+      internalID: 1579286391224059637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3802666a1ffdf0cc0800000000000000
+      internalID: -3742526536349769597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb3baa3e58e5a940800000000000000
+      internalID: 5306903227334867939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3e59cb69257de30800000000000000
+      internalID: 4528178757706834849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b2080d0eaf539420800000000000000
+      internalID: 2635555408089449140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a35cd70783b4c10800000000000000
+      internalID: 2038785312112851570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ee85cf163208ee0800000000000000
+      internalID: -1260968991911252431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e331c44e147891730800000000000000
+      internalID: 3970353263576617790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b38427364b7cf10800000000000000
+      internalID: 2289997274753284990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2169db426d87fb30800000000000000
+      internalID: 4321077820804129069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5c7960cf4cc8150800000000000000
+      internalID: 5876288200533067205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71814fccefdfa8c90800000000000000
+      internalID: -7166636586204653545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65bc06a390dcf8f10800000000000000
+      internalID: 2274261776363211606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f627e44ee06ce97d0800000000000000
+      internalID: -2909670541972573585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c76bf805fc72c90800000000000000
+      internalID: -7194553934785643372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87cf0a02eb1b79470800000000000000
+      internalID: 8401379060032273528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea4b1464bed22bf0800000000000000
+      internalID: -350472954626487579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72882dc679a7308c0800000000000000
+      internalID: -4034246050409445337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c738b4dd9592da8d0800000000000000
+      internalID: -2833563124604632196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea5c3634a7ea3920800000000000000
+      internalID: 2970941596674841314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569c8942fda48dd80800000000000000
+      internalID: -8225742397140055707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d9499367a88c770800000000000000
+      internalID: 8631300926232370487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db581d3354ca1a40800000000000000
+      internalID: 5339796169987480536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b37b13e55c60fc390800000000000000
+      internalID: -7796004985196398789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f5a2e29fe8fef20800000000000000
+      internalID: 3454136640088989501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5cf6a7333e0f0df0800000000000000
+      internalID: -211935044323312548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c6e814af6e1dd60800000000000000
+      internalID: 7913359982782737498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8fee02db2977c40800000000000000
+      internalID: 5510034010110097623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b223ce82b914ba00800000000000000
+      internalID: 771269690877223603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029b11f77ae848390800000000000000
+      internalID: -7816966203165787872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6666c97a0452270800000000000000
+      internalID: 8225051383089751783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f2865370c3a0cb20800000000000000
+      internalID: 3152699786123444978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af83207175ec34480800000000000000
+      internalID: -8916055963819951878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3672c2ebfe9956f0800000000000000
+      internalID: -695349862773656003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87681c93f6f7e8550800000000000000
+      internalID: 6165005055603869304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_46
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafea20b956f353a0800000000000000
+      internalID: -6677722957392187475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca4c0f62503e7650800000000000000
+      internalID: 6232472064935873224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c652948443308f2f0800000000000000
+      internalID: -938996999220812436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef846e43469ccceb0800000000000000
+      internalID: -4698158879032850178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af65fb4417e2548d0800000000000000
+      internalID: -2862830924104509702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7865783df42b34a40800000000000000
+      internalID: 5351316838167303815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_52
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81c9a626f961c710800000000000000
+      internalID: 1711765839309029774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef718cd111a444760800000000000000
+      internalID: 7441153921697454078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e14b94aa36252280800000000000000
+      internalID: -9068800241329028633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118bb29bd121d44e0800000000000000
+      internalID: -1995919140985260015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Sheet_Alexandre-export_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdbfed5b4429fe0c0800000000000000
+      internalID: -4544252675186820132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
