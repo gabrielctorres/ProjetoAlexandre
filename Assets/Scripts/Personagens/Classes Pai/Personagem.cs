@@ -31,7 +31,8 @@ public abstract class Personagem : MonoBehaviour
 
 
     public virtual void Update()
-    {    
+    {
+        spriteAnimation.SetBool("Pulando", !estaNoChao);
         Flip();
         Ataque();
     }
@@ -71,14 +72,12 @@ public abstract class Personagem : MonoBehaviour
     public void Pular()
     {        
         if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede)
-        {
-            spriteAnimation.SetBool("Pulando", true); 
+        {           
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.velocity += Vector2.up.normalized * forcaPulo;           
             
         }else if (Input.GetButton("Jump") && !estaNoChao && deslizandoParede)
-        {
-            spriteAnimation.SetBool("Pulando", true);
+        {            
             Vector2 direcaoPulo = new Vector2(horizontal, 1.8f);
             Vector2 forca = new Vector2(4f * direcaoPulo.x * -direcaoOlhar, 4f * direcaoPulo.y);
             rb2d.velocity = Vector2.zero;
@@ -142,12 +141,6 @@ public abstract class Personagem : MonoBehaviour
         GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
         GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
         GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
-    }
-
-
-    public void StopJump()
-    {        
-      spriteAnimation.SetBool("Pulando", false);
     }
 
     public abstract void Ataque();
