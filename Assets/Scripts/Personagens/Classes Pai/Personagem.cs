@@ -62,7 +62,7 @@ public abstract class Personagem : MonoBehaviour
         {
             if (rb2d.velocity.y < 0)
             {
-                Debug.Log("aaaaaaaaaaaaaaaaaaaaaa");
+                //Debug.Log("aaaaaaaaaaaaaaaaaaaaaa");
                 rb2d.velocity = new Vector2(rb2d.velocity.x, -velocidadeParedeDeslize);
             }
         }       
