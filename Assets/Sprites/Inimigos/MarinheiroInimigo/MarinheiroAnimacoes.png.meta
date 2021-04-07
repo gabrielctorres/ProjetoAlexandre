@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: 521a0d0d9d7a7a84b9d6c6f5257650da
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3117489197340842379
+    second: MarinheiroAtacando_0
+  - first:
+      213: 3935852030958110180
+    second: MarinheiroAtacando_1
+  - first:
+      213: 8793553070859342228
+    second: MarinheiroAtacando_2
+  - first:
+      213: 1380388648664799209
+    second: MarinheiroAtacando_3
+  - first:
+      213: -1398953911815397950
+    second: MarinheiroAtacando_4
+  - first:
+      213: 1501875782279086290
+    second: MarinheiroAtacando_5
+  - first:
+      213: -2594338889386614292
+    second: MarinheiroAtacando_6
+  - first:
+      213: 5159895526030739750
+    second: MarinheiroAtacando_7
+  - first:
+      213: 2853469435428017944
+    second: MarinheiroAtacando_8
+  - first:
+      213: -2508356154591778388
+    second: MarinheiroAtacando_9
+  - first:
+      213: 540691090591447448
+    second: MarinheiroAtacando_10
+  - first:
+      213: -2504306100503502731
+    second: MarinheiroAtacando_11
+  - first:
+      213: 3078290669600712939
+    second: MarinheiroAtacando_12
+  - first:
+      213: 6741695557949872733
+    second: MarinheiroAtacando_13
+  - first:
+      213: 549543579398325967
+    second: MarinheiroAtacando_14
+  - first:
+      213: 5976083410780396370
+    second: MarinheiroAtacando_15
+  - first:
+      213: 2896631998721209140
+    second: MarinheiroAtacando_16
+  - first:
+      213: 3695551019271930008
+    second: MarinheiroAtacando_17
+  - first:
+      213: -4481594949667912376
+    second: MarinheiroAtacando_18
+  - first:
+      213: 5505619037447578650
+    second: MarinheiroAtacando_19
+  - first:
+      213: -8164215108454670697
+    second: MarinheiroAtacando_20
+  - first:
+      213: 1602246653649611839
+    second: MarinheiroAnimacoes_0
+  - first:
+      213: -8706553594098888653
+    second: MarinheiroAnimacoes_1
+  - first:
+      213: 4324820895641965296
+    second: MarinheiroAnimacoes_2
+  - first:
+      213: 8671253919013928516
+    second: MarinheiroAnimacoes_3
+  - first:
+      213: -8698389575289995603
+    second: MarinheiroAnimacoes_4
+  - first:
+      213: 5810109300739941622
+    second: MarinheiroAnimacoes_5
+  - first:
+      213: -8634234743336723147
+    second: MarinheiroAnimacoes_6
+  - first:
+      213: 1293781455092077754
+    second: MarinheiroAnimacoes_7
+  - first:
+      213: -7379736526682317359
+    second: MarinheiroAnimacoes_8
+  - first:
+      213: 9179279551638604505
+    second: MarinheiroAnimacoes_9
+  - first:
+      213: -5105040449003668698
+    second: MarinheiroAnimacoes_10
+  - first:
+      213: -4442848764204768257
+    second: MarinheiroAnimacoes_11
+  - first:
+      213: -3050189230975465793
+    second: MarinheiroAnimacoes_12
+  - first:
+      213: 3029111477243289787
+    second: MarinheiroAnimacoes_13
+  - first:
+      213: -5737001088124204327
+    second: MarinheiroAnimacoes_14
+  - first:
+      213: 7405885394085157116
+    second: MarinheiroAnimacoes_15
+  - first:
+      213: -8902653436999715962
+    second: MarinheiroAnimacoes_16
+  - first:
+      213: -6902944596172467377
+    second: MarinheiroAnimacoes_17
+  - first:
+      213: -2130757833243035571
+    second: MarinheiroAnimacoes_18
+  - first:
+      213: 3578938950891295203
+    second: MarinheiroAnimacoes_19
+  - first:
+      213: -7455093002032438684
+    second: MarinheiroAnimacoes_20
+  - first:
+      213: -7865531634554687006
+    second: MarinheiroAnimacoes_21
+  - first:
+      213: 8259196351963146237
+    second: MarinheiroAnimacoes_22
+  - first:
+      213: 3500106907902867073
+    second: MarinheiroAnimacoes_23
+  - first:
+      213: 3881110733541281046
+    second: MarinheiroAnimacoes_24
+  - first:
+      213: -8138687608287284972
+    second: MarinheiroAnimacoes_25
+  - first:
+      213: 3921345978318008418
+    second: MarinheiroAnimacoes_26
+  - first:
+      213: 5904696960331454243
+    second: MarinheiroAnimacoes_27
+  - first:
+      213: -7985378121933648414
+    second: MarinheiroAnimacoes_28
+  - first:
+      213: 838779600511147478
+    second: MarinheiroAnimacoes_29
+  - first:
+      213: 139438679541297072
+    second: MarinheiroAnimacoes_30
+  - first:
+      213: -3906941383240541975
+    second: MarinheiroAnimacoes_31
+  - first:
+      213: 5657966290759048545
+    second: MarinheiroAnimacoes_32
+  - first:
+      213: 8661316786805167450
+    second: MarinheiroAnimacoes_33
+  - first:
+      213: -4160010547271492407
+    second: MarinheiroAnimacoes_34
+  - first:
+      213: 2937381798839638714
+    second: MarinheiroAnimacoes_35
+  - first:
+      213: -6892808686099673437
+    second: MarinheiroAnimacoes_36
+  - first:
+      213: -150577969234619965
+    second: MarinheiroAnimacoes_37
+  - first:
+      213: -8411033872192548969
+    second: MarinheiroAnimacoes_38
+  - first:
+      213: -7577212716754333964
+    second: MarinheiroAnimacoes_39
+  - first:
+      213: 7374286217804826669
+    second: MarinheiroAnimacoes_40
+  - first:
+      213: 8077716100153446979
+    second: MarinheiroAnimacoes_41
+  - first:
+      213: -7969372439015311496
+    second: MarinheiroAnimacoes_42
+  - first:
+      213: -6458103917978310754
+    second: MarinheiroAnimacoes_43
+  - first:
+      213: 6473194123356646821
+    second: MarinheiroAnimacoes_44
+  - first:
+      213: 4172243387098270230
+    second: MarinheiroAnimacoes_45
+  - first:
+      213: -5318932661770416236
+    second: MarinheiroAnimacoes_46
+  - first:
+      213: 4977554271099559813
+    second: MarinheiroAnimacoes_47
+  - first:
+      213: -4427282440596438155
+    second: MarinheiroAnimacoes_48
+  - first:
+      213: -4780101603835307886
+    second: MarinheiroAnimacoes_49
+  - first:
+      213: 6608133323379212711
+    second: MarinheiroAnimacoes_50
+  - first:
+      213: -7207935241106706371
+    second: MarinheiroAnimacoes_51
+  - first:
+      213: 1614728929037895716
+    second: MarinheiroAnimacoes_52
+  - first:
+      213: -3906623179292307552
+    second: MarinheiroAnimacoes_53
+  - first:
+      213: -5033343573707068067
+    second: MarinheiroAnimacoes_54
+  - first:
+      213: -707904556626132715
+    second: MarinheiroAnimacoes_55
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ce759a7d25c3610800000000000000
+      internalID: 1602246653649611839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330d5dda2ab1c2780800000000000000
+      internalID: -8706553594098888653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f21de1d0b9d40c30800000000000000
+      internalID: 4324820895641965296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ef9004f7b765870800000000000000
+      internalID: 8671253919013928516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daef0ee64cc194780800000000000000
+      internalID: -8698389575289995603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f42cc030a7a1a050800000000000000
+      internalID: 5810109300739941622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d14104f390d2880800000000000000
+      internalID: -8634234743336723147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab450cfe06f64f110800000000000000
+      internalID: 1293781455092077754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd102f7ab8e59990800000000000000
+      internalID: -7379736526682317359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da0d694e1a536f70800000000000000
+      internalID: 9179279551638604505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62bb22162c04729b0800000000000000
+      internalID: -5105040449003668698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_11
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3aac29694d752c0800000000000000
+      internalID: -4442848764204768257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb64cf51e0d8ba5d0800000000000000
+      internalID: -3050189230975465793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_13
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb02522f6d0990a20800000000000000
+      internalID: 3029111477243289787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_14
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dac35208e31260b0800000000000000
+      internalID: -5737001088124204327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_15
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf813b1278df6c660800000000000000
+      internalID: 7405885394085157116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarinheiroAnimacoes_16
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683b8390edb637480800000000000000
+      internalID: -8902653436999715962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
