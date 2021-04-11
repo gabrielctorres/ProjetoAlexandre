@@ -47,4 +47,13 @@ public class Alexandre : Personagem
         else
             spriteAnimation.SetBool("AtacouEspada", false);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.name == "BonecoTeste")
+        {
+            DarDano(50);
+            Debug.Log("a");
+        }
+    }
 }

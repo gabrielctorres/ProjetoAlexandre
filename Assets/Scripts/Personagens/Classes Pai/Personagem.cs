@@ -37,6 +37,7 @@ public abstract class Personagem : MonoBehaviour
         Flip();
         Ataque();
         SegundoAtaque();
+        VerificarMorte();
     }
 
     public virtual void FixedUpdate()
@@ -44,6 +45,7 @@ public abstract class Personagem : MonoBehaviour
         SegurarCorda();
         if (podeAndar)
             Andar();
+
         Pular();
 
 
@@ -56,17 +58,16 @@ public abstract class Personagem : MonoBehaviour
 
     public void Andar()
     {
+        if(!deslizandoParede || !tocandoNaParede || estaNoChao)
+            spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
+
         if (!segurandoCorda)
         {
             rb2d.gravityScale = 3f;
             horizontal = Input.GetAxis("Horizontal");
             Vector2 dir = new Vector2(horizontal, 0);
             rb2d.velocity = new Vector2(dir.x * velocidade, rb2d.velocity.y);
-        }
-
-
-        
-        spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
+        }     
 
         if (deslizandoParede)
         {
@@ -81,6 +82,7 @@ public abstract class Personagem : MonoBehaviour
     public void Pular()
     {
        
+
         if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede && !segurandoCorda)
         {           
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
@@ -146,6 +148,19 @@ public abstract class Personagem : MonoBehaviour
     }
 
 
+    public void DarDano( int  damage)
+    {
+        if (vida >= 0)
+            vida -= damage;
+    }
+
+    public void VerificarMorte()
+    {
+        if(vida <= 0)
+        {
+            //Abrir menu para reiniciar o jogo
+        }
+    }
     public void Flip()
     {
         if ((horizontal < 0 && olhandoDireita) || (horizontal > 0 && !olhandoDireita))
@@ -194,7 +209,7 @@ public abstract class Personagem : MonoBehaviour
 
     public abstract void SegundoAtaque();
 
-
+    
 
 
     
