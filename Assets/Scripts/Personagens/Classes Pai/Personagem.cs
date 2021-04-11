@@ -14,14 +14,16 @@ public abstract class Personagem : MonoBehaviour
     public float velocidade;
     public float forcaPulo;
     public float velocidadeParedeDeslize;
-    public float dano;
+    public float dano;    
 
+    protected bool olhandoDireita = true;
+    protected bool estaNoChao;
+    protected bool tocandoNaParede;
+    protected bool tocandoNaCorda;
+    protected bool segurandoCorda;
+    protected bool deslizandoParede;
+    protected bool podeAndar = true;
 
-    private bool olhandoDireita = true;
-    private bool estaNoChao;
-    private bool tocandoNaParede;
-    private bool deslizandoParede;
-    private bool canMove = true;
     public virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -31,38 +33,46 @@ public abstract class Personagem : MonoBehaviour
 
 
     public virtual void Update()
-    {
-        spriteAnimation.SetBool("Pulando", !estaNoChao);
+    {        
         Flip();
         Ataque();
+        SegundoAtaque();
+        VerificarMorte();
     }
 
     public virtual void FixedUpdate()
     {
-       
-
-        if (canMove)
+        SegurarCorda();
+        if (podeAndar)
             Andar();
+
         Pular();
+
+
+        MovimentacaoCorda();           
+
+
 
         DetectandoColisão();
     }
 
     public void Andar()
     {
-       
-        horizontal = Input.GetAxis("Horizontal");
-        Vector2 dir = new Vector2(horizontal, 0);
-        rb2d.velocity = new Vector2(dir.x * velocidade, rb2d.velocity.y);
+        if(!deslizandoParede || !tocandoNaParede || estaNoChao)
+            spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
 
-        
-        spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
+        if (!segurandoCorda)
+        {
+            rb2d.gravityScale = 3f;
+            horizontal = Input.GetAxis("Horizontal");
+            Vector2 dir = new Vector2(horizontal, 0);
+            rb2d.velocity = new Vector2(dir.x * velocidade, rb2d.velocity.y);
+        }     
 
         if (deslizandoParede)
         {
             if (rb2d.velocity.y < 0)
             {
-                //Debug.Log("aaaaaaaaaaaaaaaaaaaaaa");
                 rb2d.velocity = new Vector2(rb2d.velocity.x, -velocidadeParedeDeslize);
             }
         }       
@@ -70,19 +80,23 @@ public abstract class Personagem : MonoBehaviour
     }
     
     public void Pular()
-    {        
-        if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede)
+    {
+       
+
+        if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede && !segurandoCorda)
         {           
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-            rb2d.velocity += Vector2.up.normalized * forcaPulo;           
-            
-        }else if (Input.GetButton("Jump") && !estaNoChao && deslizandoParede)
-        {            
+            rb2d.velocity += Vector2.up.normalized * forcaPulo;
+            spriteAnimation.SetBool("Pulando", true);
+
+        }
+        else if (Input.GetButton("Jump") && !estaNoChao && deslizandoParede && !segurandoCorda)
+        {
             Vector2 direcaoPulo = new Vector2(horizontal, 1.8f);
             Vector2 forca = new Vector2(4f * direcaoPulo.x * -direcaoOlhar, 4f * direcaoPulo.y);
-            rb2d.velocity = Vector2.zero;
-            rb2d.AddForce(forca, ForceMode2D.Impulse);
-
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.velocity += Vector2.up.normalized * forca;
+            spriteAnimation.SetBool("Pulando", true);
             StartCoroutine(nameof(PararDeMover));
         }
         else
@@ -92,10 +106,35 @@ public abstract class Personagem : MonoBehaviour
        
     }
 
+    public void SegurarCorda()
+    {
+        spriteAnimation.SetBool("PegouCorda", segurandoCorda);
+
+        if (Input.GetKeyDown(KeyCode.W) && tocandoNaCorda)
+            segurandoCorda = true;
+        else if (Input.GetButton("Jump") && estaNoChao ||  !tocandoNaCorda)
+            segurandoCorda = false;            
+
+    }
+
+
+    public void MovimentacaoCorda()
+    {
+        if (segurandoCorda)
+        {
+            rb2d.velocity = Vector2.zero;
+            float vertical = Input.GetAxis("Vertical");
+            Vector2 dir = new Vector2(0, vertical);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, dir.y * velocidade);
+            rb2d.gravityScale = 0;
+            spriteAnimation.SetFloat("Vertical", Mathf.Abs(vertical));
+        }
+
+    }
    
     IEnumerator PararDeMover()
     {
-        canMove = false;
+        podeAndar = false;
 
         transform.localScale = transform.localScale.x == 1 ? new Vector2(-1f, 1) : Vector2.one;
 
@@ -103,12 +142,25 @@ public abstract class Personagem : MonoBehaviour
 
         transform.localScale = Vector2.one;
 
-        canMove = true;
+        podeAndar = true;
 
         
     }
 
 
+    public void DarDano( int  damage)
+    {
+        if (vida >= 0)
+            vida -= damage;
+    }
+
+    public void VerificarMorte()
+    {
+        if(vida <= 0)
+        {
+            //Abrir menu para reiniciar o jogo
+        }
+    }
     public void Flip()
     {
         if ((horizontal < 0 && olhandoDireita) || (horizontal > 0 && !olhandoDireita))
@@ -121,22 +173,32 @@ public abstract class Personagem : MonoBehaviour
 
     public void DetectandoColisão()
     {
+        
+
         estaNoChao = Physics2D.OverlapCircle(posicaoPe.position, 0.4f, LayerMask.GetMask("Chao"));
-
+        tocandoNaCorda = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 0.3f), 0.25f, LayerMask.GetMask("Corda"));
         tocandoNaParede = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y - 0.9f), transform.right, 0.65f, LayerMask.GetMask("Parede"));
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 0.9f), transform.right * 0.65f, Color.green);
+       
+        //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 0.9f), transform.right * 0.35f, Color.red);
 
-        if (tocandoNaParede && !estaNoChao && rb2d.velocity.y <= 0 && horizontal != 0)
+        if (tocandoNaParede && !estaNoChao && rb2d.velocity.y <= 0 && horizontal != 0 && !segurandoCorda)
             deslizandoParede = true;
         else
             deslizandoParede = false;
         spriteAnimation.SetBool("Deslizando", deslizandoParede);
     }
 
+    private void OnDrawGizmos()
+    {
+        Vector3 centerObject = new Vector3(transform.position.x, transform.position.y - 0.3f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(centerObject, 0.25f);
+    }
+
     void OnGUI()
     {
         GUI.contentColor = Color.green;
-        GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + canMove);
+        GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
         GUI.Label(new Rect(25, 40, 650, 30), "Ta no chao: " + estaNoChao);
         GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
         GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
@@ -145,4 +207,10 @@ public abstract class Personagem : MonoBehaviour
 
     public abstract void Ataque();
 
+    public abstract void SegundoAtaque();
+
+    
+
+
+    
 }

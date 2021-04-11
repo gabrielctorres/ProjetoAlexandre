@@ -5,6 +5,7 @@ using UnityEngine;
 public class Alexandre : Personagem
 {
     float attackRate = 1;
+    float attackRateSword = 5;
     float nextAttack = 0;
 
     public override void Start()
@@ -35,5 +36,24 @@ public class Alexandre : Personagem
             spriteAnimation.SetBool("AtacouNormal", false);
     }
 
-    
+    public override void SegundoAtaque()
+    {
+        if (Input.GetButtonDown("Fire2") && Time.time > nextAttack)
+        {
+            nextAttack = Time.time + attackRateSword;
+            spriteAnimation.SetBool("AtacouEspada", true);
+        }
+
+        else
+            spriteAnimation.SetBool("AtacouEspada", false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.name == "BonecoTeste")
+        {
+            DarDano(50);
+            Debug.Log("a");
+        }
+    }
 }
