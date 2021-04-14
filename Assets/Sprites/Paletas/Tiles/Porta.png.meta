@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 8075468225096633940
     second: Porta_1
+  - first:
+      213: 6273632687346609707
+    second: Porta_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,8 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5d628147d42debe0800000000000000
-      internalID: -1446459398380425890
+      spriteID: b2ee294a0bb601750800000000000000
+      internalID: 6273632687346609707
       vertices: []
       indices: 
       edges: []
