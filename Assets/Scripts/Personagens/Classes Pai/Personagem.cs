@@ -55,17 +55,17 @@ public abstract class Personagem : MonoBehaviour
         Pular();
 
 
-        MovimentacaoCorda();           
-
-
-
+        MovimentacaoCorda();  
         DetectandoColisão();
+
+        if (!deslizandoParede || !tocandoNaParede || estaNoChao)
+            spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
+
     }
 
     public void Andar()
     {
-        if(!deslizandoParede || !tocandoNaParede || estaNoChao)
-            spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
+
 
         if (!segurandoCorda)
         {
@@ -98,8 +98,8 @@ public abstract class Personagem : MonoBehaviour
         }
         else if (Input.GetButton("Jump") && !estaNoChao && deslizandoParede && !segurandoCorda)
         {
-            Vector2 direcaoPulo = new Vector2(horizontal, 1.8f);
-            Vector2 forca = new Vector2(4f * direcaoPulo.x * -direcaoOlhar, 4f * direcaoPulo.y);
+            Vector2 direcaoPulo = new Vector2(horizontal, 2f);
+            Vector2 forca = new Vector2(4.5f * direcaoPulo.x * -direcaoOlhar, 4.5f * direcaoPulo.y);
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.velocity += Vector2.up.normalized * forca;
             spriteAnimation.SetBool("Pulando", true);
