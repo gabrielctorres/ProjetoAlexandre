@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Alexandre : Personagem
 {
-    float attackRate = 1;
-    float attackRateSword = 5;
-    float nextAttack = 0;
+    float timerSkillOne = 0;
+    float timerSkillOneMax = 1;
+
+    float timerSkillTwo = 0;
+    float timerSkillTwoMax = 5;
+    bool habilidadeAdagaAtiva = true;
+    bool habilidadeEspadaAtiva = true;
+
+    public Image timerImageAdaga;
+    public Image timerImageEspada;
 
     public override void Start()
     {
@@ -25,34 +33,65 @@ public class Alexandre : Personagem
     }
 
     public override void Ataque()
-    {
-        if (Input.GetButtonDown("Fire1") && Time.time > nextAttack)
+    {        
+        if (!habilidadeAdagaAtiva)
         {
-            nextAttack = Time.time + attackRate;
-            spriteAnimation.SetBool("AtacouNormal", true);
+            if (timerSkillOne <= 1)
+            {
+                timerSkillOne += Time.fixedDeltaTime;               
+            }    
+            else
+            {
+                habilidadeAdagaAtiva = true;
+                timerSkillOne = 0;
+            }
+                    
         }
-            
+        timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
+        if (Input.GetButtonDown("Fire1") && habilidadeAdagaAtiva )
+        {           
+            spriteAnimation.SetBool("AtacouNormal", true);
+            habilidadeAdagaAtiva = false;            
+        }            
        else
             spriteAnimation.SetBool("AtacouNormal", false);
     }
+   
+
 
     public override void SegundoAtaque()
     {
-        if (Input.GetButtonDown("Fire2") && Time.time > nextAttack)
+        if (!habilidadeEspadaAtiva)
         {
-            nextAttack = Time.time + attackRateSword;
-            spriteAnimation.SetBool("AtacouEspada", true);
+            if (timerSkillTwo <= 5)
+            {
+                timerSkillTwo += Time.fixedDeltaTime;
+            }
+            else
+            {
+                habilidadeEspadaAtiva = true;
+                timerSkillTwo = 0;
+            }
+
         }
 
+        timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
+        if (Input.GetButtonDown("Fire2") && habilidadeEspadaAtiva)
+        {          
+            spriteAnimation.SetBool("AtacouEspada", true);
+            habilidadeEspadaAtiva = false;
+            
+        }
         else
             spriteAnimation.SetBool("AtacouEspada", false);
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.name == "BonecoTeste")
         {
-            DarDano(50);
+            DarDano(0.5f);
             Debug.Log("a");
         }
     }
