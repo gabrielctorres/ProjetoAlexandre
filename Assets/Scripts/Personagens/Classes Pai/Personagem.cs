@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Personagem : MonoBehaviour
 {
@@ -8,9 +9,12 @@ public abstract class Personagem : MonoBehaviour
     private Transform posicaoPe;
     protected Animator spriteAnimation;
 
+    public Image vidaImagem;
+
     private float horizontal;
     private float direcaoOlhar = 1f;
     public float vida;
+    public float vidaMax;
     public float velocidade;
     public float forcaPulo;
     public float velocidadeParedeDeslize;
@@ -38,6 +42,8 @@ public abstract class Personagem : MonoBehaviour
         Ataque();
         SegundoAtaque();
         VerificarMorte();
+
+        vidaImagem.fillAmount = vida / vidaMax;
     }
 
     public virtual void FixedUpdate()
@@ -148,7 +154,7 @@ public abstract class Personagem : MonoBehaviour
     }
 
 
-    public void DarDano( int  damage)
+    public void DarDano( float  damage)
     {
         if (vida >= 0)
             vida -= damage;
@@ -195,7 +201,7 @@ public abstract class Personagem : MonoBehaviour
         Gizmos.DrawWireSphere(centerObject, 0.25f);
     }
 
-    void OnGUI()
+   /* void OnGUI()
     {
         GUI.contentColor = Color.green;
         GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
@@ -203,7 +209,7 @@ public abstract class Personagem : MonoBehaviour
         GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
         GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
         GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
-    }
+    }*/
 
     public abstract void Ataque();
 
