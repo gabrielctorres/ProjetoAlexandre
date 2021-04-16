@@ -10,7 +10,7 @@ public abstract class Personagem : MonoBehaviour
     protected Animator spriteAnimation;
 
     public Image vidaImagem;
-
+    public GameObject uiHabilidades;
     private float horizontal;
     private float direcaoOlhar = 1f;
     public float vida;
@@ -18,8 +18,9 @@ public abstract class Personagem : MonoBehaviour
     public float velocidade;
     public float forcaPulo;
     public float velocidadeParedeDeslize;
-    public float dano;    
+    public float dano;
 
+    public bool semArma;
     protected bool olhandoDireita = true;
     protected bool estaNoChao;
     protected bool tocandoNaParede;
@@ -39,11 +40,18 @@ public abstract class Personagem : MonoBehaviour
     public virtual void Update()
     {        
         Flip();
-        Ataque();
-        SegundoAtaque();
+        if (!semArma)
+        {
+            Ataque();
+            SegundoAtaque();
+            uiHabilidades.SetActive(true);
+        }
+        
+
         VerificarMorte();
 
         vidaImagem.fillAmount = vida / vidaMax;
+        spriteAnimation.SetBool("SemArma", semArma);
     }
 
     public virtual void FixedUpdate()
