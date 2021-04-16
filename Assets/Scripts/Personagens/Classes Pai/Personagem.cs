@@ -78,7 +78,7 @@ public abstract class Personagem : MonoBehaviour
         if (deslizandoParede)
         {
             if (rb2d.velocity.y < 0)
-            {                
+            {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, -velocidadeParedeDeslize);
             }
         }       
