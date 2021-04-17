@@ -22,7 +22,7 @@ public abstract class InimigoComum : MonoBehaviour
     {
         posicaoDoJogador = GameObject.FindGameObjectWithTag("Player").transform;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        spriteAnimation = GetComponent<Animator>();
+        spriteAnimation = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,15 +33,18 @@ public abstract class InimigoComum : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        SeguirJogador();        
+        if(this.gameObject.tag=="Guarda" || this.gameObject.tag == "Escorpiao")
+        {
+            SeguirJogador();
+        }                
     }
 
     void SeguirJogador()
     {
         if (posicaoDoJogador.gameObject != null)
         {
-            distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);
-
+            distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
+            
             if (distancia >= 1.7f)
             {
                 velocidadeDoInimigo = 3;
@@ -52,8 +55,9 @@ public abstract class InimigoComum : MonoBehaviour
             }
             else if(distancia <= 1.7f)
             {
+                spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
-                AtacarJogador();                
+                spriteAnimation.SetBool("podeAtacar", true);
             }
         }
     }
@@ -66,6 +70,6 @@ public abstract class InimigoComum : MonoBehaviour
             spriteAnimation.SetBool("podeAtacar", true);
         }
         else
-            spriteAnimation.SetBool("podeAtacar", false);
+            spriteAnimation.SetBool("podeAtacar", false);            
     }    
 }
