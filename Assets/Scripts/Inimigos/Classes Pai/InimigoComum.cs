@@ -57,7 +57,7 @@ public abstract class InimigoComum : MonoBehaviour
             {
                 spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
-                spriteAnimation.SetBool("podeAtacar", true);
+                AtacarJogador();
             }
         }
     }
