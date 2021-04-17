@@ -934,7 +934,7 @@ PrefabInstance:
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.56
+      value: 1.86
       objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
@@ -1338,6 +1338,7 @@ MonoBehaviour:
   - {fileID: 689336129}
   - {fileID: 367711975}
   posicaoDoJogador: {fileID: 0}
+  hpBoss: 7
 --- !u!1 &966331080
 GameObject:
   m_ObjectHideFlags: 0

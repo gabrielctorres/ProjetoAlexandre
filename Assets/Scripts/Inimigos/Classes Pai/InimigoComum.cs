@@ -17,7 +17,11 @@ public abstract class InimigoComum : MonoBehaviour
     private static Rigidbody2D rb;
     private static bool unidadePodeAtacar;
 
-    protected Animator spriteAnimation;    
+    protected Animator spriteAnimation;
+
+    protected SpriteRenderer sprite;
+
+    BossFase1 bossFase1;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -25,18 +29,25 @@ public abstract class InimigoComum : MonoBehaviour
         posicaoDoJogador = GameObject.FindGameObjectWithTag("Player").transform;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         spriteAnimation = GetComponent<Animator>();
-        hp = 8;
+        sprite = GetComponent<SpriteRenderer>();
+        AtribuirHp();
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        
+        if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && sprite.flipX || posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && !sprite.flipX)
+        {
+            Flip();
+        }
     }
 
     public virtual void FixedUpdate()
-    {        
-        //SeguirJogador();        
+    {
+        if(this.gameObject.tag == "Guarda" || this.gameObject.tag == "Escorpiao")
+        {
+            SeguirJogador();
+        }
     }
 
     public void SeguirJogador()
@@ -61,6 +72,12 @@ public abstract class InimigoComum : MonoBehaviour
         }
     }
 
+    public void Flip()
+    {
+        sprite.flipX = !sprite.flipX;
+        velocidadeDoInimigo *= -1;
+    }
+
     public void AtacarJogador()
     {
         if (Time.time > proximoAtaque)
@@ -71,4 +88,31 @@ public abstract class InimigoComum : MonoBehaviour
         else
             spriteAnimation.SetBool("podeAtacar", false);
     }    
+
+    public void TomarDano (int danoJogador)
+    {
+
+        hp -= danoJogador;
+        StartCoroutine(EfeitoDano());
+        if (hp < 1)
+        {
+            Destroy(this.gameObject);
+            bossFase1.hpBoss -= 1;
+        }
+    }
+    
+    IEnumerator EfeitoDano()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+    }
+
+    public void AtribuirHp()
+    {
+        if(this.gameObject.tag == "Marinheiro")
+        {
+            hp = 8;
+        }
+    }
 }

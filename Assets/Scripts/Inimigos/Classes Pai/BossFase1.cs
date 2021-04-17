@@ -10,6 +10,8 @@ public class BossFase1 : MonoBehaviour
 
     public Transform posicaoDoJogador;
 
+    public int hpBoss = 7;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,10 @@ public class BossFase1 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+        if(hpBoss == 0)
+        {
+            Debug.Log("PARABÉNS SEU CORNO, O JOGO ACABOU");
+        }
     }
 
     void FixedUpdate()

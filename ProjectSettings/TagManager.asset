@@ -8,6 +8,8 @@ TagManager:
   - ObjetoQuebravelSimples
   - Tabua
   - Reliquia
+  - Marinheiro
+  - CaixaForte
   layers:
   - Default
   - TransparentFX

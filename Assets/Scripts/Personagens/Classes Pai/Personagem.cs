@@ -29,6 +29,7 @@ public abstract class Personagem : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         posicaoPe = transform.GetChild(0).GetComponent<Transform>();
         spriteAnimation = GetComponent<Animator>();
+        vida = 2f;
     }
 
 
