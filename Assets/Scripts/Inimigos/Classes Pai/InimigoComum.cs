@@ -15,14 +15,14 @@ public abstract class InimigoComum : MonoBehaviour
     
     private static Rigidbody2D rb;
 
-    protected Animator spriteAnimation;
+    protected Animator spriteAnimation;    
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         posicaoDoJogador = GameObject.FindGameObjectWithTag("Player").transform;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        spriteAnimation = this.gameObject.GetComponent<Animator>();
+        spriteAnimation = this.gameObject.GetComponent<Animator>();        
     }
 
     // Update is called once per frame
@@ -33,10 +33,10 @@ public abstract class InimigoComum : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        if(this.gameObject.tag=="Guarda" || this.gameObject.tag == "Escorpiao")
+        if (this.gameObject.tag == "Guarda" || this.gameObject.tag=="Escorpiao")
         {
             SeguirJogador();
-        }                
+        }
     }
 
     void SeguirJogador()
@@ -51,7 +51,7 @@ public abstract class InimigoComum : MonoBehaviour
                 this.transform.position = Vector2
                 .MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, posicaoDoJogador.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
                 spriteAnimation.SetBool("podeAndar", true);
-                spriteAnimation.SetBool("podeAtacar", false);
+                spriteAnimation.SetBool("podeAtacar", false);                
             }
             else if(distancia <= 1.7f)
             {
@@ -69,7 +69,10 @@ public abstract class InimigoComum : MonoBehaviour
             proximoAtaque = Time.time + taxaAtaque;
             spriteAnimation.SetBool("podeAtacar", true);
         }
+
         else
+        {
             spriteAnimation.SetBool("podeAtacar", false);            
+        }              
     }    
 }

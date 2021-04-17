@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guarda : InimigoComum
-{    
+public class Escorpiao : InimigoComum
+{
     // Start is called before the first frame update
     public override void Start()
     {
@@ -13,7 +13,7 @@ public class Guarda : InimigoComum
     // Update is called once per frame
     public override void Update()
     {
-        base.Update();        
+        base.Update();
     }
 
     public override void FixedUpdate()
