@@ -38,6 +38,14 @@ public class ObjetosQuebraveis : MonoBehaviour
                 StartCoroutine(DelayedBrokenObject(1.8f));
             }
         }
+        if (this.CompareTag("CaixaForte"))
+        {
+            if (collision.gameObject.name == "Espada")
+            {
+                spriteAnimation.SetTrigger("quebrou");
+                StartCoroutine(DelayedBrokenObject(1));
+            }
+        }
     }
 
     IEnumerator DelayedBrokenObject(float _delay)
