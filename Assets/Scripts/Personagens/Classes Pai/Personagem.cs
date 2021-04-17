@@ -37,22 +37,7 @@ public abstract class Personagem : MonoBehaviour
     }
 
 
-    public virtual void Update()
-    {        
-        Flip();
-        if (!semArma)
-        {
-            Ataque();
-            SegundoAtaque();
-            uiHabilidades.SetActive(true);
-        }
-        
 
-        VerificarMorte();
-
-        vidaImagem.fillAmount = vida / vidaMax;
-        spriteAnimation.SetBool("SemArma", semArma);
-    }
 
     public virtual void FixedUpdate()
     {
@@ -124,7 +109,7 @@ public abstract class Personagem : MonoBehaviour
     {
         spriteAnimation.SetBool("PegouCorda", segurandoCorda);
 
-        if (Input.GetKeyDown(KeyCode.W) && tocandoNaCorda)
+        if (Input.GetButton("PrimeiroAtaque") && tocandoNaCorda)
             segurandoCorda = true;
         else if (Input.GetButton("Jump") && estaNoChao ||  !tocandoNaCorda)
             segurandoCorda = false;            
@@ -177,7 +162,7 @@ public abstract class Personagem : MonoBehaviour
     }
     public void Flip()
     {
-        if ((horizontal < 0 && olhandoDireita) || (horizontal > 0 && !olhandoDireita))
+        if ((horizontal < 0 && olhandoDireita) && !tocandoNaParede || (horizontal > 0 && !olhandoDireita) && !tocandoNaParede)
         {
             direcaoOlhar *= -1;
             olhandoDireita = !olhandoDireita;
