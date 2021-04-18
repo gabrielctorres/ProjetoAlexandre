@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Alexandre : Personagem
 {
+    public GameObject tutorialAtaque,tutorialAtaque2;
+    bool podePegar;
+    Animator mesaAnimator;
     float timerSkillOne = 0;
     float timerSkillOneMax = 1;
 
@@ -27,9 +30,24 @@ public class Alexandre : Personagem
         base.FixedUpdate();
     }
 
-    public override void Update()
+    public void Update()
     {
-        base.Update();
+        Flip();
+        if (!semArma)
+        {
+            Ataque();
+            SegundoAtaque();
+            uiHabilidades.SetActive(true);
+        }
+        VerificarMorte();
+        vidaImagem.fillAmount = vida / vidaMax;
+        spriteAnimation.SetBool("SemArma", semArma);
+
+        if (Input.GetKeyDown(KeyCode.Z) && podePegar)
+        {
+            PegaArma();
+        }
+
     }
 
     public override void Ataque()
@@ -48,7 +66,7 @@ public class Alexandre : Personagem
                     
         }
         timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
-        if (Input.GetButtonDown("Fire1") && habilidadeAdagaAtiva )
+        if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva )
         {           
             spriteAnimation.SetBool("AtacouNormal", true);
             habilidadeAdagaAtiva = false;            
@@ -76,7 +94,7 @@ public class Alexandre : Personagem
         }
 
         timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
-        if (Input.GetButtonDown("Fire2") && habilidadeEspadaAtiva)
+        if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva)
         {          
             spriteAnimation.SetBool("AtacouEspada", true);
             habilidadeEspadaAtiva = false;
@@ -87,12 +105,36 @@ public class Alexandre : Personagem
     }
 
 
+    public void PegaArma()
+    {
+        semArma = false;
+        if(mesaAnimator !=null)
+            mesaAnimator.SetBool("PegarArma", true);
+        tutorialAtaque.SetActive(true);
+        tutorialAtaque2.SetActive(true);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.name == "BonecoTeste")
         {
             DarDano(0.5f);
             Debug.Log("a");
+        }
+
+        if (collision.collider.CompareTag("Mesa") && semArma)
+        {
+            podePegar = true;
+            mesaAnimator = collision.collider.GetComponent<Animator>();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name == "EspadaInimigo")
+        {
+            this.DarDano(collision.GetComponent<Weapon>().dano);
+            Debug.Log(vida);
         }
     }
 }

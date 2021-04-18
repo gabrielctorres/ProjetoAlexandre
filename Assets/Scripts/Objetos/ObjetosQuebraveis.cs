@@ -29,12 +29,21 @@ public class ObjetosQuebraveis : MonoBehaviour
                 StartCoroutine(DelayedBrokenObject(1));
             }
         }
+
         if (this.CompareTag("Tabua"))
         {
             if (collision.gameObject.name == "Personagem")
             {
+                spriteAnimation.SetTrigger("quebrou");                
+                StartCoroutine(DelayedBrokenObject(1.8f));
+            }
+        }
+        if (this.CompareTag("CaixaForte"))
+        {
+            if (collision.gameObject.name == "Espada")
+            {
                 spriteAnimation.SetTrigger("quebrou");
-                StartCoroutine(DelayedBrokenObject(1.5f));
+                StartCoroutine(DelayedBrokenObject(1));
             }
         }
     }
@@ -42,6 +51,8 @@ public class ObjetosQuebraveis : MonoBehaviour
     IEnumerator DelayedBrokenObject(float _delay)
     {
         yield return new WaitForSeconds(_delay);
+        if(this.CompareTag("Tabua"))
+            this.gameObject.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
         Destroy(transform.parent.gameObject);
     }
 }

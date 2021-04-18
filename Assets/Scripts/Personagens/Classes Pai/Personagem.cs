@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public abstract class Personagem : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private Transform posicaoPe;
-    protected Animator spriteAnimation;
+    protected Animator spriteAnimation; 
 
     public Image vidaImagem;
-
+    public GameObject uiHabilidades;
+    public GameObject uiLife;
+    public GameObject menuDead;
     private float horizontal;
     private float direcaoOlhar = 1f;
     public float vida;
@@ -18,8 +20,9 @@ public abstract class Personagem : MonoBehaviour
     public float velocidade;
     public float forcaPulo;
     public float velocidadeParedeDeslize;
-    public float dano;    
+    public float dano;
 
+    public bool semArma;
     protected bool olhandoDireita = true;
     protected bool estaNoChao;
     protected bool tocandoNaParede;
@@ -32,20 +35,8 @@ public abstract class Personagem : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         posicaoPe = transform.GetChild(0).GetComponent<Transform>();
-        spriteAnimation = GetComponent<Animator>();
+        spriteAnimation = GetComponent<Animator>();        
     }
-
-
-    public virtual void Update()
-    {        
-        Flip();
-        Ataque();
-        SegundoAtaque();
-        VerificarMorte();
-
-        vidaImagem.fillAmount = vida / vidaMax;
-    }
-
     public virtual void FixedUpdate()
     {
         SegurarCorda();
@@ -65,8 +56,6 @@ public abstract class Personagem : MonoBehaviour
 
     public void Andar()
     {
-
-
         if (!segurandoCorda)
         {
             rb2d.gravityScale = 3f;
@@ -86,8 +75,7 @@ public abstract class Personagem : MonoBehaviour
     }
     
     public void Pular()
-    {
-       
+    {       
 
         if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede && !segurandoCorda)
         {           
@@ -116,7 +104,7 @@ public abstract class Personagem : MonoBehaviour
     {
         spriteAnimation.SetBool("PegouCorda", segurandoCorda);
 
-        if (Input.GetKeyDown(KeyCode.W) && tocandoNaCorda)
+        if (Input.GetButton("PrimeiroAtaque") && tocandoNaCorda)
             segurandoCorda = true;
         else if (Input.GetButton("Jump") && estaNoChao ||  !tocandoNaCorda)
             segurandoCorda = false;            
@@ -156,7 +144,7 @@ public abstract class Personagem : MonoBehaviour
 
     public void DarDano( float  damage)
     {
-        if (vida >= 0)
+        if (vida > 0)
             vida -= damage;
     }
 
@@ -164,12 +152,17 @@ public abstract class Personagem : MonoBehaviour
     {
         if(vida <= 0)
         {
-            //Abrir menu para reiniciar o jogo
+            this.gameObject.SetActive(false);
+            uiHabilidades.SetActive(false);
+            uiLife.SetActive(false);
+            menuDead.SetActive(true);
+            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Você esta morto";
+            Time.timeScale = 0;
         }
     }
     public void Flip()
     {
-        if ((horizontal < 0 && olhandoDireita) || (horizontal > 0 && !olhandoDireita))
+        if ((horizontal < 0 && olhandoDireita) && !tocandoNaParede || (horizontal > 0 && !olhandoDireita) && !tocandoNaParede)
         {
             direcaoOlhar *= -1;
             olhandoDireita = !olhandoDireita;
