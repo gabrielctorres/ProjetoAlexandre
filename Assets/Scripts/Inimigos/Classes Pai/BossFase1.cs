@@ -1,47 +1,68 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BossFase1 : MonoBehaviour
 {
-    public GameObject[] inimigos = new GameObject[7];
+
+    public List<GameObject> inimigos = new List<GameObject>();
 
     InimigoComum inimigoComum;
 
     public Transform posicaoDoJogador;
 
-    public int hpBoss = 7;
+    public float hpBoss = 7;
 
+    public GameObject lifeCanvas;
+    public Image lifeImage;
     // Start is called before the first frame update
     void Start()
     {
-        posicaoDoJogador = GameObject.FindGameObjectWithTag("Player").transform;
+        posicaoDoJogador = GameObject.Find("Personagem").transform;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if(hpBoss == 0)
-        {
-            Debug.Log("PARABÉNS SEU CORNO, O JOGO ACABOU");
-        }
-    }
+        lifeImage.fillAmount = hpBoss / 7;
 
-    void FixedUpdate()
-    {
+        if(hpBoss <= 0)
+        {
+            Debug.Log("PARABÉNS, O JOGO ACABOU");
+        }
+
         OrganizacaoInimigos();
     }
 
     void OrganizacaoInimigos()
     {
-        if(posicaoDoJogador.transform.position.x>= 1.5f)
+        if(posicaoDoJogador.transform.position.x >= 102f)
         {
-            for(int i = 3; i < inimigos.Length-1; i++)
+            lifeCanvas.SetActive(true);
+            for(int i = 3; i < inimigos.Count; i++)
             {
                 inimigos[i].SetActive(true);
             }
 
-            inimigos[0].GetComponent<InimigoComum>().SeguirJogador();
+            for (int i = 0; i < inimigos.Count; i++)
+            {
+                if(inimigos[i]!= null)
+                {
+                    inimigos[i].GetComponent<InimigoComum>().podeSeguir = true;
+                    inimigos[i].GetComponent<BoxCollider2D>().enabled = true;
+                    inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                    break;
+                }                    
+                else if (i < 7)
+                {
+                    inimigos[i++].GetComponent<InimigoComum>().podeSeguir = true;
+                    inimigos[i].GetComponent<BoxCollider2D>().enabled = true;
+                    inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                    break;
+                }
+                    
+            }
+            
         }        
     }
 }

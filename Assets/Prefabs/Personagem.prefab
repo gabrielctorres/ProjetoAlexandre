@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &702530304
 Transform:
   m_ObjectHideFlags: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.3
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.45
+  m_Intensity: 0.95
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 9.47
+  m_PointLightOuterRadius: 15.702729
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -82,6 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2150851427285227599}
   - component: {fileID: 2150851427285227596}
+  - component: {fileID: 307432874}
   m_Layer: 0
   m_Name: Espada
   m_TagString: Untagged
@@ -113,12 +114,25 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.08659881, y: -0.22592889}
   m_Size: {x: 1.098299, y: 0.54814976}
   m_Direction: 1
+--- !u!114 &307432874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2150851427285227598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdad96b5505dbd84ba7b67058e5c83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 4
 --- !u!1 &2150851427342254224
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,11 +256,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad6d15e76162f34c809e765b35fe5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 100
+  vidaImagem: {fileID: 0}
+  uiHabilidades: {fileID: 0}
+  vida: 5
+  vidaMax: 5
   velocidade: 6
   forcaPulo: 10
   velocidadeParedeDeslize: 1
   dano: 6
+  semArma: 0
+  tutorialAtaque: {fileID: 0}
+  tutorialAtaque2: {fileID: 0}
+  timerImageAdaga: {fileID: 0}
+  timerImageEspada: {fileID: 0}
 --- !u!61 &2150851427342254238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -303,6 +325,7 @@ GameObject:
   - component: {fileID: 2150851427792013791}
   - component: {fileID: 2150851427792013788}
   - component: {fileID: 2150851427792013789}
+  - component: {fileID: 806924771}
   m_Layer: 0
   m_Name: Adaga
   m_TagString: Untagged
@@ -371,6 +394,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &806924771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2150851427792013790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdad96b5505dbd84ba7b67058e5c83d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 2
 --- !u!1 &2150851428306740926
 GameObject:
   m_ObjectHideFlags: 0

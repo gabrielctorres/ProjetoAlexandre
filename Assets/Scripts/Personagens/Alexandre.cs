@@ -128,4 +128,13 @@ public class Alexandre : Personagem
             mesaAnimator = collision.collider.GetComponent<Animator>();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name == "EspadaInimigo")
+        {
+            this.DarDano(collision.GetComponent<Weapon>().dano);
+            Debug.Log(vida);
+        }
+    }
 }
