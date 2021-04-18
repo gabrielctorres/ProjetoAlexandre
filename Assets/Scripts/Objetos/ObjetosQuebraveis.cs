@@ -23,11 +23,10 @@ public class ObjetosQuebraveis : MonoBehaviour
     {
         if (this.CompareTag("ObjetoQuebravelSimples"))
         {
-            if (collision.gameObject.name == "Adaga")
+            if (collision.gameObject.name == "Adaga" || collision.gameObject.name == "Espada")
             {
                 spriteAnimation.SetTrigger("quebrou");
-                StartCoroutine(DelayedBrokenObject(1));
-                this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
+                StartCoroutine(DelayedBrokenObject(1));               
             }
         }
 
@@ -44,8 +43,7 @@ public class ObjetosQuebraveis : MonoBehaviour
             if (collision.gameObject.name == "Espada")
             {
                 spriteAnimation.SetTrigger("quebrou");
-                StartCoroutine(DelayedBrokenObject(1));
-                this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
+                StartCoroutine(DelayedBrokenObject(1));                
             }
         }
     }
@@ -55,6 +53,10 @@ public class ObjetosQuebraveis : MonoBehaviour
         yield return new WaitForSeconds(_delay);
         if(this.CompareTag("Tabua"))
             this.gameObject.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
+        else
+        {
+            this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
+        }
         Destroy(transform.parent.gameObject);
     }
 }

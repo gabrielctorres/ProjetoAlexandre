@@ -15,8 +15,7 @@ public class BossFase1 : MonoBehaviour
     public float hpBoss = 7;
 
     public GameObject lifeCanvas;
-    public Image lifeImage;
-    public GameObject menuEnd;
+    public Image lifeImage;   
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +26,6 @@ public class BossFase1 : MonoBehaviour
     private void Update()
     {
         lifeImage.fillAmount = hpBoss / 7;
-
-        if(hpBoss <= 0)
-        {
-            menuEnd.SetActive(true);
-            menuEnd.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo";
-            Time.timeScale = 0;
-        }
-
         OrganizacaoInimigos();
     }
 

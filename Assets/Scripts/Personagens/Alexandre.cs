@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Alexandre : Personagem
 {
     public GameObject tutorialAtaque,tutorialAtaque2;
@@ -10,10 +11,10 @@ public class Alexandre : Personagem
     float timerSkillOne = 0;
     float timerSkillOneMax = 1;
 
-    
+    public  BossFase1 bossController;
 
     float timerSkillTwo = 0;
-    float timerSkillTwoMax = 5;
+    float timerSkillTwoMax = 10;
     bool habilidadeAdagaAtiva = true;
     bool habilidadeEspadaAtiva = true;
 
@@ -48,7 +49,8 @@ public class Alexandre : Personagem
         {
             PegaArma();
         }
-        textReliquias.text = "Reliquias Coletadas: " + numReliquias;
+        if(textReliquias != null)
+            textReliquias.text = "Reliquias Coletadas: " + numReliquias;
     }
 
     public override void Ataque()
@@ -82,7 +84,7 @@ public class Alexandre : Personagem
     {
         if (!habilidadeEspadaAtiva)
         {
-            if (timerSkillTwo <= 5)
+            if (timerSkillTwo <= 10)
             {
                 timerSkillTwo += Time.fixedDeltaTime;
             }
@@ -133,18 +135,28 @@ public class Alexandre : Personagem
         {
             this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);
         }
+
+        if(collision.collider.name == "Barco" && bossController.hpBoss <=0)
+        {
+            menuDead.SetActive(true);
+            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo";
+            Time.timeScale = 0;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.name == "EspadaInimigo")
         {
-            this.DarDano(collision.GetComponent<Weapon>().dano);            
+            this.DarDano(collision.GetComponent<Weapon>().dano);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 60, ForceMode2D.Impulse);
         }
 
         if(collision.name == "Alabarda")
         {
-            this.DarDano(collision.GetComponent<Weapon>().dano);            
+            this.DarDano(collision.GetComponent<Weapon>().dano);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 60, ForceMode2D.Impulse);
         }
 
         if (collision.GetComponent<Reliquias>() != null)

@@ -20,7 +20,7 @@ public class GuardaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (posicaoDoJogador.position.x >= 77f && !posicaoDoJogador.GetComponent<Personagem>().semArma && guarda != null)
+        if (posicaoDoJogador.position.x <= 77f && !posicaoDoJogador.GetComponent<Personagem>().semArma && guarda != null)
         {
             if(!guarda.activeInHierarchy)
                 guarda.SetActive(true);          

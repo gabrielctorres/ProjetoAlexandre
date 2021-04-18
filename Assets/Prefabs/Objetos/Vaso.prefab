@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TabelaLoot:
   - item: {fileID: 845851445882053426, guid: 299f3be1267ba234282b663c4ef9981a, type: 3}
-    Raridade: 50
+    Raridade: 40
   - item: {fileID: 4081632866893541822, guid: ff7f3b33aa0ac0e41bf07e74387ca26e, type: 3}
     Raridade: 50
   dropChance: 100

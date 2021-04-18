@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2295583402788174453}
   - component: {fileID: 6291736658585828182}
   - component: {fileID: 1436671643597874949}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Caixa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TabelaLoot:
   - item: {fileID: 845851445882053426, guid: 299f3be1267ba234282b663c4ef9981a, type: 3}
-    Raridade: 50
+    Raridade: 40
   - item: {fileID: 4081632866893541822, guid: ff7f3b33aa0ac0e41bf07e74387ca26e, type: 3}
     Raridade: 50
   dropChance: 100
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 3853355804858513092}
   - component: {fileID: 7698546081193812114}
   - component: {fileID: 5329937766160470628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CaixaTrigger
   m_TagString: ObjetoQuebravelSimples
   m_Icon: {fileID: 0}

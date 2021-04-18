@@ -17,7 +17,7 @@ public abstract class Personagem : MonoBehaviour
 
     public int numReliquias;
     private float horizontal;
-    private float direcaoOlhar = 1f;
+    public float direcaoOlhar = 1f;
     public float vida;
     public float vidaMax;
     public float velocidade;
@@ -38,7 +38,8 @@ public abstract class Personagem : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         posicaoPe = transform.GetChild(0).GetComponent<Transform>();
-        spriteAnimation = GetComponent<Animator>();        
+        spriteAnimation = GetComponent<Animator>();
+        Time.timeScale = 1;
     }
     public virtual void FixedUpdate()
     {
