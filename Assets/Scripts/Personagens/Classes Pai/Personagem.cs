@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public abstract class Personagem : MonoBehaviour
 {
     private Rigidbody2D rb2d;
@@ -10,7 +10,9 @@ public abstract class Personagem : MonoBehaviour
     protected Animator spriteAnimation; 
 
     public Image vidaImagem;
-    public GameObject uiHabilidades;    
+    public GameObject uiHabilidades;
+    public GameObject uiLife;
+    public GameObject menuDead;
     private float horizontal;
     private float direcaoOlhar = 1f;
     public float vida;
@@ -150,7 +152,12 @@ public abstract class Personagem : MonoBehaviour
     {
         if(vida <= 0)
         {
-            //Abrir menu para reiniciar o jogo
+            this.gameObject.SetActive(false);
+            uiHabilidades.SetActive(false);
+            uiLife.SetActive(false);
+            menuDead.SetActive(true);
+            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Você esta morto";
+            Time.timeScale = 0;
         }
     }
     public void Flip()

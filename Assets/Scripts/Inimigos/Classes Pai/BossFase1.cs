@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class BossFase1 : MonoBehaviour
 {
 
@@ -15,10 +16,11 @@ public class BossFase1 : MonoBehaviour
 
     public GameObject lifeCanvas;
     public Image lifeImage;
+    public GameObject menuEnd;
     // Start is called before the first frame update
     void Start()
     {
-        posicaoDoJogador = GameObject.Find("Personagem").transform;
+        posicaoDoJogador = GameObject.Find("PersonagemOriginal").transform;
     }
 
     // Update is called once per frame
@@ -28,7 +30,9 @@ public class BossFase1 : MonoBehaviour
 
         if(hpBoss <= 0)
         {
-            Debug.Log("PARABÉNS, O JOGO ACABOU");
+            menuEnd.SetActive(true);
+            menuEnd.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo";
+            Time.timeScale = 0;
         }
 
         OrganizacaoInimigos();

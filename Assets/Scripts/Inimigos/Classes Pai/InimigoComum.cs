@@ -28,7 +28,7 @@ public abstract class InimigoComum : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        posicaoDoJogador = GameObject.Find("Personagem").GetComponent<Transform>();
+        posicaoDoJogador = GameObject.Find("PersonagemOriginal").GetComponent<Transform>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         spriteAnimation = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();        
