@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public abstract class Personagem : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private Transform posicaoPe;
-    protected Animator spriteAnimation;
+    protected Animator spriteAnimation; 
 
     public Image vidaImagem;
     public GameObject uiHabilidades;
+    public GameObject uiLife;
+    public GameObject menuDead;
     private float horizontal;
     private float direcaoOlhar = 1f;
     public float vida;
@@ -33,13 +35,8 @@ public abstract class Personagem : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         posicaoPe = transform.GetChild(0).GetComponent<Transform>();
-        spriteAnimation = GetComponent<Animator>();
-        vida = 2f;
+        spriteAnimation = GetComponent<Animator>();        
     }
-
-
-
-
     public virtual void FixedUpdate()
     {
         SegurarCorda();
@@ -59,8 +56,6 @@ public abstract class Personagem : MonoBehaviour
 
     public void Andar()
     {
-
-
         if (!segurandoCorda)
         {
             rb2d.gravityScale = 3f;
@@ -80,8 +75,7 @@ public abstract class Personagem : MonoBehaviour
     }
     
     public void Pular()
-    {
-       
+    {       
 
         if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede && !segurandoCorda)
         {           
@@ -150,7 +144,7 @@ public abstract class Personagem : MonoBehaviour
 
     public void DarDano( float  damage)
     {
-        if (vida >= 0)
+        if (vida > 0)
             vida -= damage;
     }
 
@@ -158,7 +152,12 @@ public abstract class Personagem : MonoBehaviour
     {
         if(vida <= 0)
         {
-            //Abrir menu para reiniciar o jogo
+            this.gameObject.SetActive(false);
+            uiHabilidades.SetActive(false);
+            uiLife.SetActive(false);
+            menuDead.SetActive(true);
+            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Você esta morto";
+            Time.timeScale = 0;
         }
     }
     public void Flip()
