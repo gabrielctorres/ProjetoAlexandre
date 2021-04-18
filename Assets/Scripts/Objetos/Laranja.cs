@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laranja : MonoBehaviour
 {    
-    public Personagem personagemScript;
+    private  Personagem personagemScript;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +20,10 @@ public class Laranja : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {            
-            StartCoroutine(DelayedBrokenObject(1));
+        if (collision.GetComponent<Personagem>() !=null )
+        {
+            personagemScript = collision.GetComponent<Personagem>();
+            StartCoroutine(DelayedBrokenObject(0.2f));           
         }
     }
 

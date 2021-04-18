@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 845851445882053438}
   - component: {fileID: 845851445882053437}
-  - component: {fileID: 845851445882053436}
   - component: {fileID: 845851445882053427}
+  - component: {fileID: 6363253440507364408}
   m_Layer: 0
   m_Name: Laranja
   m_TagString: Untagged
@@ -83,32 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &845851445882053436
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845851445882053426}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &845851445882053427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,4 +95,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8877d89523149cc4880e1ad55061983a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personagemScript: {fileID: 0}
+--- !u!58 &6363253440507364408
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845851445882053426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.13042855}
+  serializedVersion: 2
+  m_Radius: 0.36957145

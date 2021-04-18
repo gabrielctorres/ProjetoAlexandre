@@ -82,6 +82,8 @@ GameObject:
   - component: {fileID: 3243905189524397669}
   - component: {fileID: 3243905189524397670}
   - component: {fileID: 3243905189524397675}
+  - component: {fileID: 6646143345245048777}
+  - component: {fileID: 349293468451759749}
   m_Layer: 0
   m_Name: CaixaForte
   m_TagString: Untagged
@@ -200,3 +202,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &6646143345245048777
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243905189524397671}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
+--- !u!114 &349293468451759749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243905189524397671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a891c3b3185c84190c6f89d6a98790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TabelaLoot:
+  - item: {fileID: 845851445882053426, guid: 299f3be1267ba234282b663c4ef9981a, type: 3}
+    Raridade: 50
+  - item: {fileID: 4081632866893541822, guid: ff7f3b33aa0ac0e41bf07e74387ca26e, type: 3}
+    Raridade: 50
+  dropChance: 100

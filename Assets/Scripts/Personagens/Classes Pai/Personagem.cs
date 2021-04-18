@@ -13,6 +13,9 @@ public abstract class Personagem : MonoBehaviour
     public GameObject uiHabilidades;
     public GameObject uiLife;
     public GameObject menuDead;
+    public TextMeshProUGUI textReliquias;
+
+    public int numReliquias;
     private float horizontal;
     private float direcaoOlhar = 1f;
     public float vida;

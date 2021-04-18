@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Alexandre : Personagem
 {
     public GameObject tutorialAtaque,tutorialAtaque2;
@@ -10,6 +9,8 @@ public class Alexandre : Personagem
     Animator mesaAnimator;
     float timerSkillOne = 0;
     float timerSkillOneMax = 1;
+
+    
 
     float timerSkillTwo = 0;
     float timerSkillTwoMax = 5;
@@ -47,7 +48,7 @@ public class Alexandre : Personagem
         {
             PegaArma();
         }
-
+        textReliquias.text = "Reliquias Coletadas: " + numReliquias;
     }
 
     public override void Ataque()
@@ -127,14 +128,29 @@ public class Alexandre : Personagem
             podePegar = true;
             mesaAnimator = collision.collider.GetComponent<Animator>();
         }
+
+        if (collision.collider.CompareTag("Escorpiao"))
+        {
+            this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.name == "EspadaInimigo")
         {
-            this.DarDano(collision.GetComponent<Weapon>().dano);
-            Debug.Log(vida);
+            this.DarDano(collision.GetComponent<Weapon>().dano);            
+        }
+
+        if(collision.name == "Alabarda")
+        {
+            this.DarDano(collision.GetComponent<Weapon>().dano);            
+        }
+
+        if (collision.GetComponent<Reliquias>() != null)
+        {
+            numReliquias++;
+            Destroy(collision.gameObject);
         }
     }
 }

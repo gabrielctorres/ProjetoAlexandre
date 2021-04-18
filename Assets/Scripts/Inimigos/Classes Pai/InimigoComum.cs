@@ -24,11 +24,10 @@ public abstract class InimigoComum : MonoBehaviour
     protected SpriteRenderer sprite;
     public int direcaoOlhar = -1;
     public BossFase1 bossFase1;
-
     // Start is called before the first frame update
     public virtual void Start()
     {
-        posicaoDoJogador = GameObject.Find("PersonagemOriginal").GetComponent<Transform>();
+        posicaoDoJogador = GameObject.Find("Personagem").GetComponent<Transform>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         spriteAnimation = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();        
@@ -38,16 +37,10 @@ public abstract class InimigoComum : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if(spriteAnimation != null)
-        {
-            spriteAnimation = GetComponent<Animator>();
-        }
-
         if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && sprite.flipX || posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && !sprite.flipX)
         {
             Flip();
         }
-
     }
 
     public virtual void FixedUpdate()
@@ -107,9 +100,12 @@ public abstract class InimigoComum : MonoBehaviour
         StartCoroutine(EfeitoDano());
         if (hp < 1)
         {
-            bossFase1.inimigos.RemoveAt(bossFase1.inimigos.IndexOf(this.gameObject));
-            Destroy(this.gameObject);
-            bossFase1.hpBoss -= 1;
+            if(bossFase1 != null)
+            {
+                bossFase1.hpBoss -= 1;
+                bossFase1.inimigos.RemoveAt(bossFase1.inimigos.IndexOf(this.gameObject));
+            }
+                Destroy(this.gameObject);
         }
     }
     

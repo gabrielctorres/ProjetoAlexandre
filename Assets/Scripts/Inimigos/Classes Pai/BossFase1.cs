@@ -20,7 +20,7 @@ public class BossFase1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        posicaoDoJogador = GameObject.Find("PersonagemOriginal").transform;
+        posicaoDoJogador = GameObject.Find("Personagem").transform;
     }
 
     // Update is called once per frame

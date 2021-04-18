@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Reliquias : MonoBehaviour
 {
-    public static int numReliquias;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +17,5 @@ public class Reliquias : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            numReliquias++;
-            Debug.Log("Relíquias coletadas: " + numReliquias);
-            Destroy(this.gameObject);
-        }        
-    }
+
 }

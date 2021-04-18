@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2295583402788174459}
   - component: {fileID: 2295583402788174453}
   - component: {fileID: 6291736658585828182}
+  - component: {fileID: 1436671643597874949}
   m_Layer: 0
   m_Name: Caixa
   m_TagString: Untagged
@@ -152,6 +153,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &1436671643597874949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295583402788174448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a891c3b3185c84190c6f89d6a98790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TabelaLoot:
+  - item: {fileID: 845851445882053426, guid: 299f3be1267ba234282b663c4ef9981a, type: 3}
+    Raridade: 50
+  - item: {fileID: 4081632866893541822, guid: ff7f3b33aa0ac0e41bf07e74387ca26e, type: 3}
+    Raridade: 50
+  dropChance: 100
 --- !u!1 &6806541934062619265
 GameObject:
   m_ObjectHideFlags: 0

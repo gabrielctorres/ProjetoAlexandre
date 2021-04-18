@@ -6,8 +6,7 @@ public class LootScript : MonoBehaviour
 {
     [System.Serializable]
    public class DropItens
-    {
-        public string nome;
+    {       
         public GameObject item;
         public int Raridade;
     }
@@ -15,13 +14,8 @@ public class LootScript : MonoBehaviour
     public List<DropItens> TabelaLoot = new List<DropItens>();
     public int dropChance;
 
-    private void Start()
-    {
-        calculandoLoot();
-    }
 
-
-    void calculandoLoot()
+    public void calculandoLoot()
     {
         int calc_dropChance = Random.Range(0, 101); //  aqui q a gente seta os 100%
 

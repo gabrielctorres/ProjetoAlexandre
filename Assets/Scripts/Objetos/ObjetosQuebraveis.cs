@@ -27,6 +27,7 @@ public class ObjetosQuebraveis : MonoBehaviour
             {
                 spriteAnimation.SetTrigger("quebrou");
                 StartCoroutine(DelayedBrokenObject(1));
+                this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
             }
         }
 
@@ -44,6 +45,7 @@ public class ObjetosQuebraveis : MonoBehaviour
             {
                 spriteAnimation.SetTrigger("quebrou");
                 StartCoroutine(DelayedBrokenObject(1));
+                this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
             }
         }
     }
