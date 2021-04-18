@@ -803,118 +803,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &301525189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2160458016481736503, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-    type: 3}
-  m_PrefabInstance: {fileID: 411021263}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &367711974
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.23490644
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.7842593
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736502, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736503, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_Name
-      value: Marinheiro (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736503, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7c96a89c27b187d43bbaac9a5baaa04e, type: 3}
---- !u!1 &367711975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2160458016481736503, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
-    type: 3}
-  m_PrefabInstance: {fileID: 367711974}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &411021263
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -946,7 +834,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+    - target: {fileID: 2160458016481736489, guid: 7c96a89+c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -1457,11 +1345,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad6d15e76162f34c809e765b35fe5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidaImagem: {fileID: 0}
   vida: 100
+  vidaMax: 0
   velocidade: 6
   forcaPulo: 10
   velocidadeParedeDeslize: 1
   dano: 6
+  timerImageAdaga: {fileID: 0}
+  timerImageEspada: {fileID: 0}
 --- !u!61 &1423360904
 BoxCollider2D:
   m_ObjectHideFlags: 0

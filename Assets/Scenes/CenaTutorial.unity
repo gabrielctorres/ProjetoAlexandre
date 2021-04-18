@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -286,6 +286,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2656271399646450652, guid: 874173d9060820f4b9aab6ab9a2f2c98,
     type: 3}
   m_PrefabInstance: {fileID: 1212740503538149615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &45912450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4120536934419782000, guid: 74faa4d7606956f498549c3f18d0318b,
+    type: 3}
+  m_PrefabInstance: {fileID: 616252688}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &51968899
 GameObject:
@@ -15835,7 +15841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132419993}
   m_LocalRotation: {x: -0, y: -0, z: 1.4249267e-10, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.029999733, y: -0.000000045375074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 771844298}
@@ -32579,3 +32585,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874173d9060820f4b9aab6ab9a2f2c98, type: 3}
+--- !u!1001 &2003716750838551048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2003716750450503047, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_Name
+      value: GuardaController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503064, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: guarda
+      value: 
+      objectReference: {fileID: 45912450}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 76.91355
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3420625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.8046875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003716750450503065, guid: c7e04692a418383448266da465c114d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7e04692a418383448266da465c114d5, type: 3}

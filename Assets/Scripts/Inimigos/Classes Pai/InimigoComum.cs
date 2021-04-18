@@ -19,7 +19,7 @@ public abstract class InimigoComum : MonoBehaviour
     private static Rigidbody2D rb;
     private static bool unidadePodeAtacar;
 
-    protected Animator spriteAnimation;
+    protected Animator spriteAnimation;    
 
     protected SpriteRenderer sprite;
     public int direcaoOlhar = -1;
@@ -32,6 +32,7 @@ public abstract class InimigoComum : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         spriteAnimation = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();        
+
     }
 
     // Update is called once per frame
@@ -61,21 +62,21 @@ public abstract class InimigoComum : MonoBehaviour
     {
         if (posicaoDoJogador.gameObject != null)
         {
-            distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);
-
+            distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
+            
             if (distancia >= 1.7f)
             {
                 velocidadeDoInimigo = 2.5f;
                 this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, posicaoDoJogador.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
                 spriteAnimation.SetBool("podeAndar", true);
-                spriteAnimation.SetBool("podeAtacar", false);
+                spriteAnimation.SetBool("podeAtacar", false);                
             }
             else if(distancia <= 1.7f)
             {
+                spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
                 this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, posicaoDoJogador.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
-                AtacarJogador();                
-            }
+                AtacarJogador();      }
         }
     }
 
@@ -93,8 +94,11 @@ public abstract class InimigoComum : MonoBehaviour
             proximoAtaque = Time.time + taxaAtaque;
             spriteAnimation.SetBool("podeAtacar", true);
         }
+
         else
-            spriteAnimation.SetBool("podeAtacar", false);
+        {
+            spriteAnimation.SetBool("podeAtacar", false);            
+        }              
     }    
 
     public void TomarDano (float danoJogador)
