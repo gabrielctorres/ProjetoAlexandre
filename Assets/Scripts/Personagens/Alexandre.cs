@@ -34,7 +34,10 @@ public class Alexandre : Personagem
 
     public void Update()
     {
-        Flip();
+        if(estaNoChao)
+             Flip();
+
+
         if (!semArma)
         {
             Ataque();
@@ -72,7 +75,8 @@ public class Alexandre : Personagem
         if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva )
         {           
             spriteAnimation.SetBool("AtacouNormal", true);
-            habilidadeAdagaAtiva = false;            
+            habilidadeAdagaAtiva = false;
+            StartCoroutine(nameof(BloqueandoRotacao));
         }            
        else
             spriteAnimation.SetBool("AtacouNormal", false);
@@ -98,10 +102,10 @@ public class Alexandre : Personagem
 
         timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
         if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva)
-        {          
+        {
             spriteAnimation.SetBool("AtacouEspada", true);
             habilidadeEspadaAtiva = false;
-            
+            StartCoroutine(nameof(BloqueandoMovimentacao));
         }
         else
             spriteAnimation.SetBool("AtacouEspada", false);
@@ -165,4 +169,21 @@ public class Alexandre : Personagem
             Destroy(collision.gameObject);
         }
     }
+
+
+    IEnumerator BloqueandoRotacao()
+    {
+        atacandoAdaga = true;
+        yield return new WaitForSeconds(1f);
+        atacandoAdaga = false;
+    }
+
+    IEnumerator BloqueandoMovimentacao()
+    {
+        podeAndar = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        yield return new WaitForSeconds(1f);
+        podeAndar = true;
+    }
+
 }

@@ -26,6 +26,7 @@ public abstract class Personagem : MonoBehaviour
     public float dano;
 
     public bool semArma;
+    protected bool atacandoAdaga;
     protected bool olhandoDireita = true;
     protected bool estaNoChao;
     protected bool tocandoNaParede;
@@ -60,7 +61,7 @@ public abstract class Personagem : MonoBehaviour
 
     public void Andar()
     {
-        if (!segurandoCorda)
+        if (!segurandoCorda || !tocandoNaParede || !deslizandoParede)
         {
             rb2d.gravityScale = 3f;
             horizontal = Input.GetAxis("Horizontal");
@@ -70,6 +71,7 @@ public abstract class Personagem : MonoBehaviour
 
         if (deslizandoParede)
         {
+            
             if (rb2d.velocity.y < 0)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, -velocidadeParedeDeslize);
@@ -91,9 +93,10 @@ public abstract class Personagem : MonoBehaviour
         else if (Input.GetButton("Jump") && !estaNoChao && deslizandoParede && !segurandoCorda)
         {
             Vector2 direcaoPulo = new Vector2(horizontal, 2f);
-            Vector2 forca = new Vector2(4.5f * direcaoPulo.x * -direcaoOlhar, 4.5f * direcaoPulo.y);
+            Vector2 forca = new Vector2(4.5f * direcaoPulo.x * direcaoOlhar, 4.5f * direcaoPulo.y);
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.velocity += Vector2.up.normalized * forca;
+            spriteAnimation.SetBool("Deslizando", false);
             spriteAnimation.SetBool("Pulando", true);
             StartCoroutine(nameof(PararDeMover));
         }
@@ -166,7 +169,7 @@ public abstract class Personagem : MonoBehaviour
     }
     public void Flip()
     {
-        if ((horizontal < 0 && olhandoDireita) && !tocandoNaParede || (horizontal > 0 && !olhandoDireita) && !tocandoNaParede)
+        if ((horizontal < 0 && olhandoDireita) && !tocandoNaParede && !atacandoAdaga || (horizontal > 0 && !olhandoDireita) && !tocandoNaParede && !atacandoAdaga)
         {
             direcaoOlhar *= -1;
             olhandoDireita = !olhandoDireita;
@@ -198,7 +201,7 @@ public abstract class Personagem : MonoBehaviour
         Gizmos.DrawWireSphere(centerObject, 0.25f);
     }
 
-   /* void OnGUI()
+    void OnGUI()
     {
         GUI.contentColor = Color.green;
         GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
@@ -206,7 +209,7 @@ public abstract class Personagem : MonoBehaviour
         GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
         GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
         GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
-    }*/
+    }
 
     public abstract void Ataque();
 
