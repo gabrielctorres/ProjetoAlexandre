@@ -42,10 +42,10 @@ public class Alexandre : Personagem
         {
             Ataque();
             SegundoAtaque();
-            uiHabilidades.SetActive(true);
+            if(uiHabilidades !=null)uiHabilidades.SetActive(true);
         }
         VerificarMorte();
-        vidaImagem.fillAmount = vida / vidaMax;
+        if(vidaImagem !=null) vidaImagem.fillAmount = vida / vidaMax;
         spriteAnimation.SetBool("SemArma", semArma);
 
         if (Input.GetKeyDown(KeyCode.Z) && podePegar)
@@ -71,7 +71,8 @@ public class Alexandre : Personagem
             }
                     
         }
-        timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
+        
+        if(timerImageAdaga != null ) timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
         if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva )
         {           
             spriteAnimation.SetBool("AtacouNormal", true);
@@ -100,7 +101,7 @@ public class Alexandre : Personagem
 
         }
 
-        timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
+        if(timerImageAdaga != null ) timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
         if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva)
         {
             spriteAnimation.SetBool("AtacouEspada", true);
