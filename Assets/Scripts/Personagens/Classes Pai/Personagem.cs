@@ -7,7 +7,8 @@ public abstract class Personagem : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private Transform posicaoPe;
-    protected Animator spriteAnimation; 
+    protected Animator spriteAnimation;
+    private SpriteRenderer sprite;
 
     public Image vidaImagem;
     public GameObject uiHabilidades;
@@ -33,12 +34,14 @@ public abstract class Personagem : MonoBehaviour
     protected bool segurandoCorda;
     protected bool deslizandoParede;
     protected bool podeAndar = true;
+    protected bool invulneravel = false;
 
     public virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         posicaoPe = transform.GetChild(0).GetComponent<Transform>();
         spriteAnimation = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
         Time.timeScale = 1;
     }
     public virtual void FixedUpdate()
@@ -148,8 +151,25 @@ public abstract class Personagem : MonoBehaviour
 
     public void DarDano( float  damage)
     {
+        invulneravel = true;
         if (vida > 0)
+        {
             vida -= damage;
+            StartCoroutine(FicarInvulneravel());
+        }        
+    }
+
+    IEnumerator FicarInvulneravel()
+    {
+        for(float i = 0f; i<1f; i+= 0.1f)
+        {
+            sprite.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            sprite.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        invulneravel = false;
     }
 
     public void VerificarMorte()

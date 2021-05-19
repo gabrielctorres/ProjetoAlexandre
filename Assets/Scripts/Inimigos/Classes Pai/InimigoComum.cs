@@ -55,8 +55,7 @@ public abstract class InimigoComum : MonoBehaviour
     {
         if (posicaoDoJogador.gameObject != null && posicaoDoJogador.transform.position.y<0f)
         {
-            distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);
-            Debug.Log(distancia);
+            distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
             
             if (distancia >= 1.7f && distancia<8f)
             {
