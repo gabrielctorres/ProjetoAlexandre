@@ -13,6 +13,8 @@ TagManager:
   - Marinheiro
   - CaixaForte
   - Mesa
+  - Parede
+  - Papagaio
   layers:
   - Default
   - TransparentFX

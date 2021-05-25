@@ -19,8 +19,8 @@ public class Alexandre : Personagem
     bool habilidadeEspadaAtiva = true;
 
     public Image timerImageAdaga;
-    public Image timerImageEspada;
-
+    public Image timerImageEspada;    
+    
     public override void Start()
     {
         base.Start();
@@ -53,7 +53,7 @@ public class Alexandre : Personagem
             PegaArma();
         }
         if(textReliquias != null)
-            textReliquias.text = "Reliquias Coletadas: " + numReliquias;
+            textReliquias.text = "Reliquias Coletadas: " + numReliquias;       
     }
 
     public override void Ataque()
@@ -138,7 +138,10 @@ public class Alexandre : Personagem
 
         if (collision.collider.CompareTag("Escorpiao"))
         {
-            this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);
+            if (!invulneravel)
+            {
+                this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);                
+            }                        
         }
 
         if(collision.collider.name == "Barco" && bossController.hpBoss <=0)
@@ -148,6 +151,17 @@ public class Alexandre : Personagem
             Time.timeScale = 0;
         }
 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Escorpiao"))
+        {
+            if (!invulneravel)
+            {
+                this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -170,8 +184,6 @@ public class Alexandre : Personagem
             Destroy(collision.gameObject);
         }
     }
-
-
     IEnumerator BloqueandoRotacao()
     {
         atacandoAdaga = true;
@@ -186,5 +198,4 @@ public class Alexandre : Personagem
         yield return new WaitForSeconds(1f);
         podeAndar = true;
     }
-
 }

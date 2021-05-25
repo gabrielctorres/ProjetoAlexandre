@@ -8,7 +8,7 @@ public abstract class InimigoComum : MonoBehaviour
     float proximoAtaque = 0;
     public float hp;
    
-    public bool podeSeguir;
+    public bool podeSeguir;    
 
     private float velocidadeDoInimigo = 3;
 
@@ -48,28 +48,59 @@ public abstract class InimigoComum : MonoBehaviour
         if(this.gameObject.tag == "Guarda" || this.gameObject.tag == "Escorpiao" || this.gameObject.tag == "Marinheiro" && podeSeguir)
         {
             SeguirJogador();
-        }
+        }        
     }
 
     public void SeguirJogador()
     {
-        if (posicaoDoJogador.gameObject != null)
+        if (posicaoDoJogador.gameObject != null && (posicaoDoJogador.transform.position.y-transform.position.y)<3)
         {
             distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
             
-            if (distancia >= 1.7f)
+            if (distancia >= 1.7f && distancia<8f)
             {
                 velocidadeDoInimigo = 2.5f;
-                this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, posicaoDoJogador.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
+                this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, this.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
                 spriteAnimation.SetBool("podeAndar", true);
                 spriteAnimation.SetBool("podeAtacar", false);                
             }
             else if(distancia <= 1.7f)
             {
                 spriteAnimation.SetBool("podeAndar", false);
+                velocidadeDoInimigo = 0;                
+                AtacarJogador();
+            }
+            else if (distancia > 8f)
+            {
+                spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
-                this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, posicaoDoJogador.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
-                AtacarJogador();      }
+            }
+        }
+        else if(posicaoDoJogador.gameObject != null && posicaoDoJogador.position.y > 0f)
+        {
+            if (this.gameObject.transform.position.y > 0f)
+            {
+                distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);
+
+                if (distancia >= 1.7f && distancia < 8f)
+                {
+                    velocidadeDoInimigo = 2.5f;
+                    this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, this.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
+                    spriteAnimation.SetBool("podeAndar", true);
+                    spriteAnimation.SetBool("podeAtacar", false);
+                }
+                else if (distancia <= 1.7f)
+                {
+                    spriteAnimation.SetBool("podeAndar", false);
+                    velocidadeDoInimigo = 0;
+                    AtacarJogador();
+                }
+                else if (distancia > 8f)
+                {
+                    spriteAnimation.SetBool("podeAndar", false);
+                    velocidadeDoInimigo = 0;
+                }
+            }
         }
     }
 
@@ -114,5 +145,5 @@ public abstract class InimigoComum : MonoBehaviour
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         sprite.color = Color.white;
-    }
+    }       
 }

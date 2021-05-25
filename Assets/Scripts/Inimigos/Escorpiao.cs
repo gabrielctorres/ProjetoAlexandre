@@ -38,7 +38,7 @@ public class Escorpiao : InimigoComum
             this.TomarDano(collision.GetComponent<Weapon>().dano);
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 30, ForceMode2D.Impulse);
-        }
+        }        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
