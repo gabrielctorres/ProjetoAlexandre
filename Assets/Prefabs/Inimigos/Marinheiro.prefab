@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2160458016481736488}
   - component: {fileID: 2160458016481736490}
   - component: {fileID: 6337751894089235487}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Marinheiro
   m_TagString: Marinheiro
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 9061963325236370455}
   - component: {fileID: 8723537894812701974}
   - component: {fileID: 5923101099218208957}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EspadaInimigo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

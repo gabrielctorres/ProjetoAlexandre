@@ -19,7 +19,21 @@ public class Alexandre : Personagem
     bool habilidadeEspadaAtiva = true;
 
     public Image timerImageAdaga;
-    public Image timerImageEspada;    
+    public Image timerImageEspada;
+
+    [Header("Configuração da adaga")]
+    public Transform pointAdaga;
+    public float tamanhoAdaga = 0.5f;
+    public float danoAdaga;
+
+
+    [Header("Configuração da espada")]
+    public Transform pointEspada;
+    public float tamanhoEspada = 0.5f;
+    public float danoEspada;
+
+
+    public LayerMask hitMask;
     
     public override void Start()
     {
@@ -73,8 +87,20 @@ public class Alexandre : Personagem
         }
         
         if(timerImageAdaga != null ) timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
+
         if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva )
-        {           
+        {
+            //Guardando cada inimigo dependendo da layer que a adaga colidiu
+           Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(pointAdaga.position,tamanhoAdaga,hitMask);
+            //Passando por casa inimigo e aplicando dano e aplicando força
+           foreach (Collider2D objeto in hitEnemies)
+            {
+                Debug.Log("Usando a adaga você acertou: " + objeto.name);
+                objeto.GetComponent<InimigoComum>().TomarDano(danoAdaga);
+                objeto.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.6f, ForceMode2D.Impulse);
+            }
+
             spriteAnimation.SetBool("AtacouNormal", true);
             habilidadeAdagaAtiva = false;
             StartCoroutine(nameof(BloqueandoRotacao));
@@ -82,8 +108,6 @@ public class Alexandre : Personagem
        else
             spriteAnimation.SetBool("AtacouNormal", false);
     }
-   
-
 
     public override void SegundoAtaque()
     {
@@ -103,7 +127,20 @@ public class Alexandre : Personagem
 
         if(timerImageAdaga != null ) timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
         if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva)
-        {
+        {         
+
+            //Guardando cada inimigo dependendo da layer que a adaga colidiu
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(pointEspada.position, tamanhoEspada, hitMask);
+
+            //Passando por casa inimigo e aplicando dano e aplicando força
+            foreach (Collider2D objeto in hitEnemies)
+            {
+                Debug.Log("Usando a espada você acertou: " + objeto.name);
+                objeto.GetComponent<InimigoComum>().TomarDano(danoEspada);
+                objeto.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2f, ForceMode2D.Impulse);
+            }
+
             spriteAnimation.SetBool("AtacouEspada", true);
             habilidadeEspadaAtiva = false;
             StartCoroutine(nameof(BloqueandoMovimentacao));
@@ -112,6 +149,14 @@ public class Alexandre : Personagem
             spriteAnimation.SetBool("AtacouEspada", false);
     }
 
+    private void OnDrawGizmos()
+    {
+        if (pointAdaga == null || pointEspada == null)
+            return;
+
+        Gizmos.DrawWireSphere(pointAdaga.position, tamanhoAdaga);
+        Gizmos.DrawWireSphere(pointEspada.position, tamanhoEspada);
+    }
 
     public void PegaArma()
     {
@@ -169,13 +214,13 @@ public class Alexandre : Personagem
         if(collision.name == "EspadaInimigo")
         {
             this.DarDano(collision.GetComponent<Weapon>().dano);
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 60, ForceMode2D.Impulse);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 2f, ForceMode2D.Impulse);
         }
 
         if(collision.name == "Alabarda")
         {
             this.DarDano(collision.GetComponent<Weapon>().dano);
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 60, ForceMode2D.Impulse);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 1.6f, ForceMode2D.Impulse);
         }
 
         if (collision.GetComponent<Reliquias>() != null)

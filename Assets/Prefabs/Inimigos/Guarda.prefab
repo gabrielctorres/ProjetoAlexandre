@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4120536934419782003}
   - component: {fileID: 4120536934419782006}
   - component: {fileID: 4120536934419782005}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Guarda
   m_TagString: Guarda
   m_Icon: {fileID: 0}
