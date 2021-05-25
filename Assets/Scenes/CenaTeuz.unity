@@ -1600,6 +1600,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Papagaio
       objectReference: {fileID: 0}
+    - target: {fileID: 1053007069932240888, guid: ebbe5820970a3c343a43c375a1c5225a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1053007069932240894, guid: ebbe5820970a3c343a43c375a1c5225a,
         type: 3}
       propertyPath: m_LocalPosition.x
