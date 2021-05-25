@@ -52,8 +52,9 @@ public abstract class InimigoComum : MonoBehaviour
     }
 
     public void SeguirJogador()
-    {
-        if (posicaoDoJogador.gameObject != null && posicaoDoJogador.transform.position.y<0f)
+    {     
+
+        if (posicaoDoJogador.gameObject != null && posicaoDoJogador.position.y<0f)
         {
             distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
             
@@ -75,7 +76,33 @@ public abstract class InimigoComum : MonoBehaviour
                 spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
             }
-        }        
+        }
+        else if(posicaoDoJogador.gameObject != null && posicaoDoJogador.position.y > 0f)
+        {
+            if (this.gameObject.transform.position.y > 0f)
+            {
+                distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);
+
+                if (distancia >= 1.7f && distancia < 8f)
+                {
+                    velocidadeDoInimigo = 2.5f;
+                    this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, this.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
+                    spriteAnimation.SetBool("podeAndar", true);
+                    spriteAnimation.SetBool("podeAtacar", false);
+                }
+                else if (distancia <= 1.7f)
+                {
+                    spriteAnimation.SetBool("podeAndar", false);
+                    velocidadeDoInimigo = 0;
+                    AtacarJogador();
+                }
+                else if (distancia > 8f)
+                {
+                    spriteAnimation.SetBool("podeAndar", false);
+                    velocidadeDoInimigo = 0;
+                }
+            }
+        }
     }
 
     public void Flip()
