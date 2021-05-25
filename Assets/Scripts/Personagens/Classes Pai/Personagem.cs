@@ -230,10 +230,5 @@ public abstract class Personagem : MonoBehaviour
 
     public abstract void Ataque();
 
-    public abstract void SegundoAtaque();
-
-    
-
-
-    
+    public abstract void SegundoAtaque();    
 }

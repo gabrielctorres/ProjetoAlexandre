@@ -52,9 +52,8 @@ public abstract class InimigoComum : MonoBehaviour
     }
 
     public void SeguirJogador()
-    {     
-
-        if (posicaoDoJogador.gameObject != null && posicaoDoJogador.position.y<0f)
+    {
+        if (posicaoDoJogador.gameObject != null && (posicaoDoJogador.transform.position.y-transform.position.y)<3)
         {
             distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
             
