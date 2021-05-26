@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Escorpiao : InimigoComum
-{
-    public  float dano;
+{    
     // Start is called before the first frame update
     public override void Start()
     {

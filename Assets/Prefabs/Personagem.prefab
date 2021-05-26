@@ -96,7 +96,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2150851427285227598}
   m_LocalRotation: {x: -0, y: -0, z: 0.16921254, w: 0.9855796}
-  m_LocalPosition: {x: 1.05, y: -1.18, z: 0}
+  m_LocalPosition: {x: 1.4, y: -1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2150851427342254237}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 2150851427342254225}
   - component: {fileID: 2150851427342254238}
   - component: {fileID: 2150851427342254234}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Personagem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,16 +239,17 @@ MonoBehaviour:
   velocidadeParedeDeslize: 1
   dano: 6
   semArma: 0
+  invulneravel: 0
   tutorialAtaque: {fileID: 0}
   tutorialAtaque2: {fileID: 0}
   bossController: {fileID: 0}
   timerImageAdaga: {fileID: 0}
   timerImageEspada: {fileID: 0}
   pointAdaga: {fileID: 2150851427792013791}
-  tamanhoAdaga: 0.6
+  tamanhoAdaga: 0.5
   danoAdaga: 2
   pointEspada: {fileID: 2150851427285227599}
-  tamanhoEspada: 0.9
+  tamanhoEspada: 0.7
   danoEspada: 5
   hitMask:
     serializedVersion: 2
@@ -322,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2150851427792013790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.06, y: -1.16, z: 0}
+  m_LocalPosition: {x: 1.2, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2150851427342254237}

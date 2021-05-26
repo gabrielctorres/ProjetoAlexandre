@@ -8,8 +8,8 @@ public class Alexandre : Personagem
     public GameObject tutorialAtaque,tutorialAtaque2;
     bool podePegar;
     Animator mesaAnimator;
-    float timerSkillOne = 0;
-    float timerSkillOneMax = 1;
+    float timerSkillOne = 0f;
+    float timerSkillOneMax = 1.4f;
 
     public  BossFase1 bossController;
 
@@ -74,9 +74,9 @@ public class Alexandre : Personagem
     {        
         if (!habilidadeAdagaAtiva)
         {
-            if (timerSkillOne <= 1)
+            if (timerSkillOne <= 1.4f)
             {
-                timerSkillOne += Time.fixedDeltaTime;               
+                timerSkillOne += Time.deltaTime;               
             }    
             else
             {
@@ -98,7 +98,7 @@ public class Alexandre : Personagem
                 Debug.Log("Usando a adaga você acertou: " + objeto.name);
                 objeto.GetComponent<InimigoComum>().TomarDano(danoAdaga);
                 objeto.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.6f, ForceMode2D.Impulse);
+                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.9f, ForceMode2D.Impulse);
             }
 
             spriteAnimation.SetBool("AtacouNormal", true);
@@ -115,7 +115,7 @@ public class Alexandre : Personagem
         {
             if (timerSkillTwo <= 10)
             {
-                timerSkillTwo += Time.fixedDeltaTime;
+                timerSkillTwo += Time.deltaTime;
             }
             else
             {
@@ -138,7 +138,7 @@ public class Alexandre : Personagem
                 Debug.Log("Usando a espada você acertou: " + objeto.name);
                 objeto.GetComponent<InimigoComum>().TomarDano(danoEspada);
                 objeto.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2f, ForceMode2D.Impulse);
+                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2.6f, ForceMode2D.Impulse);
             }
 
             spriteAnimation.SetBool("AtacouEspada", true);
@@ -211,18 +211,6 @@ public class Alexandre : Personagem
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "EspadaInimigo")
-        {
-            this.DarDano(collision.GetComponent<Weapon>().dano);
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 2f, ForceMode2D.Impulse);
-        }
-
-        if(collision.name == "Alabarda")
-        {
-            this.DarDano(collision.GetComponent<Weapon>().dano);
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar * -1, 0) * 1.6f, ForceMode2D.Impulse);
-        }
-
         if (collision.GetComponent<Reliquias>() != null)
         {
             numReliquias++;

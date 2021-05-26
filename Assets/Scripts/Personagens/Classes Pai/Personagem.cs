@@ -37,7 +37,7 @@ public abstract class Personagem : MonoBehaviour
     protected bool deslizandoParede;
     protected bool segurandoParede;
     protected bool podeAndar = true;
-    protected bool invulneravel = false;
+    public bool invulneravel = false;
 
     public virtual void Start()
     {
