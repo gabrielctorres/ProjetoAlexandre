@@ -657,8 +657,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220512550}
-  m_LocalRotation: {x: 0, y: 0, z: 0.000007968271, w: 1}
-  m_LocalPosition: {x: 89.9, y: -1.82, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0.000008280697, w: 1}
+  m_LocalPosition: {x: -7, y: -1.82, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 279161557}
@@ -2281,6 +2281,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -2356,6 +2361,11 @@ PrefabInstance:
       propertyPath: posicaoDoJogador
       value: 
       objectReference: {fileID: 1772171581}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_GravityScale
@@ -2835,7 +2845,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357594307
 GameObject:
@@ -3542,6 +3552,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3617,6 +3632,11 @@ PrefabInstance:
       propertyPath: posicaoDoJogador
       value: 
       objectReference: {fileID: 1772171581}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_GravityScale
@@ -4548,6 +4568,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -4623,6 +4648,11 @@ PrefabInstance:
       propertyPath: posicaoDoJogador
       value: 
       objectReference: {fileID: 1772171581}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_GravityScale
@@ -4884,10 +4914,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
@@ -4949,6 +4984,16 @@ PrefabInstance:
       propertyPath: posicaoDoJogador
       value: 
       objectReference: {fileID: 1772171581}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736502, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_Color.b
@@ -14169,6 +14214,16 @@ PrefabInstance:
       objectReference: {fileID: 741139939}
     - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
+      propertyPath: tamanhoAdaga
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
+        type: 3}
+      propertyPath: tamanhoEspada
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
+        type: 3}
       propertyPath: textReliquias
       value: 
       objectReference: {fileID: 878305915}
@@ -14200,7 +14255,7 @@ PrefabInstance:
     - target: {fileID: 2150851427342254237, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 89.9
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 2150851427342254237, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
@@ -14499,6 +14554,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -14564,6 +14624,11 @@ PrefabInstance:
       propertyPath: posicaoDoJogador
       value: 
       objectReference: {fileID: 1772171581}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_GravityScale
@@ -14643,12 +14708,12 @@ PrefabInstance:
     - target: {fileID: 2295583402788174454, guid: 31ac058d70c565140bcf00cdd8aa1811,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.132353
+      value: -28.232
       objectReference: {fileID: 0}
     - target: {fileID: 2295583402788174454, guid: 31ac058d70c565140bcf00cdd8aa1811,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.065056
+      value: -7.09
       objectReference: {fileID: 0}
     - target: {fileID: 2295583402788174454, guid: 31ac058d70c565140bcf00cdd8aa1811,
         type: 3}
@@ -14870,6 +14935,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -14995,6 +15065,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2160458016481736488, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736489, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -15070,6 +15145,11 @@ PrefabInstance:
       propertyPath: posicaoDoJogador
       value: 
       objectReference: {fileID: 1772171581}
+    - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2160458016481736491, guid: 7c96a89c27b187d43bbaac9a5baaa04e,
         type: 3}
       propertyPath: m_GravityScale

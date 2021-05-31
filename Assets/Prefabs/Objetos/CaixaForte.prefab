@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3243905188793424803}
   - component: {fileID: 3243905188793424801}
   - component: {fileID: 3243905188793424802}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: CaixaForteTrigger
   m_TagString: CaixaForte
   m_Icon: {fileID: 0}
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b72e1490c76c64088372af06adc2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteAnimation: {fileID: 0}
 --- !u!1 &3243905189524397671
 GameObject:
   m_ObjectHideFlags: 0

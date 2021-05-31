@@ -91,14 +91,21 @@ public class Alexandre : Personagem
         if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva )
         {
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
-           Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(pointAdaga.position,tamanhoAdaga,hitMask);
+            Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(pointAdaga.position,tamanhoAdaga,hitMask);
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(pointAdaga.position, tamanhoAdaga, LayerMask.GetMask("ObjetosNormais"));
             //Passando por casa inimigo e aplicando dano e aplicando força
-           foreach (Collider2D objeto in hitEnemies)
+           foreach (Collider2D enemy in hitEnemies)
             {
-                Debug.Log("Usando a adaga você acertou: " + objeto.name);
-                objeto.GetComponent<InimigoComum>().TomarDano(danoAdaga);
-                objeto.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.9f, ForceMode2D.Impulse);
+                Debug.Log("Usando a adaga você acertou: " + enemy.name);
+                enemy.GetComponent<InimigoComum>().TomarDano(danoAdaga);
+                enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemy.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.9f, ForceMode2D.Impulse);
+            }
+
+            foreach (Collider2D objeto in hitObjects)
+            {
+                objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
+                objeto.GetComponent<ObjetosQuebraveis>().Destroi();
             }
 
             spriteAnimation.SetBool("AtacouNormal", true);
@@ -131,14 +138,20 @@ public class Alexandre : Personagem
 
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(pointEspada.position, tamanhoEspada, hitMask);
-
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(pointAdaga.position, tamanhoAdaga, LayerMask.GetMask("ObjetosPesados"));
             //Passando por casa inimigo e aplicando dano e aplicando força
-            foreach (Collider2D objeto in hitEnemies)
+            foreach (Collider2D enemys in hitEnemies)
             {
-                Debug.Log("Usando a espada você acertou: " + objeto.name);
-                objeto.GetComponent<InimigoComum>().TomarDano(danoEspada);
-                objeto.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2.6f, ForceMode2D.Impulse);
+                Debug.Log("Usando a espada você acertou: " + enemys.name);
+                enemys.GetComponent<InimigoComum>().TomarDano(danoEspada);
+                enemys.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                enemys.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemys.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2.6f, ForceMode2D.Impulse);
+            }
+
+            foreach (Collider2D objeto in hitObjects)
+            {
+                objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
+                objeto.GetComponent<ObjetosQuebraveis>().Destroi();
             }
 
             spriteAnimation.SetBool("AtacouEspada", true);
@@ -196,17 +209,6 @@ public class Alexandre : Personagem
             Time.timeScale = 0;
         }
 
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Escorpiao"))
-        {
-            if (!invulneravel)
-            {
-                this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -60,7 +60,7 @@ public abstract class InimigoComum : MonoBehaviour
 
     public void SeguirJogador()
     {
-        spriteAnimation.SetFloat("Horizontal", Mathf.Abs(transform.position.x));
+        if(gameObject.tag != "Escorpiao")   spriteAnimation.SetFloat("Horizontal", Mathf.Abs(transform.position.x));
         if (posicaoDoJogador.gameObject != null && (posicaoDoJogador.transform.position.y-transform.position.y)<3)
         {
             distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
@@ -68,8 +68,8 @@ public abstract class InimigoComum : MonoBehaviour
             if (distancia >= 1.7f && distancia<8f)
             {
                 velocidadeDoInimigo = 2.5f;
-                this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, this.transform.position.y), velocidadeDoInimigo * Time.deltaTime);      
-                spriteAnimation.SetBool("podeAtacar", false);                
+                this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, this.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
+                if (gameObject.tag != "Escorpiao") spriteAnimation.SetBool("podeAtacar", false);                
             }
             else if(distancia <= 1.7f)
             {           
@@ -78,7 +78,7 @@ public abstract class InimigoComum : MonoBehaviour
             }
             else if (distancia > 8f)
             {
-                spriteAnimation.SetBool("podeAndar", false);
+                if (gameObject.tag != "Escorpiao") spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
             }
         }
