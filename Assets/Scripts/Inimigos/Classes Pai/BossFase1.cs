@@ -45,6 +45,8 @@ public class BossFase1 : MonoBehaviour
                 {
                     inimigos[i].GetComponent<InimigoComum>().podeSeguir = true;
                     inimigos[i].GetComponent<BoxCollider2D>().enabled = true;
+                    inimigos[i].GetComponent<SpriteRenderer>().color = Color.white;
+                    inimigos[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
                     inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
                     break;
                 }                    
@@ -52,6 +54,8 @@ public class BossFase1 : MonoBehaviour
                 {
                     inimigos[i++].GetComponent<InimigoComum>().podeSeguir = true;
                     inimigos[i].GetComponent<BoxCollider2D>().enabled = true;
+                    inimigos[i].GetComponent<SpriteRenderer>().color = Color.white;
+                    inimigos[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
                     inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
                     break;
                 }

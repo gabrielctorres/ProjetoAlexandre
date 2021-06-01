@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 3853355804858513092}
   - component: {fileID: 7698546081193812114}
   - component: {fileID: 5329937766160470628}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: CaixaTrigger
   m_TagString: ObjetoQuebravelSimples
   m_Icon: {fileID: 0}

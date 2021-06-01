@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjetosQuebraveis : MonoBehaviour
 {
-    protected Animator spriteAnimation;   
+    public Animator spriteAnimation;   
 
     // Start is called before the first frame update
     void Start()
@@ -12,24 +12,9 @@ public class ObjetosQuebraveis : MonoBehaviour
         spriteAnimation = this.gameObject.GetComponentInParent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     //spriteAnimation.SetBool("Pulando", false);
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.CompareTag("ObjetoQuebravelSimples"))
-        {
-            if (collision.gameObject.name == "Adaga" || collision.gameObject.name == "Espada")
-            {
-                spriteAnimation.SetTrigger("quebrou");
-                StartCoroutine(DelayedBrokenObject(1));               
-            }
-        }
-
         if (this.CompareTag("Tabua"))
         {
             if (collision.gameObject.name == "Personagem")
@@ -38,20 +23,16 @@ public class ObjetosQuebraveis : MonoBehaviour
                 StartCoroutine(DelayedBrokenObject(1.8f));
             }
         }
-        if (this.CompareTag("CaixaForte"))
-        {
-            if (collision.gameObject.name == "Espada")
-            {
-                spriteAnimation.SetTrigger("quebrou");
-                StartCoroutine(DelayedBrokenObject(1));                
-            }
-        }
+    }
+    public void Destroi()
+    {
+        StartCoroutine(DelayedBrokenObject(1));
     }
 
     IEnumerator DelayedBrokenObject(float _delay)
     {
         yield return new WaitForSeconds(_delay);
-        if(this.CompareTag("Tabua"))
+        if (this.CompareTag("Tabua"))
             this.gameObject.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
         else
         {

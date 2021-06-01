@@ -14,6 +14,13 @@ public abstract class InimigoComum : MonoBehaviour
 
     public Transform posicaoDoJogador;
 
+    [Header("Configuração de ataque")]
+    public Transform posicaoArma;
+    public float tamanhoAtaque = 0.5f;
+    public float dano;
+    public LayerMask hitMask;
+
+
     private float distancia;
     
     private static Rigidbody2D rb;
@@ -53,6 +60,7 @@ public abstract class InimigoComum : MonoBehaviour
 
     public void SeguirJogador()
     {
+        if(gameObject.tag != "Escorpiao")   spriteAnimation.SetFloat("Horizontal", Mathf.Abs(transform.position.x));
         if (posicaoDoJogador.gameObject != null && (posicaoDoJogador.transform.position.y-transform.position.y)<3)
         {
             distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);            
@@ -61,18 +69,16 @@ public abstract class InimigoComum : MonoBehaviour
             {
                 velocidadeDoInimigo = 2.5f;
                 this.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, new Vector2(posicaoDoJogador.transform.position.x, this.transform.position.y), velocidadeDoInimigo * Time.deltaTime);
-                spriteAnimation.SetBool("podeAndar", true);
-                spriteAnimation.SetBool("podeAtacar", false);                
+                if (gameObject.tag != "Escorpiao") spriteAnimation.SetBool("podeAtacar", false);                
             }
             else if(distancia <= 1.7f)
-            {
-                spriteAnimation.SetBool("podeAndar", false);
+            {           
                 velocidadeDoInimigo = 0;                
                 AtacarJogador();
             }
             else if (distancia > 8f)
             {
-                spriteAnimation.SetBool("podeAndar", false);
+                if (gameObject.tag != "Escorpiao") spriteAnimation.SetBool("podeAndar", false);
                 velocidadeDoInimigo = 0;
             }
         }
@@ -117,13 +123,33 @@ public abstract class InimigoComum : MonoBehaviour
         {
             proximoAtaque = Time.time + taxaAtaque;
             spriteAnimation.SetBool("podeAtacar", true);
+            //Guardando cada inimigo dependendo da layer que a adaga colidiu
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(posicaoArma.position, tamanhoAtaque, hitMask);
+            
+            //Passando por casa inimigo e aplicando dano e aplicando força
+            foreach (Collider2D objeto in hitEnemies)
+            {
+                if (!objeto.GetComponent<Personagem>().invulneravel)
+                {
+                    objeto.GetComponent<Personagem>().DarDano(dano);
+                    objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<Personagem>().direcaoOlhar * -1, 0) * 3f, ForceMode2D.Impulse);
+                }
+            }           
         }
 
         else
         {
             spriteAnimation.SetBool("podeAtacar", false);            
         }              
-    }    
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (posicaoArma == null)
+            return;
+
+        Gizmos.DrawWireSphere(posicaoArma.position, tamanhoAtaque);
+    }
 
     public void TomarDano (float danoJogador)
     {
@@ -143,7 +169,7 @@ public abstract class InimigoComum : MonoBehaviour
     IEnumerator EfeitoDano()
     {
         sprite.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        sprite.color = Color.white;
+        yield return new WaitForSeconds(0.3f);
+        sprite.color = Color.white;        
     }       
 }
