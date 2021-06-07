@@ -70,6 +70,7 @@ public class Alexandre : Personagem
             textReliquias.text = "Reliquias Coletadas: " + numReliquias;       
     }
 
+    #region Ataques
     public override void Ataque()
     {        
         if (!habilidadeAdagaAtiva)
@@ -161,6 +162,7 @@ public class Alexandre : Personagem
         else
             spriteAnimation.SetBool("AtacouEspada", false);
     }
+    #endregion
 
     private void OnDrawGizmos()
     {
