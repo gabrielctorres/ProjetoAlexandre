@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class Alexandre : Personagem
 {
-    public GameObject tutorialAtaque,tutorialAtaque2;
+    public GameObject tutorialAtaque,tutorialAtaque2;  
+
     bool podePegar;
     Animator mesaAnimator;
     float timerSkillOne = 0f;
@@ -17,6 +18,9 @@ public class Alexandre : Personagem
     float timerSkillTwoMax = 10;
     bool habilidadeAdagaAtiva = true;
     bool habilidadeEspadaAtiva = true;
+
+    float timerDesh = 0f;
+    bool habilidadeDesh = true;
 
     public Image timerImageAdaga;
     public Image timerImageEspada;
@@ -44,6 +48,7 @@ public class Alexandre : Personagem
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        Dash();
     }
 
     public void Update()
@@ -182,6 +187,37 @@ public class Alexandre : Personagem
         tutorialAtaque2.SetActive(true);
     }
 
+
+    public void Dash()
+    {
+        if (!habilidadeDesh)
+        {
+            if (timerDesh <= 0.3f)
+            {
+                timerDesh += Time.deltaTime;
+            }
+            else
+            {
+                habilidadeAdagaAtiva = true;
+                timerDesh = 0;
+            }
+                
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && habilidadeDesh)
+        {
+            
+            spriteAnimation.SetBool("Dash", true);            
+            rb2d.AddForce((Vector2.right * direcaoOlhar).normalized * (velocidade * 10f), ForceMode2D.Impulse);
+        }
+        else
+        {
+            spriteAnimation.SetBool("Dash", false);
+        }
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.name == "BonecoTeste")
@@ -220,14 +256,14 @@ public class Alexandre : Personagem
             numReliquias++;
             Destroy(collision.gameObject);
         }
-    }
+    }       
     IEnumerator BloqueandoRotacao()
     {
         atacandoAdaga = true;
         yield return new WaitForSeconds(1f);
         atacandoAdaga = false;
     }
-
+    
     IEnumerator BloqueandoMovimentacao()
     {
         podeAndar = false;

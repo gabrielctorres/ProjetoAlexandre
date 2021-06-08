@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public abstract class Personagem : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+    protected Rigidbody2D rb2d;
     private Transform posicaoPe;
     protected Animator spriteAnimation;
     private SpriteRenderer sprite;
