@@ -257,6 +257,7 @@ public class Alexandre : Personagem
             Destroy(collision.gameObject);
         }
     }       
+
     IEnumerator BloqueandoRotacao()
     {
         atacandoAdaga = true;

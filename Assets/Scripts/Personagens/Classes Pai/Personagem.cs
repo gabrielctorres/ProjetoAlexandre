@@ -238,6 +238,14 @@ public abstract class Personagem : MonoBehaviour
         GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
     }
 
+    IEnumerator Stun()
+    {
+        float aux = velocidade;
+        velocidade = 0;
+        yield return new WaitForSeconds(2f);
+        velocidade = aux;
+    }
+
     public abstract void Ataque();
 
     public abstract void SegundoAtaque();    
