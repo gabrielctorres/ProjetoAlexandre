@@ -57,7 +57,7 @@ public abstract class Personagem : MonoBehaviour
         MovimentacaoCorda();  
         DetectandoColisão();
 
-        if (!deslizandoParede || !tocandoNaParede || estaNoChao)
+        if (!deslizandoParede || !tocandoNaParede || estaNoChao )
             spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
 
     }
@@ -238,12 +238,16 @@ public abstract class Personagem : MonoBehaviour
         GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
     }
 
-    IEnumerator Stun()
+  public IEnumerator Stun()
     {
-        float aux = velocidade;
+        float aux = 6;
         velocidade = 0;
+        rb2d.velocity = Vector2.zero;        
+        podeAndar = false;
         yield return new WaitForSeconds(2f);
-        velocidade = aux;
+        velocidade = aux;        
+        podeAndar = true;       
+        StopCoroutine(Stun());
     }
 
     public abstract void Ataque();

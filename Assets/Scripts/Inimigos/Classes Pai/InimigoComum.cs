@@ -22,6 +22,7 @@ public abstract class InimigoComum : MonoBehaviour
     public float dano;
     public LayerMask hitMask;
 
+    public GameObject projetil;
 
     private float distancia;
     
@@ -149,6 +150,7 @@ public abstract class InimigoComum : MonoBehaviour
     public void Flip()
     {
         sprite.flipX = !sprite.flipX;
+        posicaoArma.transform.Rotate(0, 180, 0);
         direcaoOlhar *= -1;
         velocidadeDoInimigo *= -1;
     }
@@ -175,6 +177,9 @@ public abstract class InimigoComum : MonoBehaviour
 
         else if(Time.time > proximoAtaque && this.gameObject.tag == "Aranha")
         {
+            taxaAtaque = 2f;
+            GameObject projetilInstanciado =  Instantiate(projetil, posicaoArma.position, transform.rotation);
+            projetilInstanciado.GetComponent<Rigidbody2D>().AddForce(new Vector2(direcaoOlhar,0) * 3f, ForceMode2D.Impulse);            
             proximoAtaque = Time.time + taxaAtaque;            
             spriteAnimation.SetBool("podeAtacar", true);            
         }
@@ -224,6 +229,7 @@ public abstract class InimigoComum : MonoBehaviour
             velocidadeDoInimigo = 0f;            
             spriteAnimation.SetBool("podeAtacar", true);
             estaPatrulhando = false;
+            AtacarJogador();
         }
         else
         {
