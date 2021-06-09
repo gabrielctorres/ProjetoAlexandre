@@ -285,6 +285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vaso (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3645620128634526813, guid: 422c69a06fba6ff4793e007d8ba74467,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645620128634526815, guid: 422c69a06fba6ff4793e007d8ba74467,
         type: 3}
       propertyPath: m_RootOrder
@@ -657,7 +662,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220512550}
-  m_LocalRotation: {x: 0, y: 0, z: 0.000008481175, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.000008943246, w: 1}
   m_LocalPosition: {x: -7, y: -1.82, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3203,6 +3208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Caixa (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295583402788174448, guid: 31ac058d70c565140bcf00cdd8aa1811,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2295583402788174454, guid: 31ac058d70c565140bcf00cdd8aa1811,
         type: 3}
@@ -14202,6 +14212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personagem
       objectReference: {fileID: 0}
+    - target: {fileID: 2150851427342254224, guid: 805be67fc96637747b48b782dc171f98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
       propertyPath: uiLife
@@ -14705,6 +14720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caixa
       objectReference: {fileID: 0}
+    - target: {fileID: 2295583402788174448, guid: 31ac058d70c565140bcf00cdd8aa1811,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2295583402788174454, guid: 31ac058d70c565140bcf00cdd8aa1811,
         type: 3}
       propertyPath: m_RootOrder
@@ -14864,6 +14884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vaso
+      objectReference: {fileID: 0}
+    - target: {fileID: 3645620128634526813, guid: 422c69a06fba6ff4793e007d8ba74467,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645620128634526815, guid: 422c69a06fba6ff4793e007d8ba74467,
         type: 3}
