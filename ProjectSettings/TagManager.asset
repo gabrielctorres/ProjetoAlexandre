@@ -15,6 +15,7 @@ TagManager:
   - Mesa
   - Parede
   - Papagaio
+  - Aranha
   layers:
   - Default
   - TransparentFX
