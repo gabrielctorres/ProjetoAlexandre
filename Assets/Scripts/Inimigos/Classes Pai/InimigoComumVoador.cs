@@ -5,6 +5,7 @@ using UnityEngine;
 public class InimigoComumVoador : MonoBehaviour
 {
     public float hp;
+    public float dano;
     public bool podeSeguir;
     public bool estaSeMovendo;
     public float velocidadeDoInimigo = 3;
@@ -16,6 +17,8 @@ public class InimigoComumVoador : MonoBehaviour
     protected SpriteRenderer sprite;
     public int direcaoOlhar = -1;
 
+    public Personagem personagem;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -23,6 +26,7 @@ public class InimigoComumVoador : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         spriteAnimation = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        personagem = GameObject.Find("Personagem").GetComponent<Personagem>();
     }
 
     // Update is called once per frame
@@ -54,5 +58,5 @@ public class InimigoComumVoador : MonoBehaviour
         sprite.flipX = !sprite.flipX;
         direcaoOlhar *= -1;
         velocidadeDoInimigo *= -1;
-    }
+    }    
 }

@@ -6,6 +6,8 @@ public abstract class InimigoComum : MonoBehaviour
 {
     float taxaAtaque = 1;
     float proximoAtaque = 0;
+    GameObject bolaTeia;
+
     public float hp;
    
     public bool podeSeguir;    
@@ -31,22 +33,51 @@ public abstract class InimigoComum : MonoBehaviour
     protected SpriteRenderer sprite;
     public int direcaoOlhar = -1;
     public BossFase1 bossFase1;
+
+    [Header("Configs de patrulha")]
+    Vector3 posicaoDeslocadaDireita;
+    Vector3 posicaoDeslocadaEsquerda;
+    bool irPraEsquerda;
+    bool irPraDireita;
+    bool estaPatrulhando;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
         posicaoDoJogador = GameObject.Find("Personagem").GetComponent<Transform>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         spriteAnimation = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();        
+        sprite = GetComponent<SpriteRenderer>();
+        bolaTeia = GameObject.Find("BolaTeia");
 
+        if (this.gameObject.tag == "Aranha")
+        {
+            posicaoDeslocadaDireita = transform.position;
+            posicaoDeslocadaDireita.x += 5;
+            posicaoDeslocadaEsquerda = transform.position;
+            posicaoDeslocadaEsquerda.x -= 5;
+            irPraDireita = true;
+            irPraEsquerda = false;
+            estaPatrulhando = true;
+        }
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && sprite.flipX || posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && !sprite.flipX)
+        if (this.gameObject.tag != "Aranha")
         {
-            Flip();
+            if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && sprite.flipX || posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && !sprite.flipX)
+            {
+                Flip();
+            }
+        }
+        else if(this.gameObject.tag== "Aranha" && estaPatrulhando == false)
+        {
+            if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && !sprite.flipX || posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && sprite.flipX)
+            {
+                Flip();
+            }
         }
     }
 
@@ -55,8 +86,13 @@ public abstract class InimigoComum : MonoBehaviour
         if(this.gameObject.tag == "Guarda" || this.gameObject.tag == "Escorpiao" || this.gameObject.tag == "Marinheiro" && podeSeguir)
         {
             SeguirJogador();
-        }        
-    }
+        }
+
+        if (this.gameObject.tag == "Aranha")
+        {
+            InimigoAtiradorIA();
+        }
+    }    
 
     public void SeguirJogador()
     {
@@ -119,14 +155,14 @@ public abstract class InimigoComum : MonoBehaviour
 
     public void AtacarJogador()
     {
-        if (Time.time > proximoAtaque)
+        if (Time.time > proximoAtaque && this.gameObject.tag!="Aranha")
         {
             proximoAtaque = Time.time + taxaAtaque;
             spriteAnimation.SetBool("podeAtacar", true);
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(posicaoArma.position, tamanhoAtaque, hitMask);
             
-            //Passando por casa inimigo e aplicando dano e aplicando força
+            //Passando por cada inimigo e aplicando dano e aplicando força
             foreach (Collider2D objeto in hitEnemies)
             {
                 if (!objeto.GetComponent<Personagem>().invulneravel)
@@ -137,10 +173,16 @@ public abstract class InimigoComum : MonoBehaviour
             }           
         }
 
+        else if(Time.time > proximoAtaque && this.gameObject.tag == "Aranha")
+        {
+            proximoAtaque = Time.time + taxaAtaque;            
+            spriteAnimation.SetBool("podeAtacar", true);            
+        }
+
         else
         {
-            spriteAnimation.SetBool("podeAtacar", false);            
-        }              
+            spriteAnimation.SetBool("podeAtacar", false);
+        }
     }
 
     private void OnDrawGizmos()
@@ -171,5 +213,45 @@ public abstract class InimigoComum : MonoBehaviour
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.3f);
         sprite.color = Color.white;        
-    }       
+    }
+    
+    public void InimigoAtiradorIA()
+    {
+        distancia = Vector2.Distance(this.gameObject.transform.position, posicaoDoJogador.position);
+
+        if (distancia < 8f)
+        {
+            velocidadeDoInimigo = 0f;            
+            spriteAnimation.SetBool("podeAtacar", true);
+            estaPatrulhando = false;
+        }
+        else
+        {
+            velocidadeDoInimigo = 3f;
+            spriteAnimation.SetBool("podeAtacar", false);
+            estaPatrulhando = true;
+            StartCoroutine(Patrulha());            
+        }
+    }
+
+    IEnumerator Patrulha()
+    {
+        if (irPraDireita)
+        {
+            sprite.flipX = true;
+            transform.position = Vector3.MoveTowards(transform.position, posicaoDeslocadaDireita, Mathf.Abs(velocidadeDoInimigo) * Time.deltaTime);
+            yield return new WaitForSeconds(3.0f);
+            irPraDireita = false;
+            irPraEsquerda = true;
+        }
+
+        if (irPraEsquerda)
+        {
+            sprite.flipX = false;
+            transform.position = Vector3.MoveTowards(transform.position, posicaoDeslocadaEsquerda, Mathf.Abs(velocidadeDoInimigo) * Time.deltaTime);
+            yield return new WaitForSeconds(3.0f);
+            irPraEsquerda = false;
+            irPraDireita = true;
+        }
+    }
 }
