@@ -101,12 +101,14 @@ MonoBehaviour:
   hp: 0
   podeSeguir: 0
   posicaoDoJogador: {fileID: 0}
-  posicaoArma: {fileID: 0}
-  tamanhoAtaque: 0.5
+  posicaoArma: {fileID: 478542129181505950}
+  tamanhoAtaque: 0
   dano: 0
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
+  projetil: {fileID: 1572598029245634448, guid: e8fd0964775806b49b66c4079f70255e,
+    type: 3}
   direcaoOlhar: -1
   bossFase1: {fileID: 0}
 --- !u!95 &6649119014326404452
