@@ -103,9 +103,13 @@ public class Alexandre : Personagem
            foreach (Collider2D enemy in hitEnemies)
             {
                 Debug.Log("Usando a adaga você acertou: " + enemy.name);
-                enemy.GetComponent<InimigoComum>().TomarDano(danoAdaga);
-                enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemy.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.9f, ForceMode2D.Impulse);
+                if(enemy.GetComponent<InimigoComum>() != null)
+                {
+                    enemy.GetComponent<InimigoComum>().TomarDano(danoAdaga);
+                    enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                    enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemy.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.9f, ForceMode2D.Impulse);
+                }else if(enemy.GetComponent<EntidadeBase>() != null)
+                    enemy.GetComponent<InimigoComum>().TomarDano(danoAdaga);
             }
 
             foreach (Collider2D objeto in hitObjects)
@@ -149,9 +153,13 @@ public class Alexandre : Personagem
             foreach (Collider2D enemys in hitEnemies)
             {
                 Debug.Log("Usando a espada você acertou: " + enemys.name);
-                enemys.GetComponent<InimigoComum>().TomarDano(danoEspada);
-                enemys.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-                enemys.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemys.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2.6f, ForceMode2D.Impulse);
+                if (enemys.GetComponent<InimigoComum>() != null)
+                {
+                    enemys.GetComponent<InimigoComum>().TomarDano(danoEspada);
+                    enemys.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                    enemys.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemys.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 2.6f, ForceMode2D.Impulse);
+                }
+                else if (enemys.GetComponent<EntidadeBase>() != null) enemys.GetComponent<EntidadeBase>().TomarDano(danoEspada);
             }
 
             foreach (Collider2D objeto in hitObjects)

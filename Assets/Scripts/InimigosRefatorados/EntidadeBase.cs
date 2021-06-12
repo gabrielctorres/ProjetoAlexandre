@@ -20,5 +20,16 @@ public abstract class EntidadeBase : MonoBehaviour
     public void TomarDano(float dano)
     {
         vida -= dano;
+        StartCoroutine(EfeitoDano());
+    }
+
+
+
+    IEnumerator EfeitoDano()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        StopCoroutine(EfeitoDano());
     }
 }
