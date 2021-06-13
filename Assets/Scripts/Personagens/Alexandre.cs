@@ -8,6 +8,7 @@ public class Alexandre : Personagem
     public GameObject tutorialAtaque,tutorialAtaque2;  
 
     bool podePegar;
+    bool podePegarDash;
     Animator mesaAnimator;
     float timerSkillOne = 0f;
     float timerSkillOneMax = 1.4f;
@@ -21,6 +22,7 @@ public class Alexandre : Personagem
 
     float timerDesh = 0f;
     bool habilidadeDesh = true;
+    public bool temDash = false;
 
     public Image timerImageAdaga;
     public Image timerImageEspada;
@@ -71,7 +73,14 @@ public class Alexandre : Personagem
         {
             PegaArma();
         }
-        if(textReliquias != null)
+
+        if (Input.GetKeyDown(KeyCode.Z) && podePegarDash)
+        {
+            temDash = true;
+        }
+
+
+        if (textReliquias != null)
             textReliquias.text = "Reliquias Coletadas: " + numReliquias;       
     }
 
@@ -198,6 +207,7 @@ public class Alexandre : Personagem
 
     public void Dash()
     {
+
         if (!habilidadeDesh)
         {
             if (timerDesh <= 0.3f)
@@ -213,11 +223,11 @@ public class Alexandre : Personagem
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && habilidadeDesh)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && habilidadeDesh && temDash)
         {
             
             spriteAnimation.SetBool("Dash", true);            
-            rb2d.AddForce((Vector2.right * direcaoOlhar).normalized * (velocidade * 10f), ForceMode2D.Impulse);
+            rb2d.AddForce((Vector2.right * direcaoOlhar).normalized * (velocidade * 15f), ForceMode2D.Impulse);
         }
         else
         {
@@ -264,6 +274,15 @@ public class Alexandre : Personagem
             numReliquias++;
             Destroy(collision.gameObject);
         }
+
+
+        if (collision.name == "FonteMagica" && !temDash)
+        {
+            podePegarDash = true;
+            collision.transform.GetChild(2).transform.gameObject.SetActive(true);
+        }
+
+
     }       
 
     IEnumerator BloqueandoRotacao()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class EntidadeBase : MonoBehaviour
 {
-    public float vida;
+    public float vida,vidaMax;
     public float dano;
     public float velocidade;
     [HideInInspector] public Animator spriteAnimacao;

@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using Cinemachine;
 
 public class FaunoVG : EntidadeBase
 {
     public FaunoEstado modoFauno;
+
+    [Header("Interface")]
+    public GameObject bossLife;
+    public Image bossImage;
+    public TextMeshProUGUI nameText;
+
 
     [Header("Controle dos ataques", order = 1)]
     public Queue<string> ataques = new Queue<string>();
@@ -29,7 +38,7 @@ public class FaunoVG : EntidadeBase
     public float magnitude = 0.5f;
     private Transform jogadorPosicao;
 
-   
+    public CinemachineVirtualCamera cam;
     
     private bool vendoPlayer;
     private float atktempoderecarga = 0;
@@ -38,6 +47,7 @@ public class FaunoVG : EntidadeBase
 
     private void Start()
     {
+        
         spriteAnimacao = GetComponent<Animator>();
         modoFauno = FaunoEstado.Flutuando;
         RandomizarAtaque();
@@ -68,7 +78,7 @@ public class FaunoVG : EntidadeBase
     #region Açoes
     public override void Andar()
     {
-        transform.position = new Vector2(Mathf.Cos(Time.time * frequencia) * magnitude, (Mathf.Sin(Time.time * frequencia) * magnitude) + 3f);
+        transform.position = new Vector2((Mathf.Cos(Time.time * frequencia) * magnitude) + 271, (Mathf.Sin(Time.time * frequencia) * magnitude) + 3f);
     }
 
     public override void Atacar()
@@ -84,8 +94,7 @@ public class FaunoVG : EntidadeBase
                 modoFauno = FaunoEstado.Descansando;
         }
         else
-        {
-            Debug.Log("atk em recarga");
+        {           
             Andar();
             atktempoderecarga -= Time.deltaTime;
         }
@@ -100,17 +109,17 @@ public class FaunoVG : EntidadeBase
         }
         else
         {
-            Debug.Log("Procurando Player");
+            
             return;
         }
     }
     public void ControlandoVida()
     {
-        if (vida > 10)
-            frequencia = 2;
-        else if (vida <= 10)
-            frequencia = 0.5f;
-        else
+        bossImage.fillAmount = vida / vidaMax;
+
+        frequencia = (vida / vidaMax) * 3;
+
+        if(vida <=0)
             Destroy(this.gameObject);
 
     }
@@ -121,15 +130,13 @@ public class FaunoVG : EntidadeBase
 
         if (tempodescanado <= 0)
         {
-            spriteAnimacao.SetBool("Cansado", false);
-            Debug.Log("descançado");
+            spriteAnimacao.SetBool("Cansado", false);            
             tempodescanado = tempomaximopradescanada;
             RandomizarAtaque();
             modoFauno = FaunoEstado.Flutuando;
         }
         else
-        {
-            Debug.Log("descançando");
+        {            
             tempodescanado -= Time.deltaTime;
             if (transform.position.y > -2.8f)
                 transform.Translate((new Vector3(0, -2.8f, 0f) * 5f * Time.deltaTime));
@@ -144,17 +151,15 @@ public class FaunoVG : EntidadeBase
 
     public IEnumerator AtaqueFogo()
     {
-        Debug.Log("Ataque de Fogo");
+        
         GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
-        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position).normalized * 6f;
+        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position) * 6f;
         spriteAnimacao.SetBool("AtaqueFogo",true);
         yield return new WaitForSeconds(4f);
-        spriteAnimacao.SetBool("AtaqueFogo", false);
-        Debug.Log("Fogo finalizou");
+        spriteAnimacao.SetBool("AtaqueFogo", false);        
     }
     public IEnumerator AtaqueTerremoto()
-    {
-        Debug.Log("Ataque Terremoto");
+    {        
         for (int i = 0; i < quantidadeDeAtaque; i++)
         {
             int random = Random.Range(0, spawnPointsTerremoto.Count);
@@ -164,12 +169,10 @@ public class FaunoVG : EntidadeBase
         }
         spriteAnimacao.SetBool("AtaqueTerremoto", true);
         yield return new WaitForSeconds(4f);
-        spriteAnimacao.SetBool("AtaqueTerremoto", false);
-        Debug.Log("Terremoto finalizou");
+        spriteAnimacao.SetBool("AtaqueTerremoto", false);        
     }
     public IEnumerator AtaqueInvestida()
-    {
-        Debug.Log("Investida");
+    {        
         if (jogadorPosicao.position.x > 0 && !portal.activeInHierarchy)
             portal.transform.position = new Vector3((jogadorPosicao.position.x + 3f), portal.transform.position.y, 0f);
         else
@@ -181,19 +184,18 @@ public class FaunoVG : EntidadeBase
         if (jogadorPosicao.position.x > 0)
         {
             espirito.GetComponent<SpriteRenderer>().flipX = true;
-            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 8f;
+            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.left * 10f;
         }
         else
         {
             espirito.GetComponent<SpriteRenderer>().flipX = false;
-            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 8f;
+            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.right * 10f;
         }
         spriteAnimacao.SetBool("AtaqueInvestida", true);
         yield return new WaitForSeconds(4f);
         portal.GetComponent<Animator>().SetBool("Fechou", true);
         yield return new WaitForSeconds(3f);
-        portal.GetComponent<Animator>().SetBool("Fechou", false);
-        Debug.Log("Investida finalizou");
+        portal.GetComponent<Animator>().SetBool("Fechou", false);        
         spriteAnimacao.SetBool("AtaqueInvestida", false);
         portal.SetActive(false);
     }
@@ -219,8 +221,12 @@ public class FaunoVG : EntidadeBase
     {
         if (collision.GetComponent<Personagem>() !=null)
         {
+            cam.m_Lens.OrthographicSize = 7;
             vendoPlayer = true;
             jogadorPosicao = collision.transform;
+            bossLife.SetActive(true);
+            nameText.text = this.gameObject.name;
+            this.GetComponent<CircleCollider2D>().radius = 1;
         }
            
     }   

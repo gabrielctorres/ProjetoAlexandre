@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3687603526866291378}
   - component: {fileID: 5988472736845484455}
-  - component: {fileID: 8718458108921750414}
   - component: {fileID: 3633582908679834935}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,19 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a691248eed919244888179dd8414da41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8718458108921750414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916802335570543713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b72e1490c76c64088372af06adc2f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteAnimation: {fileID: 0}
 --- !u!70 &3633582908679834935
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

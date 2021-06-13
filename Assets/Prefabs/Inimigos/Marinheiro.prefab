@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b72b00464d7b741947c166a601c0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 8
+  hp: 6
   podeSeguir: 0
   posicaoDoJogador: {fileID: 0}
   posicaoArma: {fileID: 9061963325236370455}
@@ -155,6 +155,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 8192
+  projetil: {fileID: 0}
   direcaoOlhar: -1
   bossFase1: {fileID: 0}
 --- !u!95 &6337751894089235487
