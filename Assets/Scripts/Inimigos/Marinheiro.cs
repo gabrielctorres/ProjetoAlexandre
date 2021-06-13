@@ -21,4 +21,9 @@ public class Marinheiro : InimigoComum
         base.FixedUpdate();        
     }
 
+    private void OnDestroy()
+    {
+        if(gameObject.GetComponent<LootScript>() != null) gameObject.GetComponent<LootScript>().calculandoLoot();
+    }
+
 }

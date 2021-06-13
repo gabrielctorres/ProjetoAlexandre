@@ -160,7 +160,7 @@ public class Alexandre : Personagem
 
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(pointEspada.position, tamanhoEspada, hitMask);
-            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(pointAdaga.position, tamanhoAdaga, LayerMask.GetMask("ObjetosPesados"));
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(pointAdaga.position, tamanhoAdaga, LayerMask.GetMask("ObjetosPesados", "ObjetosNormais"));
             //Passando por casa inimigo e aplicando dano e aplicando força
             foreach (Collider2D enemys in hitEnemies)
             {

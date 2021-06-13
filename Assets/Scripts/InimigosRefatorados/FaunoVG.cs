@@ -160,7 +160,7 @@ public class FaunoVG : EntidadeBase
     {
         
         GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
-        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position).normalized * 10f;
+        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position) * 2f;
         spriteAnimacao.SetBool("AtaqueFogo",true);
         yield return new WaitForSeconds(2f);
         spriteAnimacao.SetBool("AtaqueFogo", false);        
@@ -188,16 +188,11 @@ public class FaunoVG : EntidadeBase
         yield return new WaitForSeconds(1f);
 
         GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), Quaternion.identity);
+        espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - portal.transform.position) * 2f;
         if (jogadorPosicao.position.x > 0)
-        {
             espirito.GetComponent<SpriteRenderer>().flipX = true;
-            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 16f;
-        }
         else
-        {
             espirito.GetComponent<SpriteRenderer>().flipX = false;
-            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 16f;
-        }
         spriteAnimacao.SetBool("AtaqueInvestida", true);
         yield return new WaitForSeconds(4f);
         portal.GetComponent<Animator>().SetBool("Fechou", true);
