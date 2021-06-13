@@ -7,6 +7,7 @@ public class Buttons : MonoBehaviour
 {
     public void ResetaFase()
     {
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class Alexandre : Personagem
 {
@@ -12,6 +13,7 @@ public class Alexandre : Personagem
     Animator mesaAnimator;
     float timerSkillOne = 0f;
     float timerSkillOneMax = 1.4f;
+    public GameObject botaoShifit; // Tirar daqui 
 
     public  BossFase1 bossController;
 
@@ -77,6 +79,7 @@ public class Alexandre : Personagem
         if (Input.GetKeyDown(KeyCode.Z) && podePegarDash)
         {
             temDash = true;
+            botaoShifit.SetActive(true);
         }
 
 
@@ -260,9 +263,7 @@ public class Alexandre : Personagem
 
         if(collision.collider.name == "Barco" && bossController.hpBoss <=0)
         {
-            menuDead.SetActive(true);
-            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo";
-            Time.timeScale = 0;
+            SceneManager.LoadScene("CenaFase2", LoadSceneMode.Single);
         }
 
     }
@@ -276,10 +277,10 @@ public class Alexandre : Personagem
         }
 
 
-        if (collision.name == "FonteMagica" && !temDash)
+        if (collision.CompareTag("FonteMagica") && !temDash)
         {
             podePegarDash = true;
-            collision.transform.GetChild(2).transform.gameObject.SetActive(true);
+            collision.transform.GetChild(0).transform.gameObject.SetActive(true);
         }
 
 

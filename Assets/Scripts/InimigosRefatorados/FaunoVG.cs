@@ -13,7 +13,7 @@ public class FaunoVG : EntidadeBase
     public GameObject bossLife;
     public Image bossImage;
     public TextMeshProUGUI nameText;
-
+    public GameObject menuDead;
 
     [Header("Controle dos ataques", order = 1)]
     public Queue<string> ataques = new Queue<string>();
@@ -27,15 +27,14 @@ public class FaunoVG : EntidadeBase
     [Header("Ataque Investida")]
     public GameObject portal;
     public GameObject prefabEspirito;
-    float taxaAtaqueInvestida = 4f;
 
     [Header("Ataque Bola de Fogo")]
     public Transform spawnPosition;
     public GameObject prefabFogo;
 
     [Header("Movimentação Circular")]
-    public float frequencia = 16f;
-    public float magnitude = 0.5f;
+    public float frequencia;
+    public float magnitude;
     private Transform jogadorPosicao;
 
     public CinemachineVirtualCamera cam;
@@ -49,8 +48,8 @@ public class FaunoVG : EntidadeBase
     {
         
         spriteAnimacao = GetComponent<Animator>();
-        modoFauno = FaunoEstado.Flutuando;
-        RandomizarAtaque();
+        modoFauno = FaunoEstado.Flutuando;    
+
         tempodescanado = tempomaximopradescanada;
     }
     private void Update()
@@ -105,13 +104,21 @@ public class FaunoVG : EntidadeBase
         Andar();
         if (vendoPlayer)
         {
-            modoFauno = FaunoEstado.Atacando;
+            StartCoroutine(esperar());
         }
         else
         {
             
             return;
         }
+    }
+
+    IEnumerator esperar()
+    {
+        yield return new WaitForSeconds(5f);
+        RandomizarAtaque();
+        modoFauno = FaunoEstado.Atacando;
+        StopCoroutine(esperar());
     }
     public void ControlandoVida()
     {
@@ -153,9 +160,9 @@ public class FaunoVG : EntidadeBase
     {
         
         GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
-        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position) * 6f;
+        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position).normalized * 10f;
         spriteAnimacao.SetBool("AtaqueFogo",true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         spriteAnimacao.SetBool("AtaqueFogo", false);        
     }
     public IEnumerator AtaqueTerremoto()
@@ -180,16 +187,16 @@ public class FaunoVG : EntidadeBase
         portal.SetActive(true);
         yield return new WaitForSeconds(1f);
 
-        GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), transform.rotation);
+        GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), Quaternion.identity);
         if (jogadorPosicao.position.x > 0)
         {
             espirito.GetComponent<SpriteRenderer>().flipX = true;
-            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.left * 10f;
+            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 16f;
         }
         else
         {
             espirito.GetComponent<SpriteRenderer>().flipX = false;
-            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.right * 10f;
+            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 16f;
         }
         spriteAnimacao.SetBool("AtaqueInvestida", true);
         yield return new WaitForSeconds(4f);
@@ -235,5 +242,12 @@ public class FaunoVG : EntidadeBase
     public override void ProcurandoJogador()
     {
        
+    }
+
+    private void OnDestroy()
+    {
+        menuDead.SetActive(true);
+        menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo, não esqueça de responder o  formulario";
+        Time.timeScale = 0;
     }
 }

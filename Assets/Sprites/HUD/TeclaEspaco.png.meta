@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 9cf505fe768568142826fc2ef63e53ee
+guid: d4b6157d4c239744ca9325b9498688c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 555523348881020399
-    second: TeclaShift_0
+      213: 4657350143336184283
+    second: TeclaEspaco_0
   - first:
-      213: -8298553218316618037
-    second: TeclaShift_1
+      213: 6325288263030975357
+    second: TeclaEspaco_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TeclaShift_0
+      name: TeclaEspaco_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,20 +113,20 @@ TextureImporter:
         width: 62
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe51d72ea8d95b700800000000000000
-      internalID: 555523348881020399
+      spriteID: bd9fa28974b32a040800000000000000
+      internalID: 4657350143336184283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TeclaShift_1
+      name: TeclaEspaco_1
       rect:
         serializedVersion: 2
         x: 62
@@ -134,14 +134,14 @@ TextureImporter:
         width: 62
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc63098c0dd95dc80800000000000000
-      internalID: -8298553218316618037
+      spriteID: d7ba8e39920f7c750800000000000000
+      internalID: 6325288263030975357
       vertices: []
       indices: 
       edges: []

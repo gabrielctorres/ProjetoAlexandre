@@ -15,6 +15,7 @@ TagManager:
   - Parede
   - Papagaio
   - Aranha
+  - FonteMagica
   layers:
   - Default
   - TransparentFX

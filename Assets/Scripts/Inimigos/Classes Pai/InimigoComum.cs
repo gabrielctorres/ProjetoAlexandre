@@ -161,7 +161,8 @@ public abstract class InimigoComum : MonoBehaviour
     {
         sprite.flipX = !sprite.flipX;        
         direcaoOlhar *= -1;
-        velocidadeDoInimigo *= -1;        
+        velocidadeDoInimigo *= -1;
+        //posicaoArma.position = new Vector2((posicaoArma.position.x * -direcaoOlhar), posicaoArma.position.y);
     }
 
     public void AtacarJogador()
