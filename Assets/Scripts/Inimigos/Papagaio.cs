@@ -7,7 +7,9 @@ public class Papagaio : InimigoComumVoador
     Vector3 posicaoDeslocadaDireita;
     Vector3 posicaoDeslocadaEsquerda;
     bool irPraEsquerda;
-    bool irPraDireita;    
+    bool irPraDireita;
+    GameObject explosaoPapagaio;
+    float delay = 1f;
 
     // Start is called before the first frame update
     public override void Start()
@@ -20,6 +22,7 @@ public class Papagaio : InimigoComumVoador
         irPraDireita = true;
         irPraEsquerda = false;        
         dano = 2f;
+        explosaoPapagaio = GameObject.Find("PapagaioExplosao");
     }
 
     // Update is called once per frame
@@ -67,13 +70,17 @@ public class Papagaio : InimigoComumVoador
         if (collision.name == "Personagem")
         {
             personagem.DarDano(dano);
+            explosaoPapagaio = Instantiate(explosaoPapagaio, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+            Destroy(explosaoPapagaio, explosaoPapagaio.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
         }
     }
 
     IEnumerator Kamikaze()
     {
         yield return new WaitForSeconds(3.0f);
+        explosaoPapagaio = Instantiate(explosaoPapagaio, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
-    }
+        Destroy(explosaoPapagaio, explosaoPapagaio.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+    }    
 }
