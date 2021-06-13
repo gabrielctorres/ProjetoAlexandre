@@ -20,8 +20,7 @@ public class Papagaio : InimigoComumVoador
         posicaoDeslocadaEsquerda = transform.position;
         posicaoDeslocadaEsquerda.x -= 10;
         irPraDireita = true;
-        irPraEsquerda = false;        
-        dano = 2f;
+        irPraEsquerda = false;
         explosaoPapagaio = GameObject.Find("PapagaioExplosao");
     }
 

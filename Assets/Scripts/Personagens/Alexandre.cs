@@ -164,7 +164,7 @@ public class Alexandre : Personagem
 
             foreach (Collider2D objeto in hitObjects)
             {
-                objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
+               if(objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation != null) objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
             }
 

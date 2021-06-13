@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  dano: 0
+  dano: 1
   podeSeguir: 0
   estaSeMovendo: 0
   velocidadeDoInimigo: 3

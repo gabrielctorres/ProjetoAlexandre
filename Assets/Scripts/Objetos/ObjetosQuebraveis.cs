@@ -9,7 +9,8 @@ public class ObjetosQuebraveis : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteAnimation = this.gameObject.GetComponentInParent<Animator>();
+        if (this.gameObject.GetComponentInParent<Animator>() !=null)
+            spriteAnimation = this.gameObject.GetComponentInParent<Animator>();
     }
 
     //spriteAnimation.SetBool("Pulando", false);
@@ -36,7 +37,7 @@ public class ObjetosQuebraveis : MonoBehaviour
             this.gameObject.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
         else
         {
-            this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
+           if(this.gameObject.GetComponentInParent<LootScript>() != null) this.gameObject.GetComponentInParent<LootScript>().calculandoLoot();
         }
         Destroy(transform.parent.gameObject);
     }

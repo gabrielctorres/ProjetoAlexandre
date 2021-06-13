@@ -244,7 +244,7 @@ public abstract class Personagem : MonoBehaviour
         velocidade = 0;
         rb2d.velocity = Vector2.zero;        
         podeAndar = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.4f);
         velocidade = aux;        
         podeAndar = true;       
         StopCoroutine(Stun());
