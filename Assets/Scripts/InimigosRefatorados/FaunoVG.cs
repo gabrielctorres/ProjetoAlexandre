@@ -1,0 +1,233 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FaunoVG : EntidadeBase
+{
+    public FaunoEstado modoFauno;
+
+    [Header("Controle dos ataques", order = 1)]
+    public Queue<string> ataques = new Queue<string>();
+    public int ataqueMax;
+
+    [Header("Ataque Terremoto")]
+    public int quantidadeDeAtaque;
+    public List<GameObject> spawnPointsTerremoto = new List<GameObject>();
+
+
+    [Header("Ataque Investida")]
+    public GameObject portal;
+    public GameObject prefabEspirito;
+    float taxaAtaqueInvestida = 4f;
+
+    [Header("Ataque Bola de Fogo")]
+    public Transform spawnPosition;
+    public GameObject prefabFogo;
+
+    [Header("Movimentação Circular")]
+    public float frequencia = 16f;
+    public float magnitude = 0.5f;
+    private Transform jogadorPosicao;
+
+   
+    
+    private bool vendoPlayer;
+    private float atktempoderecarga = 0;
+    public float tempomaximopradescanada = 5;
+    private float tempodescanado;
+
+    private void Start()
+    {
+        spriteAnimacao = GetComponent<Animator>();
+        modoFauno = FaunoEstado.Flutuando;
+        RandomizarAtaque();
+        tempodescanado = tempomaximopradescanada;
+    }
+    private void Update()
+    {
+        VerificarEstados();
+        ControlandoVida();
+    }
+    public void VerificarEstados()
+    {
+        switch (modoFauno)
+        {
+            case FaunoEstado.Flutuando:
+                EsperandoAtaque();
+                break;
+            case FaunoEstado.Descansando:
+                Descansando();
+                break;
+            case FaunoEstado.Atacando:
+                Atacar();
+                break;
+        }
+    }
+
+
+    #region Açoes
+    public override void Andar()
+    {
+        transform.position = new Vector2(Mathf.Cos(Time.time * frequencia) * magnitude, (Mathf.Sin(Time.time * frequencia) * magnitude) + 3f);
+    }
+
+    public override void Atacar()
+    {
+        if (atktempoderecarga <= 0)
+        {
+            if (ataques.Count > 0)
+            {
+                StartCoroutine(ataques.Dequeue());
+                atktempoderecarga = 5;
+            }
+            else
+                modoFauno = FaunoEstado.Descansando;
+        }
+        else
+        {
+            Debug.Log("atk em recarga");
+            Andar();
+            atktempoderecarga -= Time.deltaTime;
+        }
+    }
+
+    public void EsperandoAtaque()
+    {
+        Andar();
+        if (vendoPlayer)
+        {
+            modoFauno = FaunoEstado.Atacando;
+        }
+        else
+        {
+            Debug.Log("Procurando Player");
+            return;
+        }
+    }
+    public void ControlandoVida()
+    {
+        if (vida > 10)
+            frequencia = 2;
+        else if (vida <= 10)
+            frequencia = 0.5f;
+        else
+            Destroy(this.gameObject);
+
+    }
+
+
+    public void Descansando()
+    {
+
+        if (tempodescanado <= 0)
+        {
+            spriteAnimacao.SetBool("Cansado", false);
+            Debug.Log("descançado");
+            tempodescanado = tempomaximopradescanada;
+            RandomizarAtaque();
+            modoFauno = FaunoEstado.Flutuando;
+        }
+        else
+        {
+            Debug.Log("descançando");
+            tempodescanado -= Time.deltaTime;
+            if (transform.position.y > -2.8f)
+                transform.Translate((new Vector3(0, -2.8f, 0f) * 5f * Time.deltaTime));
+            spriteAnimacao.SetBool("Cansado", true);
+        }
+    }
+
+    #endregion
+
+
+    #region Ataques
+
+    public IEnumerator AtaqueFogo()
+    {
+        Debug.Log("Ataque de Fogo");
+        GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
+        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position).normalized * 6f;
+        spriteAnimacao.SetBool("AtaqueFogo",true);
+        yield return new WaitForSeconds(4f);
+        spriteAnimacao.SetBool("AtaqueFogo", false);
+        Debug.Log("Fogo finalizou");
+    }
+    public IEnumerator AtaqueTerremoto()
+    {
+        Debug.Log("Ataque Terremoto");
+        for (int i = 0; i < quantidadeDeAtaque; i++)
+        {
+            int random = Random.Range(0, spawnPointsTerremoto.Count);
+            GameObject estalaquitite = Instantiate(spawnPointsTerremoto[random], spawnPointsTerremoto[random].transform.position, spawnPointsTerremoto[random].transform.rotation);
+            estalaquitite.GetComponent<Rigidbody2D>().gravityScale = 1;
+            estalaquitite.GetComponent<Estalaquitite>().StartDestroy();
+        }
+        spriteAnimacao.SetBool("AtaqueTerremoto", true);
+        yield return new WaitForSeconds(4f);
+        spriteAnimacao.SetBool("AtaqueTerremoto", false);
+        Debug.Log("Terremoto finalizou");
+    }
+    public IEnumerator AtaqueInvestida()
+    {
+        Debug.Log("Investida");
+        if (jogadorPosicao.position.x > 0 && !portal.activeInHierarchy)
+            portal.transform.position = new Vector3((jogadorPosicao.position.x + 3f), portal.transform.position.y, 0f);
+        else
+            portal.transform.position = new Vector3((jogadorPosicao.position.x - 3f), portal.transform.position.y, 0f);
+        portal.SetActive(true);
+        yield return new WaitForSeconds(1f);
+
+        GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), transform.rotation);
+        if (jogadorPosicao.position.x > 0)
+        {
+            espirito.GetComponent<SpriteRenderer>().flipX = true;
+            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 8f;
+        }
+        else
+        {
+            espirito.GetComponent<SpriteRenderer>().flipX = false;
+            espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - espirito.transform.position).normalized * 8f;
+        }
+        spriteAnimacao.SetBool("AtaqueInvestida", true);
+        yield return new WaitForSeconds(4f);
+        portal.GetComponent<Animator>().SetBool("Fechou", true);
+        yield return new WaitForSeconds(3f);
+        portal.GetComponent<Animator>().SetBool("Fechou", false);
+        Debug.Log("Investida finalizou");
+        spriteAnimacao.SetBool("AtaqueInvestida", false);
+        portal.SetActive(false);
+    }
+    #endregion
+    public void RandomizarAtaque()
+    {
+        if (ataques.Count >= ataqueMax)
+            return;
+        for (int i = 0; i < ataqueMax; i++)
+        {
+            int random = Random.Range(1, 4);
+
+            if (random == 1)
+                ataques.Enqueue("AtaqueFogo");
+            else if (random == 2)
+                ataques.Enqueue("AtaqueInvestida");
+            else if (random == 3)
+                ataques.Enqueue("AtaqueTerremoto");
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Personagem>() !=null)
+        {
+            vendoPlayer = true;
+            jogadorPosicao = collision.transform;
+        }
+           
+    }   
+
+
+    public override void ProcurandoJogador()
+    {
+       
+    }
+}

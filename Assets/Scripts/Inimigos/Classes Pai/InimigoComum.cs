@@ -75,11 +75,21 @@ public abstract class InimigoComum : MonoBehaviour
         }
         else if(this.gameObject.tag== "Aranha" && estaPatrulhando == false)
         {
-            if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && !sprite.flipX || posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && sprite.flipX)
+            if (posicaoDoJogador.transform.position.x > this.gameObject.transform.position.x && !sprite.flipX)
             {
                 Flip();
+                posicaoArma.transform.localPosition = new Vector2(-0.46f, -0.54f);
+            }
+            else if(posicaoDoJogador.transform.position.x < this.gameObject.transform.position.x && sprite.flipX)
+            {
+                Flip();
+                posicaoArma.transform.localPosition = new Vector2(0.46f, -0.54f);
             }
         }
+
+
+        
+
     }
 
     public virtual void FixedUpdate()
@@ -149,10 +159,9 @@ public abstract class InimigoComum : MonoBehaviour
 
     public void Flip()
     {
-        sprite.flipX = !sprite.flipX;
-        posicaoArma.transform.Rotate(0, 180, 0);
+        sprite.flipX = !sprite.flipX;        
         direcaoOlhar *= -1;
-        velocidadeDoInimigo *= -1;
+        velocidadeDoInimigo *= -1;        
     }
 
     public void AtacarJogador()
@@ -217,7 +226,8 @@ public abstract class InimigoComum : MonoBehaviour
     {
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.3f);
-        sprite.color = Color.white;        
+        sprite.color = Color.white;
+        StopCoroutine(EfeitoDano());
     }
     
     public void InimigoAtiradorIA()
