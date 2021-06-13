@@ -22,6 +22,7 @@ public class Fauno : EntidadeBase
     public List<GameObject> spawnPointsTerremoto = new List<GameObject>();
 
     [Header("Ataque Investida")]
+    float taxaAtaqueInvestida = 4f;
     public GameObject portal;
     public GameObject prefabEspirito;
 
@@ -73,12 +74,9 @@ public class Fauno : EntidadeBase
 
     public void ControlandoVida()
     {
-        if (vida > 10)
-            frequencia = 2;
-        else if (vida <=10)
-            frequencia = 0.5f;
-        else
-            Destroy(this.gameObject);
+        
+        if (vida < 0)
+            Destroy(this.gameObject);           
 
     }
 
@@ -118,6 +116,7 @@ public class Fauno : EntidadeBase
         spriteAnimacao.SetBool(nomeAtaque, true);
         spriteAnimacao.SetBool("AtaqueTerremoto", false);
         spriteAnimacao.SetBool("AtaqueInvestida", false);
+        modoFauno = FaunoEstado.Flutuando;
     }
 
     public void AtaqueTerremoto(string nomeAtaque)
@@ -142,34 +141,24 @@ public class Fauno : EntidadeBase
     public IEnumerator AtaqueInvestida(string nomeAtaque)
     {
         Debug.Log(nomeAtaque);
-        if(jogadorPosicao.position.x > 0)
-            portal.transform.position = new Vector3((jogadorPosicao.position.x + 3f), portal.transform.position.y, 0f);
-        else
-            portal.transform.position = new Vector3((jogadorPosicao.position.x - 3f), portal.transform.position.y, 0f);
         portal.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         if (Time.time > proximoAtaque)
         {
-            proximoAtaque = Time.time + taxaAtaque;
+            proximoAtaque = Time.time + taxaAtaqueInvestida;
             GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f,0f), transform.rotation);
-            if (jogadorPosicao.position.x > 0)
-            {
-                espirito.GetComponent<SpriteRenderer>().flipX = true;
-                espirito.GetComponent<Rigidbody2D>().velocity = Vector2.right * 15f;
-            }                
-            else
-            {
-                espirito.GetComponent<SpriteRenderer>().flipX = false;
-                espirito.GetComponent<Rigidbody2D>().velocity = Vector2.left * 15f;               
-            }
+            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.left * 9f;
             spriteAnimacao.SetBool(nomeAtaque, true);
             spriteAnimacao.SetBool("AtaqueFogo", false);
             spriteAnimacao.SetBool("AtaqueTerremoto", false);
            
         }
+        yield return new WaitForSeconds(2f);
         portal.GetComponent<Animator>().SetBool("Fechou", true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.2f);
+        portal.GetComponent<Animator>().SetBool("Fechou", false);
         portal.SetActive(false);
+        StopCoroutine(AtaqueInvestida(" "));
     }
     #endregion
 
@@ -180,14 +169,14 @@ public class Fauno : EntidadeBase
             return;
         for (int i = 0; i < ataqueMax; i++)
         {
-            int random = Random.Range(1, 4);
+            int random = Random.Range(1, 6);
 
             if (random == 1)
                 ataques.Enqueue("AtaqueFogo");
             else if (random == 2)
-                ataques.Enqueue("AtaqueTerremoto");
-            else if (random == 3)
                 ataques.Enqueue("AtaqueInvestida");
+            else if (random == 3)
+                ataques.Enqueue("AtaqueTerremoto");
         }
 
     }
@@ -200,17 +189,15 @@ public class Fauno : EntidadeBase
         if (ataque == "AtaqueFogo")
         {
             AtaqueFogo(ataque);
-        }
-        yield return new WaitForSeconds(3f);
-        if (ataque == "AtaqueInvestida")
+        }else if (ataque == "AtaqueInvestida")
         {
             StartCoroutine(AtaqueInvestida(ataque));
-        }
-        yield return new WaitForSeconds(3f);
-        if (ataque == "AtaqueTerremoto")
+
+        }else if (ataque == "AtaqueTerremoto")
         {
             AtaqueTerremoto(ataque);
         }
+        StopCoroutine(SelecionandoAtaque());
     }
     IEnumerator EsperandoAtaque()
     {
@@ -228,14 +215,12 @@ public class Fauno : EntidadeBase
         spriteAnimacao.SetBool("AtaqueFogo", false);
         spriteAnimacao.SetBool("AtaqueInvestida", false);
         spriteAnimacao.SetBool("Cansado", true);
-        frequencia = 0;
         yield return new WaitForSeconds(3);
         if(transform.position.y > -2.8f)
-            transform.Translate((new Vector3(0, -2.8f, 0f) * 10f * Time.deltaTime));
-        yield return new WaitForSeconds(10f);       
+            transform.Translate((new Vector3(0, -2.8f, 0f) * 7f * Time.deltaTime));
+        yield return new WaitForSeconds(6.5f);       
         modoFauno = FaunoEstado.Flutuando;
         spriteAnimacao.SetBool("Cansado", false);
-        frequencia = 2;
         StopCoroutine(Descansar());
     }
 

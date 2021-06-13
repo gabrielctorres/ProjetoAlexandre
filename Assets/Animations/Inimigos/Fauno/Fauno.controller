@@ -154,7 +154,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 5669065045743135280}
-    m_Position: {x: 250, y: 100, z: 0}
+    m_Position: {x: 300, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1485503821704022680}
     m_Position: {x: 450, y: 200, z: 0}
@@ -643,7 +643,7 @@ AnimatorStateMachine:
     m_Position: {x: 40, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2000540275418653495}
-    m_Position: {x: -180, y: -580, z: 0}
+    m_Position: {x: -90, y: -580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 551686298078978475}
     m_Position: {x: 20, y: -580, z: 0}
@@ -655,13 +655,13 @@ AnimatorStateMachine:
     m_Position: {x: -270, y: -760, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2417871994898831264}
-    m_Position: {x: -270, y: -690, z: 0}
+    m_Position: {x: -280, y: -670, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -478057099266464727}
     m_Position: {x: -270, y: -520, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8888678663131468442}
-    m_Position: {x: -390, y: -570, z: 0}
+    m_Position: {x: -440, y: -580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9002184923397965307}
     m_Position: {x: -750, y: -570, z: 0}
@@ -681,7 +681,7 @@ AnimatorStateMachine:
   - first: {fileID: -5894348559227578863}
     second: []
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -250, y: -830, z: 0}
+  m_AnyStatePosition: {x: -200, y: -980, z: 0}
   m_EntryPosition: {x: 60, y: 90, z: 0}
   m_ExitPosition: {x: -230, y: -380, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -972,11 +972,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0
+  m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.673913
-  m_HasExitTime: 0
-  m_HasFixedDuration: 0
+  m_ExitTime: 0.9
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1

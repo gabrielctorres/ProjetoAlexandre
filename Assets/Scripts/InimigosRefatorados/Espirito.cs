@@ -20,7 +20,7 @@ public class Espirito : MonoBehaviour
     {
         if(collision.GetComponent<Personagem>() != null)
         {
-            collision.GetComponent<Personagem>().DarDano(1f);
+            collision.GetComponent<Personagem>().DarDano(0.4f);
             Destroy(this.gameObject);
         }
     }

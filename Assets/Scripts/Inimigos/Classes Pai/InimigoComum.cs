@@ -226,7 +226,8 @@ public abstract class InimigoComum : MonoBehaviour
     {
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.3f);
-        sprite.color = Color.white;        
+        sprite.color = Color.white;
+        StopCoroutine(EfeitoDano());
     }
     
     public void InimigoAtiradorIA()

@@ -76,7 +76,7 @@ public class Alexandre : Personagem
     }
 
     #region Ataques
-    public override void Ataque()
+    public override void Ataque()   
     {        
         if (!habilidadeAdagaAtiva)
         {
@@ -109,7 +109,7 @@ public class Alexandre : Personagem
                     enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
                     enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(enemy.GetComponent<InimigoComum>().direcaoOlhar * -1, 0) * 1.9f, ForceMode2D.Impulse);
                 }else if(enemy.GetComponent<EntidadeBase>() != null)
-                    enemy.GetComponent<InimigoComum>().TomarDano(danoAdaga);
+                    enemy.GetComponent<EntidadeBase>().TomarDano(danoAdaga);
             }
 
             foreach (Collider2D objeto in hitObjects)
