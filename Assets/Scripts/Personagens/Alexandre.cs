@@ -230,7 +230,7 @@ public class Alexandre : Personagem
         {
             
             spriteAnimation.SetBool("Dash", true);            
-            rb2d.AddForce((Vector2.right * direcaoOlhar).normalized * (velocidade * 15f), ForceMode2D.Impulse);
+            rb2d.AddForce((Vector2.right * horizontal).normalized * (velocidade * 15f), ForceMode2D.Impulse);
         }
         else
         {

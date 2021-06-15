@@ -125,9 +125,16 @@ public class FaunoVG : EntidadeBase
         bossImage.fillAmount = vida / vidaMax;
 
         frequencia = (vida / vidaMax) * 3;
-
-        if(vida <=0)
+        
+        if(vida <= 0)
+        {
+            
+            menuDead.SetActive(true);
+            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo, não esqueça de responder o  formulario";
             Destroy(this.gameObject);
+            Time.timeScale = 0;
+        }
+            
 
     }
 
@@ -166,7 +173,8 @@ public class FaunoVG : EntidadeBase
         spriteAnimacao.SetBool("AtaqueFogo", false);        
     }
     public IEnumerator AtaqueTerremoto()
-    {        
+    {
+        GetComponent<ShakeCamera>().MexendoCamera(2f, 6f);
         for (int i = 0; i < quantidadeDeAtaque; i++)
         {
             int random = Random.Range(0, spawnPointsTerremoto.Count);
@@ -174,6 +182,7 @@ public class FaunoVG : EntidadeBase
             estalaquitite.GetComponent<Rigidbody2D>().gravityScale = 1;
             estalaquitite.GetComponent<Estalaquitite>().StartDestroy();
         }
+
         spriteAnimacao.SetBool("AtaqueTerremoto", true);
         yield return new WaitForSeconds(4f);
         spriteAnimacao.SetBool("AtaqueTerremoto", false);        
@@ -181,17 +190,17 @@ public class FaunoVG : EntidadeBase
     public IEnumerator AtaqueInvestida()
     {        
         if (jogadorPosicao.position.x > 0 && !portal.activeInHierarchy)
-            portal.transform.position = new Vector3((jogadorPosicao.position.x + 3f), portal.transform.position.y, 0f);
+            portal.transform.position = new Vector3((jogadorPosicao.position.x + 3.5f), portal.transform.position.y, 0f);
         else
-            portal.transform.position = new Vector3((jogadorPosicao.position.x - 3f), portal.transform.position.y, 0f);
+            portal.transform.position = new Vector3((jogadorPosicao.position.x - 3.5f), portal.transform.position.y, 0f);
         portal.SetActive(true);
         yield return new WaitForSeconds(1f);
 
         GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), Quaternion.identity);
         espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - portal.transform.position) * 2f;
-        if (jogadorPosicao.position.x > 0)
+        if (jogadorPosicao.position.x > portal.transform.position.x)
             espirito.GetComponent<SpriteRenderer>().flipX = true;
-        else
+        else if (jogadorPosicao.position.x < portal.transform.position.x)
             espirito.GetComponent<SpriteRenderer>().flipX = false;
         spriteAnimacao.SetBool("AtaqueInvestida", true);
         yield return new WaitForSeconds(4f);
@@ -241,8 +250,6 @@ public class FaunoVG : EntidadeBase
 
     private void OnDestroy()
     {
-        menuDead.SetActive(true);
-        menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo, não esqueça de responder o  formulario";
-        Time.timeScale = 0;
+
     }
 }
