@@ -8,7 +8,7 @@ using Cinemachine;
 public class FaunoVG : EntidadeBase
 {
     public FaunoEstado modoFauno;
-
+    CinemachineImpulseSource source;
     [Header("Interface")]
     public GameObject bossLife;
     public Image bossImage;
@@ -48,8 +48,8 @@ public class FaunoVG : EntidadeBase
     {
         
         spriteAnimacao = GetComponent<Animator>();
-        modoFauno = FaunoEstado.Flutuando;    
-
+        modoFauno = FaunoEstado.Flutuando;
+        source = GetComponent<CinemachineImpulseSource>();
         tempodescanado = tempomaximopradescanada;
     }
     private void Update()
@@ -174,7 +174,7 @@ public class FaunoVG : EntidadeBase
     }
     public IEnumerator AtaqueTerremoto()
     {
-        GetComponent<ShakeCamera>().MexendoCamera(2f, 6f);
+        source.GenerateImpulse();
         for (int i = 0; i < quantidadeDeAtaque; i++)
         {
             int random = Random.Range(0, spawnPointsTerremoto.Count);
