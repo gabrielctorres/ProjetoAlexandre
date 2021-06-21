@@ -17,7 +17,7 @@ public abstract class Personagem : MonoBehaviour
     public TextMeshProUGUI textReliquias;
 
     public int numReliquias;
-    private float horizontal;
+    protected float horizontal;
     private float vertical;
     public float direcaoOlhar = 1f;
     public float vida;
