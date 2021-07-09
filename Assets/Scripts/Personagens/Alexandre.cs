@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class Alexandre : Personagem
 {
+    public StartData data;
     public GameObject tutorialAtaque,tutorialAtaque2;  
 
     bool podePegar;
@@ -45,6 +46,9 @@ public class Alexandre : Personagem
     
     public override void Start()
     {
+        if(data.position != Vector3.zero)
+            transform.position = data.position;
+        numReliquias = data.quantidadeReliquias;        
         base.Start();
     }   
 

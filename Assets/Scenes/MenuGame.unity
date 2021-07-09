@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startData: {fileID: 0}
 --- !u!114 &676471408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startData: {fileID: 11400000, guid: faeff645cba54dc4d85a1493d3d5df42, type: 2}
 --- !u!114 &734908406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,7 +753,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 734908405}
-        m_MethodName: Jogar
+        m_MethodName: CarregarSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1018,6 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startData: {fileID: 0}
 --- !u!114 &1137186111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,6 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startData: {fileID: 0}
 --- !u!114 &2128061455
 MonoBehaviour:
   m_ObjectHideFlags: 0
