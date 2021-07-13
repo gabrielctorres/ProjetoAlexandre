@@ -256,6 +256,7 @@ public abstract class InimigoComum : MonoBehaviour
         if (irPraDireita)
         {
             sprite.flipX = true;
+            direcaoOlhar = 1;
             transform.position = Vector3.MoveTowards(transform.position, posicaoDeslocadaDireita, Mathf.Abs(velocidadeDoInimigo) * Time.deltaTime);
             yield return new WaitForSeconds(3.0f);
             irPraDireita = false;
@@ -265,6 +266,7 @@ public abstract class InimigoComum : MonoBehaviour
         if (irPraEsquerda)
         {
             sprite.flipX = false;
+            direcaoOlhar = -1;
             transform.position = Vector3.MoveTowards(transform.position, posicaoDeslocadaEsquerda, Mathf.Abs(velocidadeDoInimigo) * Time.deltaTime);
             yield return new WaitForSeconds(3.0f);
             irPraEsquerda = false;
