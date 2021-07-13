@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public abstract class Personagem : MonoBehaviour
 {
+    public int cena;
+
+
     protected Rigidbody2D rb2d;
     private Transform posicaoPe;
     protected Animator spriteAnimation;
@@ -40,6 +44,7 @@ public abstract class Personagem : MonoBehaviour
 
     public virtual void Start()
     {
+        
         rb2d = GetComponent<Rigidbody2D>();
         posicaoPe = transform.GetChild(0).GetComponent<Transform>();
         spriteAnimation = GetComponent<Animator>();
@@ -48,6 +53,7 @@ public abstract class Personagem : MonoBehaviour
     }
     public virtual void FixedUpdate()
     {
+        cena = SceneManager.GetActiveScene().buildIndex;
         SegurarCorda();
 
         Andar();
@@ -229,16 +235,26 @@ public abstract class Personagem : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x + 0.3f, transform.position.y - 0.8f), 0.25f);       
     }
 
-   /* void OnGUI()
-    {
-        GUI.contentColor = Color.green;
-        GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
-        GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
-        GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
-        GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
-    }*/
+    /* void OnGUI()
+     {
+         GUI.contentColor = Color.green;
+         GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
+         GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
+         GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
+         GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
+     }*/
 
-  public IEnumerator Stun()
+    /* void OnGUI()
+ {
+     GUI.contentColor = Color.green;
+     GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
+     GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
+     GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
+     GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
+ }*/
+
+
+    public IEnumerator Stun()
     {
         float aux = 6;
         velocidade = 0;
