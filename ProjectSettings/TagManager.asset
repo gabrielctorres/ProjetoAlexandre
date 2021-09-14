@@ -16,6 +16,7 @@ TagManager:
   - Papagaio
   - Aranha
   - FonteMagica
+  - ObjetoQuebravelSimples
   layers:
   - Default
   - TransparentFX

@@ -6,9 +6,7 @@ using TMPro;
 public class BossFase1 : MonoBehaviour
 {
 
-    public List<GameObject> inimigos = new List<GameObject>();
-
-    InimigoComum inimigoComum;
+    public List<GameObject> inimigos = new List<GameObject>();   
 
     public Transform posicaoDoJogador;
 
@@ -29,9 +27,11 @@ public class BossFase1 : MonoBehaviour
         OrganizacaoInimigos();
     }
 
+
+
     void OrganizacaoInimigos()
     {
-        if(posicaoDoJogador.transform.position.x >= 102f)
+        if(posicaoDoJogador.transform.position.x >= 99)
         {
             lifeCanvas.SetActive(true);
             for(int i = 3; i < inimigos.Count; i++)
@@ -43,20 +43,15 @@ public class BossFase1 : MonoBehaviour
             {
                 if(inimigos[i]!= null)
                 {
-                    inimigos[i].GetComponent<InimigoComum>().podeSeguir = true;
-                    inimigos[i].GetComponent<BoxCollider2D>().enabled = true;
-                    inimigos[i].GetComponent<SpriteRenderer>().color = Color.white;
-                    inimigos[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
-                    inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                    inimigos[i].GetComponent<Marinheiro>().podeSeguir = true;                    
+                   SetMarinheiro(i);
                     break;
                 }                    
                 else if (i < 7)
                 {
-                    inimigos[i++].GetComponent<InimigoComum>().podeSeguir = true;
-                    inimigos[i].GetComponent<BoxCollider2D>().enabled = true;
-                    inimigos[i].GetComponent<SpriteRenderer>().color = Color.white;
-                    inimigos[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
-                    inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                    inimigos[i++].GetComponent<Marinheiro>().podeSeguir = true;
+                    
+                    SetMarinheiro(i);
                     break;
                 }
                     
@@ -64,4 +59,14 @@ public class BossFase1 : MonoBehaviour
             
         }        
     }
+
+
+    public void SetMarinheiro(int i)
+    {
+        inimigos[i].GetComponent<CapsuleCollider2D>().enabled = true;       
+        inimigos[i].GetComponent<SpriteRenderer>().color = Color.white;
+        inimigos[i].GetComponent<SpriteRenderer>().sortingOrder = 0;
+        //inimigos[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+    }
+
 }
