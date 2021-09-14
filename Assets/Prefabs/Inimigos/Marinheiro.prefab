@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2160458016481736489}
   - component: {fileID: 2160458016481736502}
   - component: {fileID: 2160458016481736491}
-  - component: {fileID: 2160458016481736488}
   - component: {fileID: 2160458016481736490}
   - component: {fileID: 6337751894089235487}
+  - component: {fileID: 925791200}
   m_Layer: 11
   m_Name: Marinheiro
   m_TagString: Marinheiro
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 1602246653649611839, guid: 521a0d0d9d7a7a84b9d6c6f5257650da,
     type: 3}
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5, y: 4}
@@ -108,32 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &2160458016481736488
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160458016481736503}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.23433661, y: -1.7221104}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 4}
-    newSize: {x: 5, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1769209, y: 0.51464534}
-  m_EdgeRadius: 0
 --- !u!114 &2160458016481736490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,17 +120,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b72b00464d7b741947c166a601c0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 6
-  podeSeguir: 0
-  posicaoDoJogador: {fileID: 0}
+  enemyState: 0
+  target: {fileID: 0}
+  radiusView: 3.5
+  vida: 8
+  vidaMax: 8
+  velocidade: 3
+  spriteAnimacao: {fileID: 0}
+  rb2d: {fileID: 0}
+  pointA: {x: -6, y: -3}
+  pointB: {x: 6, y: -3}
+  proximoAtaque: 0
+  taxaAtaque: 1
   posicaoArma: {fileID: 9061963325236370455}
   tamanhoAtaque: 0.7
   dano: 1
   hitMask:
     serializedVersion: 2
     m_Bits: 8192
-  projetil: {fileID: 0}
-  direcaoOlhar: -1
   bossFase1: {fileID: 0}
 --- !u!95 &6337751894089235487
 Animator:
@@ -177,6 +158,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &925791200
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160458016481736503}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1208787, y: -0.9720483}
+  m_Size: {x: 0.8598881, y: 1.9038448}
+  m_Direction: 0
 --- !u!1 &5096558052098953179
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +186,7 @@ GameObject:
   m_Layer: 11
   m_Name: EspadaInimigo
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

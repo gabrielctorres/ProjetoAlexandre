@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4081632866893541822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.5, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4844555012505717463}
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -4271426916114230136, guid: ed45998eaff8f0e4e87b616ae580f749,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!114 &4081632866893541812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,18 +170,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83151238ff4a03148901d59d8fbe1452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
-  podeSeguir: 0
-  posicaoDoJogador: {fileID: 0}
+  enemyState: 0
+  target: {fileID: 0}
+  radiusView: 3.5
+  vida: 2
+  vidaMax: 2
+  velocidade: 2
+  spriteAnimacao: {fileID: 0}
+  rb2d: {fileID: 0}
+  pointA: {x: -6, y: -3}
+  pointB: {x: 6, y: -3}
+  proximoAtaque: 0
+  taxaAtaque: 1
   posicaoArma: {fileID: 4844555012505717463}
-  tamanhoAtaque: 0.79
+  tamanhoAtaque: 0.93
   dano: 0.5
   hitMask:
     serializedVersion: 2
     m_Bits: 8192
-  projetil: {fileID: 0}
-  direcaoOlhar: 1
-  bossFase1: {fileID: 0}
 --- !u!61 &3571779527497768657
 BoxCollider2D:
   m_ObjectHideFlags: 0
