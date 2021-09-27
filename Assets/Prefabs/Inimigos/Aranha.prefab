@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6649119014326404455}
   - component: {fileID: 6649119014326404454}
-  - component: {fileID: 6649119014326404453}
-  - component: {fileID: 6649119014326404452}
   - component: {fileID: 6649119014326404450}
   - component: {fileID: 2303204544110009654}
+  - component: {fileID: 1698584593992105134}
+  - component: {fileID: 972734393}
   m_Layer: 11
   m_Name: Aranha
   m_TagString: Aranha
@@ -30,9 +30,8 @@ Transform:
   m_GameObject: {fileID: 6649119014326404473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.72, y: -1.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 478542129181505950}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,7 +77,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 2445127314329184517, guid: f1069c68c8e63e148b9ec73e7f0a1996,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 7, y: 4}
@@ -87,50 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6649119014326404453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6649119014326404473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d32c0a45d0935643aa350f249227db6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 6
-  podeSeguir: 0
-  posicaoDoJogador: {fileID: 0}
-  posicaoArma: {fileID: 478542129181505950}
-  tamanhoAtaque: 0
-  dano: 0
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 8192
-  projetil: {fileID: 1572598029245634448, guid: e8fd0964775806b49b66c4079f70255e,
-    type: 3}
-  direcaoOlhar: -1
-  bossFase1: {fileID: 0}
---- !u!95 &6649119014326404452
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6649119014326404473}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cd283676f2b624b40b8494fab4ebbbbe, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &6649119014326404450
 Rigidbody2D:
   serializedVersion: 4
@@ -151,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!70 &2303204544110009654
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,33 +123,48 @@ CapsuleCollider2D:
   m_Offset: {x: 0.10765069, y: -0.6460001}
   m_Size: {x: 2.7805266, y: 1.5454944}
   m_Direction: 1
---- !u!1 &8232318776078589555
-GameObject:
+--- !u!95 &1698584593992105134
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 478542129181505950}
-  m_Layer: 11
-  m_Name: Colisor
-  m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &478542129181505950
-Transform:
+  m_GameObject: {fileID: 6649119014326404473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b163e0cf723e5b14c80a75be0c46ead0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &972734393
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8232318776078589555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -0.54, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6649119014326404455}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6649119014326404473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c606777dddc3245b74cf770e7fb5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  target: {fileID: 0}
+  vida: 6
+  vidaMax: 6
+  velocidade: 3
+  spriteAnimacao: {fileID: 0}
+  rb2d: {fileID: 0}
+  pointA: {x: 10, y: -2}
+  pointB: {x: 20, y: -2}
+  proximoAtaque: 0
+  taxaAtaque: 3
+  dano: 0.6
+  prefabProjetil: {fileID: 1572598029245634448, guid: e8fd0964775806b49b66c4079f70255e,
+    type: 3}

@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlataformaBalestra : MonoBehaviour
 {
     float posX;    
-    float posY;   
-
+    float posY;
+    float oldY;
     [Header("Definições da balestra correspondente")]
     public GameObject projetil;
     public Transform balestra;
     public Transform spawnProjetil;
-    
+    GameObject projetilInstanciado = null;
+
+    bool canSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,24 +24,36 @@ public class PlataformaBalestra : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (projetilInstanciado == null)
+            canSpawn = true;
+        else
+            canSpawn = false;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
+            oldY = transform.position.y;
             GetComponent<Rigidbody2D>().MovePosition(new Vector2(posX, posY-0.1f));
-            GameObject projetilInstanciado = Instantiate(projetil, spawnProjetil.position, balestra.rotation);            
 
-            projetilInstanciado.GetComponent<Rigidbody2D>().velocity = (spawnProjetil.position-balestra.transform.position) * 30f;
+            if (canSpawn)
+            {              
+                if (projetilInstanciado == null)
+                    projetilInstanciado = Instantiate(projetil, spawnProjetil.position, balestra.rotation);
 
+                projetilInstanciado.GetComponent<Rigidbody2D>().velocity = (spawnProjetil.position - balestra.transform.position) * 30f;
+            }
             Destroy(projetilInstanciado, 5f);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GetComponent<Rigidbody2D>().MovePosition(new Vector2(posX, posY + 0.1f));        
+        if (collision.CompareTag("Player"))
+        {
+            GetComponent<Rigidbody2D>().MovePosition(new Vector2(posX, oldY));
+        }            
     }
 }

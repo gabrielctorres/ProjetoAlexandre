@@ -20,6 +20,8 @@ public abstract class Personagem : MonoBehaviour
     public GameObject menuDead;
     public TextMeshProUGUI textReliquias;
 
+    public GameObject menuPause;
+
     public int numReliquias;
     protected float horizontal;
     private float vertical;
@@ -41,6 +43,13 @@ public abstract class Personagem : MonoBehaviour
     protected bool deslizandoParede;
     protected bool podeAndar = true;
     public bool invulneravel = false;
+    protected bool canStun = false;
+
+
+
+    private float timeStun = 3f;
+
+    public float TimeStun { get => timeStun; set => timeStun = value; }
 
     public virtual void Start()
     {
@@ -58,14 +67,11 @@ public abstract class Personagem : MonoBehaviour
 
         Andar();
 
-        Pular();        
+        Pular();
+     
 
         MovimentacaoCorda();  
         DetectandoColisão();
-
-        if (!deslizandoParede || !tocandoNaParede || estaNoChao )
-            spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
-
     }
 
     public void Andar()
@@ -92,10 +98,20 @@ public abstract class Personagem : MonoBehaviour
         }*/
     }
 
+    public void OpenPause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!menuPause.activeInHierarchy)
+                menuPause.SetActive(true);
+            else
+                menuPause.SetActive(false);
+        }
+    }
     public void Pular()
     {
 
-        if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede && !segurandoCorda)
+        if (Input.GetButton("Jump") && estaNoChao && !deslizandoParede && !segurandoCorda && !canStun)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.velocity += Vector2.up.normalized * forcaPulo;
@@ -244,16 +260,25 @@ public abstract class Personagem : MonoBehaviour
          GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
      }
     
-    public IEnumerator Stun()
+    public void Stun()
     {
-        float aux = 6;
-        velocidade = 0;
-        rb2d.velocity = Vector2.zero;        
-        podeAndar = false;
-        yield return new WaitForSeconds(0.4f);
-        velocidade = aux;        
-        podeAndar = true;       
-        StopCoroutine(Stun());
+        if (TimeStun >= 1 && canStun)
+        {
+            podeAndar = false;
+            rb2d.velocity = Vector2.zero;
+            TimeStun -= Time.deltaTime;
+        }
+        else
+        {
+            timeStun = 3f;
+            podeAndar = true;
+            canStun = false;
+        }
+    }
+
+    public void TomarStun()
+    {
+        canStun = true;
     }
 
     public abstract void Ataque();

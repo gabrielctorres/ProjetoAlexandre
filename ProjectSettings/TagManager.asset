@@ -17,6 +17,7 @@ TagManager:
   - Aranha
   - FonteMagica
   - ObjetoQuebravelSimples
+  - ParedeFlecha
   layers:
   - Default
   - TransparentFX

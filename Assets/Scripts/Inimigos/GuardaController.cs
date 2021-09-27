@@ -22,8 +22,12 @@ public class GuardaController : MonoBehaviour
     {
         if (posicaoDoJogador.position.x <= 77f && !posicaoDoJogador.GetComponent<Personagem>().semArma && guarda != null)
         {
-            if(!guarda.activeInHierarchy)
-                guarda.SetActive(true);          
+            if (!guarda.activeInHierarchy)
+            {
+                guarda.SetActive(true);
+                guarda.GetComponent<Guarda>().enemyState = EnemyState.Attacking;
+            }
+                        
         }
 
         if(guarda == null)

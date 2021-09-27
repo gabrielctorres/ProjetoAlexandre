@@ -120,12 +120,12 @@ MonoBehaviour:
   prefabEnemy: {fileID: 1923606240446915557, guid: ecf47ecbf607e2b468fa7d8e1b291a3b,
     type: 3}
   spawnPosition:
-  - {x: -5.61, y: 14.21}
-  - {x: -5.61, y: -14.21}
-  - {x: -5.61, y: 1.46}
-  - {x: 37, y: 14.21}
-  - {x: 37, y: -14.21}
-  - {x: 37, y: 1.46}
+  - {x: 38, y: 109}
+  - {x: 35, y: 98}
+  - {x: 38, y: 87}
+  - {x: 75, y: 109}
+  - {x: 80, y: 98}
+  - {x: 75, y: 87}
   force: 10
 --- !u!70 &1333802255270656911
 CapsuleCollider2D:
