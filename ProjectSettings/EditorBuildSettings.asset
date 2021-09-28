@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuGame.unity
+    path: Assets/Scenes/Cena Gameplay/MenuGame.unity
     guid: b70f766c30b5d1240a46c473dc78af1d
   - enabled: 1
-    path: Assets/Scenes/CenaTutorial.unity
+    path: Assets/Scenes/Cena Gameplay/CenaTutorial.unity
     guid: de461e19a3f56f7468dc9eab4079ab56
   - enabled: 1
-    path: Assets/Scenes/CenaFase1.unity
+    path: Assets/Scenes/Cena Gameplay/CenaFase1.unity
     guid: a078a88af54624748a64fcc09a842fe7
   - enabled: 1
-    path: Assets/Scenes/CenaFase2.unity
+    path: Assets/Scenes/Cena Gameplay/CenaFase2.unity
     guid: 4403223d094c11045bb3f7ab48e1fafb
   - enabled: 1
-    path: Assets/Scenes/CenaFase3.unity
+    path: Assets/Scenes/Cena Gameplay/CenaFase3.unity
     guid: 26d1ab1866e454a479c3d357a92c62bc
   - enabled: 0
-    path: Assets/Scenes/CenaSmite.unity
+    path: Assets/Scenes/Cenas Testes/CenaSmite.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

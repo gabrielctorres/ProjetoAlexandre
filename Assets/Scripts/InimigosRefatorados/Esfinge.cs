@@ -13,7 +13,7 @@ public class Esfinge : EntidadeBase
     private bool vendoPlayer;  
 
     private float atktempoderecarga = 0;
-    public float tempoMaximoDescansado = 5f;
+    public float tempoMaximoDescansado = 15f;
     private float tempoDescansado;
     private int maxPlataform = 2;
 

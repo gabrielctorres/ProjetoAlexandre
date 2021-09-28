@@ -40,7 +40,6 @@ public class EnemyRanged : EntidadeBase
         Vector2 direction = oldVelocity;
         Debug.Log(oldVelocity);
         float distance = Vector2.Distance(transform.position, pointB);
-        Debug.Log(distance);
         if (distance <= 1.2f)
         {
             transform.localScale = new Vector3(-1, 1, 0);
@@ -72,7 +71,7 @@ public class EnemyRanged : EntidadeBase
         if (Time.time > proximoAtaque)
         {
             proximoAtaque = Time.time + taxaAtaque;
-            GameObject projetilInstanciado = Instantiate(prefabProjetil, new Vector2(transform.position.x, -3.04f), Quaternion.identity);
+            GameObject projetilInstanciado = Instantiate(prefabProjetil, new Vector2(transform.position.x, (transform.position.y - 0.964f)), Quaternion.identity);
             if (transform.localScale.x == -1)
                 projetilInstanciado.GetComponent<Rigidbody2D>().velocity = Vector2.left * 6f;
             else if(transform.localScale.x == 1)

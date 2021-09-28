@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2abe8358dc60e7438236c3a4d0c77e5, type: 3}
-  m_Name: Data
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
   atualCena: 0
   quantidadeReliquias: 0

@@ -88,7 +88,8 @@ public abstract class EnemyMelee : EntidadeBase
             if (distanceAttack >= distanciaProAtaque)
             {
                 Vector3 direction = new Vector3((Target.position.x - transform.position.x), rb2d.velocity.y, 0f);
-                rb2d.velocity = direction * velocidade;        
+                rb2d.velocity = direction * velocidade;
+                spriteAnimacao.SetBool("podeAtacar", false);
                 Debug.Log("não atacando");
             }
             else if (distanceAttack <= distanciaProAtaque)
@@ -105,9 +106,7 @@ public abstract class EnemyMelee : EntidadeBase
                         spriteAnimacao.SetBool("podeAtacar", true);
                         objeto.GetComponent<Personagem>().DarDano(dano);
                         objeto.GetComponent<Rigidbody2D>().AddForce(new Vector2(objeto.GetComponent<Personagem>().direcaoOlhar * -1, 0) * 3f, ForceMode2D.Impulse);
-                    }
-                    else
-                        spriteAnimacao.SetBool("podeAtacar", false);
+                    }                  
                 }
 
             }

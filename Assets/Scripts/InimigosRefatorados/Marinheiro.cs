@@ -49,7 +49,8 @@ public class Marinheiro : EnemyMelee
             if (distanceAttack >= distanciaProAtaque)
             {
                 Vector3 direction = new Vector3((Target.position.x - transform.position.x), 0f, 0f);
-                spriteAnimacao.SetFloat("Horizontal", Mathf.Abs(transform.position.x));                
+                spriteAnimacao.SetFloat("Horizontal", Mathf.Abs(transform.position.x));
+                spriteAnimacao.SetBool("podeAtacar", false);
                 rb2d.velocity = direction.normalized * velocidade;
                 Flip(Target.position);
                 Debug.Log("não atacando");
@@ -58,11 +59,11 @@ public class Marinheiro : EnemyMelee
             {
                 if (Time.time > proximoAtaque)
                 {
-                    proximoAtaque = Time.time + taxaAtaque;                    
+                    proximoAtaque = Time.time + taxaAtaque;
                     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(posicaoArma.position, tamanhoAtaque, hitMask);
                     spriteAnimacao.SetBool("podeAtacar", true);
                     foreach (Collider2D objeto in hitEnemies)
-                    {                       
+                    {
                         if (!objeto.GetComponent<Personagem>().invulneravel)
                         {
                             objeto.GetComponent<Personagem>().DarDano(dano);

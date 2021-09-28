@@ -9,8 +9,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/player.smite";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(personagem);
-
+        PlayerData data = new PlayerData(personagem);        
         formatter.Serialize(stream, data);
         stream.Close();
 

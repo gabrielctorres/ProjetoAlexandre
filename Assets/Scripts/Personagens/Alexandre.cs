@@ -46,8 +46,9 @@ public class Alexandre : Personagem
     
     public override void Start()
     {
-        if(data.position != Vector3.zero)
+        if(data.position != Vector3.zero && data.atualCena == SceneManager.GetActiveScene().buildIndex)
             transform.position = data.position;
+
         numReliquias = data.quantidadeReliquias;        
         base.Start();
     }   
@@ -244,7 +245,7 @@ public class Alexandre : Personagem
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {            
-            rb2d.AddForce(new Vector2(rb2d.velocity.x * 30f, rb2d.velocity.y),ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f),ForceMode2D.Impulse);
 
             spriteAnimation.SetBool("Dash", true);
             this.GetComponent<GhostEffect>().makeGhost = true;

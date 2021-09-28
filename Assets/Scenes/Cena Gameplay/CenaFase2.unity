@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -374,7 +374,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29979961}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0000036039462, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.000003677794, w: 1}
   m_LocalPosition: {x: -33.3, y: -2.149, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -41105,7 +41105,7 @@ PrefabInstance:
     - target: {fileID: 6649119014326404450, guid: 52bedc1b5c0b135449f46de724145c46,
         type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649119014326404453, guid: 52bedc1b5c0b135449f46de724145c46,
         type: 3}
@@ -49314,6 +49314,11 @@ PrefabInstance:
       objectReference: {fileID: 1175107469}
     - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
+      propertyPath: menuPause
+      value: 
+      objectReference: {fileID: 1396568117}
+    - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
+        type: 3}
       propertyPath: vidaImagem
       value: 
       objectReference: {fileID: 1175107467}
@@ -49450,8 +49455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d7ef7ba4aaded4bacc936e5260fd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.1
-  timeToDestroy: 0.5
+  delay: 0.05
+  timeToDestroy: 2
   makeGhost: 0
   prefabGhost: {fileID: 6008170627251832717, guid: 7a0b121ec05ab8a439042219400d408d,
     type: 3}
@@ -49794,6 +49799,11 @@ PrefabInstance:
     - target: {fileID: 972734393, guid: 52bedc1b5c0b135449f46de724145c46, type: 3}
       propertyPath: distanceMax
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649119014326404450, guid: 52bedc1b5c0b135449f46de724145c46,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649119014326404453, guid: 52bedc1b5c0b135449f46de724145c46,
         type: 3}
@@ -52798,6 +52808,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1396568117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175051706, guid: ddfafc90ff0c28746bbaa15837957afa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1175107462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406672974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53325,7 +53341,7 @@ PrefabInstance:
     - target: {fileID: 6649119014326404450, guid: 52bedc1b5c0b135449f46de724145c46,
         type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6649119014326404453, guid: 52bedc1b5c0b135449f46de724145c46,
         type: 3}
