@@ -8,7 +8,7 @@ public enum MovimentType
     MoveHorizontal,
     MoveVertical,
     Stop,
-    Both
+    Target
 }
 
 public enum AttackType
@@ -45,7 +45,7 @@ public class PlataformaEsfinge : MonoBehaviour
 
     void Start()
     {               
-        if(movimentType != MovimentType.Both)
+        if(movimentType != MovimentType.Target)
             spriteAnimator = GetComponent<Animator>();
     }
 
@@ -65,8 +65,8 @@ public class PlataformaEsfinge : MonoBehaviour
             case MovimentType.MoveVertical:
                 VerticalMove();
                 break;
-            case MovimentType.Both:
-                BothMove();
+            case MovimentType.Target:
+                TargetMove();
                 break;
             case MovimentType.Stop:                
                 break;
@@ -122,31 +122,23 @@ public class PlataformaEsfinge : MonoBehaviour
         transform.position = Vector2.Lerp(new Vector2(posValue, pointA.y), new Vector2(posValue, pointB.y), Mathf.PingPong(Time.time * velocidade, 1f));
     }
 
-    public void BothMove()
+    public void TargetMove()
     {
         transform.Translate(target * velocidade * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.collider.GetComponent<Personagem>() != null)
-        {
-            collision.collider.transform.parent = this.transform;
-            triggerEspinho = true;
-            Debug.Log(triggerEspinho);
-        }
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {        
         if (collision.GetComponent<Personagem>() != null)
         {
             if (attackType == AttackType.Espinho)
-                Debug.Log("Dano");
+                Debug.Log("DanoEspinho");
             else
             {
                 spriteAnimator.SetBool("laser", true);
-                Debug.Log("Dano");
+                Debug.Log("DanoLaser");
             }
         }
        
@@ -190,11 +182,16 @@ public class PlataformaEsfinge : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.GetComponent<Personagem>() != null)
-        {
-            collision.collider.transform.parent = null;            
+        if (collision.collider.GetComponent<Personagem>() != null && movimentType == MovimentType.MoveVertical)
+        {            
+            triggerEspinho = true;
         }
+    }
+    private void OnDestroy()
+    {
+        
     }
 }

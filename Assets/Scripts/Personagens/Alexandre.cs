@@ -23,7 +23,7 @@ public class Alexandre : Personagem
     bool habilidadeAdagaAtiva = true;
     bool habilidadeEspadaAtiva = true;
 
-    float timerDesh = 0f;
+    float timerDesh = 2f;
     bool habilidadeDesh = true;
     public bool temDash = false;
 
@@ -46,8 +46,9 @@ public class Alexandre : Personagem
     
     public override void Start()
     {
-        if(data.position != Vector3.zero)
+        if(data.position != Vector3.zero && data.atualCena == SceneManager.GetActiveScene().buildIndex)
             transform.position = data.position;
+
         numReliquias = data.quantidadeReliquias;        
         base.Start();
     }   
@@ -61,6 +62,7 @@ public class Alexandre : Personagem
 
     public void Update()
     {
+        OpenPause();
         if(estaNoChao)
              Flip();
 
@@ -71,6 +73,7 @@ public class Alexandre : Personagem
             SegundoAtaque();
             if(uiHabilidades !=null)uiHabilidades.SetActive(true);
         }
+
         VerificarMorte();
         if(vidaImagem !=null) vidaImagem.fillAmount = vida / vidaMax;
         spriteAnimation.SetBool("SemArma", semArma);
@@ -88,7 +91,14 @@ public class Alexandre : Personagem
 
 
         if (textReliquias != null)
-            textReliquias.text = "Reliquias Coletadas: " + numReliquias;       
+            textReliquias.text = "Reliquias Coletadas: " + numReliquias;
+
+
+        if (!deslizandoParede || !tocandoNaParede || estaNoChao || !canStun)
+            spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
+
+        Stun();
+
     }
 
     #region Ataques
@@ -110,7 +120,7 @@ public class Alexandre : Personagem
         
         if(timerImageAdaga != null ) timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
 
-        if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva )
+        if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva && !canStun )
         {
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
             Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(pointAdaga.position,tamanhoAdaga,hitMask);
@@ -159,7 +169,7 @@ public class Alexandre : Personagem
         }
 
         if(timerImageAdaga != null ) timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
-        if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva)
+        if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva && !canStun)
         {         
 
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
@@ -214,33 +224,39 @@ public class Alexandre : Personagem
 
     public void Dash()
     {
+        if (!temDash)
+            return;
+
+
 
         if (!habilidadeDesh)
-        {
-            if (timerDesh <= 0.3f)
-            {
-                timerDesh += Time.deltaTime;
-            }
+        {           
+            if (timerDesh >= 2)
+                timerDesh -= Time.deltaTime;
             else
             {
-                habilidadeAdagaAtiva = true;
-                timerDesh = 0;
-            }
-                
+                habilidadeDesh = true;
+                timerDesh = 2;
+            }           
         }
 
+        if (!habilidadeDesh)
+            return;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && habilidadeDesh && temDash)
-        {
-            
-            spriteAnimation.SetBool("Dash", true);            
-            rb2d.AddForce((Vector2.right * horizontal).normalized * (velocidade * 15f), ForceMode2D.Impulse);
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {            
+            rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f),ForceMode2D.Impulse);
+
+            spriteAnimation.SetBool("Dash", true);
+            this.GetComponent<GhostEffect>().makeGhost = true;
+
+            habilidadeDesh = false;
         }
         else
         {
+            this.GetComponent<GhostEffect>().makeGhost = false;
             spriteAnimation.SetBool("Dash", false);
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

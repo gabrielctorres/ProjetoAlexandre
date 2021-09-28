@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Guarda : EnemyMelee
-{
-
+{        
     
-    
-    // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+        enemyState = EnemyState.Attacking;
     }
 
-    // Update is called once per frame
+    
     public override void Update()
     {
        base.Update();        

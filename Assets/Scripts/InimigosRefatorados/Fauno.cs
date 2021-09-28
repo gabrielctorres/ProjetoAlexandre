@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public enum FaunoEstado
 {
@@ -135,14 +136,11 @@ public class Fauno : EntidadeBase
         frequencia = (vida / vidaMax) * 3;
         
         if(vida <= 0)
-        {
-            
-            menuDead.SetActive(true);
-            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo, não esqueça de responder o  formulario";
+        {           
+
             Destroy(this.gameObject);
-            Time.timeScale = 0;
-        }
-            
+            SceneManager.LoadScene("CenaFase3", LoadSceneMode.Single);           
+        }           
 
     }
 
@@ -205,11 +203,20 @@ public class Fauno : EntidadeBase
         yield return new WaitForSeconds(1f);
 
         GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), Quaternion.identity);
-        espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - portal.transform.position) * 2f;
+        
+
         if (jogadorPosicao.position.x > portal.transform.position.x)
+        {
             espirito.GetComponent<SpriteRenderer>().flipX = true;
+            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.right * 6f;
+        }           
         else if (jogadorPosicao.position.x < portal.transform.position.x)
+        {
             espirito.GetComponent<SpriteRenderer>().flipX = false;
+            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.left * 6f;
+        }
+            
+
         spriteAnimacao.SetBool("AtaqueInvestida", true);
         yield return new WaitForSeconds(4f);
         portal.GetComponent<Animator>().SetBool("Fechou", true);

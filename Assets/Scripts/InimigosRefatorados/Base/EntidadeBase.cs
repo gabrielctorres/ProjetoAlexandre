@@ -4,8 +4,7 @@ using UnityEngine;
 public abstract class EntidadeBase : MonoBehaviour
 {
     public EnemyState enemyState;
-    private Transform target;
-    public float radiusView;
+    public Transform target;
     public float vida,vidaMax;    
     public float velocidade;
     [HideInInspector] public Animator spriteAnimacao;
@@ -15,7 +14,6 @@ public abstract class EntidadeBase : MonoBehaviour
     [Header("Config Points")]
     public Vector2 pointA;
     public Vector2 pointB;
-
     public Transform Target { get => target; set => target = value; }
 
     public abstract void VerifyState();
@@ -46,5 +44,10 @@ public abstract class EntidadeBase : MonoBehaviour
         StopCoroutine(EfeitoDano());
     }
 
+    public void VerificarMorte()
+    {
+        if (vida <= 0)
+            Destroy(this.gameObject);
+    }
 
 }

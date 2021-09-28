@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -4573181549420993413, guid: c20be27fee0e70a44bbb3476ceb5bed0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -118,14 +118,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
-  radiusView: 0
+  target: {fileID: 0}
   vida: 5
   vidaMax: 3
-  velocidade: 1.3
+  velocidade: 2
   spriteAnimacao: {fileID: 0}
   rb2d: {fileID: 0}
-  pointA: {x: 0, y: 0}
-  pointB: {x: 0, y: 0}
+  pointA: {x: 2.81, y: -2.06}
+  pointB: {x: 12.91, y: -2.06}
 --- !u!50 &1923606240446915486
 Rigidbody2D:
   serializedVersion: 4

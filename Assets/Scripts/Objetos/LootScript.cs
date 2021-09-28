@@ -41,7 +41,9 @@ public class LootScript : MonoBehaviour
             {
                 if (valorRandomico <= TabelaLoot[j].Raridade)
                 {
-                    Instantiate(TabelaLoot[j].item, transform.position, Quaternion.identity);
+                    GameObject lootInstanciado = null;
+                    if(lootInstanciado == null)
+                        lootInstanciado = Instantiate(TabelaLoot[j].item, transform.position, Quaternion.identity);
                     return;
                 }
                 valorRandomico -= TabelaLoot[j].Raridade;

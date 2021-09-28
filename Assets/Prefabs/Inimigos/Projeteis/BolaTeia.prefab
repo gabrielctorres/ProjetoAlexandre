@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1572598029245634452}
   - component: {fileID: 1572598029245634451}
   - component: {fileID: 1572598029245634449}
-  - component: {fileID: 3358111911674638547}
   - component: {fileID: 7076347617454196146}
+  - component: {fileID: 5631410287458535378}
   m_Layer: 0
   m_Name: BolaTeia
   m_TagString: Untagged
@@ -105,18 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3358111911674638547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572598029245634448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0493a03d0c9bd34d89795e405b6a80d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &7076347617454196146
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,3 +121,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.36
+--- !u!114 &5631410287458535378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572598029245634448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d387c2ca1a5f6f94fa558a88f0ec2575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectStun: {fileID: 8736988467736531405, guid: 6bb24cde0ca7c2a4398b18f4a57a93cd,
+    type: 3}
