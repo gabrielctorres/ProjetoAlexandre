@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
+using Cinemachine;
 
 public enum FaunoEstado
 {
@@ -9,9 +11,17 @@ public enum FaunoEstado
     Descansando,
     Atacando,
 }
+
+
 public class Fauno : EntidadeBase
 {
     public FaunoEstado modoFauno;
+    CinemachineImpulseSource source;
+    [Header("Interface")]
+    public GameObject bossLife;
+    public Image bossImage;
+    public TextMeshProUGUI nameText;
+    public GameObject menuDead;
 
     [Header("Controle dos ataques", order = 1)]
     public Queue<string> ataques = new Queue<string>();
@@ -21,155 +31,201 @@ public class Fauno : EntidadeBase
     public int quantidadeDeAtaque;
     public List<GameObject> spawnPointsTerremoto = new List<GameObject>();
 
+
     [Header("Ataque Investida")]
-    float taxaAtaqueInvestida = 4f;
     public GameObject portal;
     public GameObject prefabEspirito;
 
     [Header("Ataque Bola de Fogo")]
     public Transform spawnPosition;
     public GameObject prefabFogo;
-    float proximoAtaque;
-    float taxaAtaque = 1f;
 
     [Header("Movimentação Circular")]
-    public float frequencia = 16f;
-    public float magnitude = 0.5f;
-
-
-
+    public float frequencia;
+    public float magnitude;
     private Transform jogadorPosicao;
-   
+
+    public CinemachineVirtualCamera cam;
+    
+    private bool vendoPlayer;
+    private float atktempoderecarga = 0;
+    public float tempoMaximoDescanada = 5;
+    private float tempoDescanado;
 
     private void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        
         spriteAnimacao = GetComponent<Animator>();
         modoFauno = FaunoEstado.Flutuando;
+        source = GetComponent<CinemachineImpulseSource>();
+        tempoDescanado = tempoMaximoDescanada;
     }
     private void Update()
     {
         VerificarEstados();
         ControlandoVida();
     }
-
     public void VerificarEstados()
     {
         switch (modoFauno)
         {
             case FaunoEstado.Flutuando:
-                StartCoroutine(EsperandoAtaque());
+                EsperandoAtaque();
                 break;
             case FaunoEstado.Descansando:
-                StartCoroutine(Descansar());
-                Debug.Log("Descansar");
+                Descansando();
                 break;
             case FaunoEstado.Atacando:
-                Atacar();              
-                if (ataques.Count <= 0)
-                    modoFauno = FaunoEstado.Descansando;                    
+                Atacar();
                 break;
         }
     }
 
-    public void ControlandoVida()
-    {
-        
-        if (vida < 0)
-            Destroy(this.gameObject);           
-
-    }
 
     #region Açoes
     public override void Andar()
     {
-       transform.position = new Vector2(Mathf.Cos(Time.time * frequencia) * magnitude, (Mathf.Sin(Time.time * frequencia) * magnitude) + 3f);        
+        transform.position = new Vector2((Mathf.Cos(Time.time * frequencia) * magnitude) + 271, (Mathf.Sin(Time.time * frequencia) * magnitude) + 3f);
     }
-
-    
 
     public override void Atacar()
     {
-        if (jogadorPosicao == null)
-           modoFauno = FaunoEstado.Flutuando;
-
-        StartCoroutine(SelecionandoAtaque());
+        if (atktempoderecarga <= 0)
+        {
+            if (ataques.Count > 0)
+            {
+                StartCoroutine(ataques.Dequeue());
+                atktempoderecarga = 5;
+            }
+            else
+                modoFauno = FaunoEstado.Descansando;
+        }
+        else
+        {           
+            Andar();
+            atktempoderecarga -= Time.deltaTime;
+        }
     }
 
-    public override void ProcurandoJogador()
+    public void EsperandoAtaque()
     {
-        
+        Andar();
+        if (vendoPlayer)
+        {
+            StartCoroutine(esperar());
+        }
+        else
+        {
+            
+            return;
+        }
     }
+
+    IEnumerator esperar()
+    {
+        yield return new WaitForSeconds(5f);
+        RandomizarAtaque();
+        modoFauno = FaunoEstado.Atacando;
+        StopCoroutine(esperar());
+    }
+    public void ControlandoVida()
+    {
+        bossImage.fillAmount = vida / vidaMax;
+
+        frequencia = (vida / vidaMax) * 3;
+        
+        if(vida <= 0)
+        {
+            
+            menuDead.SetActive(true);
+            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo, não esqueça de responder o  formulario";
+            Destroy(this.gameObject);
+            Time.timeScale = 0;
+        }
+            
+
+    }
+
+
+    public void Descansando()
+    {
+
+        if (tempoDescanado <= 0)
+        {
+            spriteAnimacao.SetBool("Cansado", false);            
+            tempoDescanado = tempoMaximoDescanada;
+            RandomizarAtaque();
+            modoFauno = FaunoEstado.Flutuando;
+        }
+        else
+        {            
+            tempoDescanado -= Time.deltaTime;
+            if (transform.position.y > -2.8f)
+                transform.Translate((new Vector3(0, -2.8f, 0f) * 5f * Time.deltaTime));
+            spriteAnimacao.SetBool("Cansado", true);
+        }
+    }
+
     #endregion
+
 
     #region Ataques
 
-    public void AtaqueFogo(string nomeAtaque)
+    public IEnumerator AtaqueFogo()
     {
-        Debug.Log(nomeAtaque);        
-        if (Time.time > proximoAtaque)
-        {
-            proximoAtaque = Time.time + taxaAtaque;
-            GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
-            bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position).normalized * 6f;            
-        }
-        spriteAnimacao.SetBool(nomeAtaque, true);
-        spriteAnimacao.SetBool("AtaqueTerremoto", false);
-        spriteAnimacao.SetBool("AtaqueInvestida", false);
-        modoFauno = FaunoEstado.Flutuando;
+        
+        GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
+        bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position) * 2f;
+        spriteAnimacao.SetBool("AtaqueFogo",true);
+        yield return new WaitForSeconds(2f);
+        spriteAnimacao.SetBool("AtaqueFogo", false);        
     }
-
-    public void AtaqueTerremoto(string nomeAtaque)
+    public IEnumerator AtaqueTerremoto()
     {
-        Debug.Log(nomeAtaque);
-        if(Time.time > proximoAtaque)
+        source.GenerateImpulse();
+        for (int i = 0; i < quantidadeDeAtaque; i++)
         {
-            proximoAtaque = Time.time + taxaAtaque;
-            for (int i = 0; i < quantidadeDeAtaque; i++)
-            {
-                int random = Random.Range(0, spawnPointsTerremoto.Count);
-                GameObject estalaquitite = Instantiate(spawnPointsTerremoto[random], spawnPointsTerremoto[random].transform.position, spawnPointsTerremoto[random].transform.rotation);
-                estalaquitite.GetComponent<Rigidbody2D>().gravityScale = 1;
-                estalaquitite.GetComponent<Estalaquitite>().StartDestroy();
-            }
-            spriteAnimacao.SetBool(nomeAtaque, true);
-            spriteAnimacao.SetBool("AtaqueFogo", false);
-            spriteAnimacao.SetBool("AtaqueInvestida", false);
+            int random = Random.Range(0, spawnPointsTerremoto.Count);
+            GameObject estalaquitite = Instantiate(spawnPointsTerremoto[random], spawnPointsTerremoto[random].transform.position, spawnPointsTerremoto[random].transform.rotation);
+            estalaquitite.GetComponent<Rigidbody2D>().gravityScale = 1;
+            estalaquitite.GetComponent<Estalaquitite>().StartDestroy();
         }
-    }
 
-    public IEnumerator AtaqueInvestida(string nomeAtaque)
-    {
-        Debug.Log(nomeAtaque);
+        spriteAnimacao.SetBool("AtaqueTerremoto", true);
+        yield return new WaitForSeconds(4f);
+        spriteAnimacao.SetBool("AtaqueTerremoto", false);        
+    }
+    public IEnumerator AtaqueInvestida()
+    {        
+        if (jogadorPosicao.position.x > 0 && !portal.activeInHierarchy)
+            portal.transform.position = new Vector3((jogadorPosicao.position.x + 3.5f), portal.transform.position.y, 0f);
+        else
+            portal.transform.position = new Vector3((jogadorPosicao.position.x - 3.5f), portal.transform.position.y, 0f);
         portal.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        if (Time.time > proximoAtaque)
-        {
-            proximoAtaque = Time.time + taxaAtaqueInvestida;
-            GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f,0f), transform.rotation);
-            espirito.GetComponent<Rigidbody2D>().velocity = Vector2.left * 9f;
-            spriteAnimacao.SetBool(nomeAtaque, true);
-            spriteAnimacao.SetBool("AtaqueFogo", false);
-            spriteAnimacao.SetBool("AtaqueTerremoto", false);
-           
-        }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+
+        GameObject espirito = Instantiate(prefabEspirito, new Vector3(portal.transform.position.x, -3.22f, 0f), Quaternion.identity);
+        espirito.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - portal.transform.position) * 2f;
+        if (jogadorPosicao.position.x > portal.transform.position.x)
+            espirito.GetComponent<SpriteRenderer>().flipX = true;
+        else if (jogadorPosicao.position.x < portal.transform.position.x)
+            espirito.GetComponent<SpriteRenderer>().flipX = false;
+        spriteAnimacao.SetBool("AtaqueInvestida", true);
+        yield return new WaitForSeconds(4f);
         portal.GetComponent<Animator>().SetBool("Fechou", true);
-        yield return new WaitForSeconds(0.2f);
-        portal.GetComponent<Animator>().SetBool("Fechou", false);
+        yield return new WaitForSeconds(3f);
+        portal.GetComponent<Animator>().SetBool("Fechou", false);        
+        spriteAnimacao.SetBool("AtaqueInvestida", false);
         portal.SetActive(false);
-        StopCoroutine(AtaqueInvestida(" "));
     }
     #endregion
-
-
     public void RandomizarAtaque()
     {
         if (ataques.Count >= ataqueMax)
             return;
         for (int i = 0; i < ataqueMax; i++)
         {
-            int random = Random.Range(1, 6);
+            int random = Random.Range(1, 4);
 
             if (random == 1)
                 ataques.Enqueue("AtaqueFogo");
@@ -180,53 +236,33 @@ public class Fauno : EntidadeBase
         }
 
     }
-    public IEnumerator SelecionandoAtaque()
-    {
-        string ataque = " ";
-
-        if (ataques.Count > 0) ataque = ataques.Dequeue();
-        yield return new WaitForSeconds(3f);
-        if (ataque == "AtaqueFogo")
-        {
-            AtaqueFogo(ataque);
-        }else if (ataque == "AtaqueInvestida")
-        {
-            StartCoroutine(AtaqueInvestida(ataque));
-
-        }else if (ataque == "AtaqueTerremoto")
-        {
-            AtaqueTerremoto(ataque);
-        }
-        StopCoroutine(SelecionandoAtaque());
-    }
-    IEnumerator EsperandoAtaque()
-    {
-        Andar();
-        if (ataques.Count <= 0)
-            RandomizarAtaque();
-        yield return new WaitForSeconds(6f);       
-        modoFauno = FaunoEstado.Atacando;
-        StopCoroutine(EsperandoAtaque());
-    }
-
-    IEnumerator Descansar()
-    {
-        spriteAnimacao.SetBool("AtaqueTerremoto", false);
-        spriteAnimacao.SetBool("AtaqueFogo", false);
-        spriteAnimacao.SetBool("AtaqueInvestida", false);
-        spriteAnimacao.SetBool("Cansado", true);
-        yield return new WaitForSeconds(3);
-        if(transform.position.y > -2.8f)
-            transform.Translate((new Vector3(0, -2.8f, 0f) * 7f * Time.deltaTime));
-        yield return new WaitForSeconds(6.5f);       
-        modoFauno = FaunoEstado.Flutuando;
-        spriteAnimacao.SetBool("Cansado", false);
-        StopCoroutine(Descansar());
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Personagem>() != null)
+        if (collision.GetComponent<Personagem>() !=null)
+        {
+            cam.m_Lens.OrthographicSize = 7;
+            vendoPlayer = true;
             jogadorPosicao = collision.transform;
+            bossLife.SetActive(true);
+            nameText.text = this.gameObject.name;
+            this.GetComponent<CircleCollider2D>().radius = 1;
+        }
+           
+    }   
+
+
+    public override void ProcurandoJogador()
+    {
+       
+    }
+
+    private void OnDestroy()
+    {
+
+    }
+
+    public override void VerifyState()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4120536934419782002}
   - component: {fileID: 4120536934419782001}
   - component: {fileID: 4120536934419782004}
-  - component: {fileID: 4120536934419782003}
   - component: {fileID: 4120536934419782006}
   - component: {fileID: 4120536934419782005}
+  - component: {fileID: 961867030}
   m_Layer: 11
   m_Name: Guarda
   m_TagString: Guarda
@@ -102,38 +102,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
---- !u!61 &4120536934419782003
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4120536934419782000}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.6230699, y: -0.78800404}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 3}
-    newSize: {x: 4, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5963819, y: 1.4239919}
-  m_EdgeRadius: 0
+  m_Constraints: 4
 --- !u!114 &4120536934419782006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,17 +120,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60752d954bb5634a80d47d6ae1d71ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  podeSeguir: 0
-  posicaoDoJogador: {fileID: 0}
+  enemyState: 0
+  target: {fileID: 0}
+  radiusView: 3.5
+  vida: 10
+  vidaMax: 10
+  velocidade: 2
+  spriteAnimacao: {fileID: 0}
+  rb2d: {fileID: 0}
+  pointA: {x: -6, y: -3}
+  pointB: {x: 6, y: -3}
+  taxaAtaque: 1
   posicaoArma: {fileID: 7035007921556061032}
-  tamanhoAtaque: 0.6
+  tamanhoAtaque: 0.5
   dano: 1
   hitMask:
     serializedVersion: 2
     m_Bits: 8192
-  direcaoOlhar: -1
-  bossFase1: {fileID: 0}
 --- !u!95 &4120536934419782005
 Animator:
   serializedVersion: 3
@@ -176,6 +156,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &961867030
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120536934419782000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.6371057, y: -0.7001871}
+  m_Size: {x: 0.73246145, y: 1.666043}
+  m_Direction: 0
 --- !u!1 &5453381579889014830
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5453381579889014830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.155, y: -0.68, z: 0}
+  m_LocalPosition: {x: -0.45, y: -0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4120536934419782002}
