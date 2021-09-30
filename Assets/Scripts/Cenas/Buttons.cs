@@ -44,7 +44,7 @@ public class Buttons : MonoBehaviour
         if (File.Exists(path))        
             CarregarSave();
         else        
-            SceneManager.LoadScene("CenaTutorial", LoadSceneMode.Single);
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1), LoadSceneMode.Single);
 
 
         

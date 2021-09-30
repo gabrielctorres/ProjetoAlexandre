@@ -7,8 +7,7 @@ using TMPro;
 public class Alexandre : Personagem
 {
     public StartData data;
-    public GameObject tutorialAtaque,tutorialAtaque2;  
-
+    public GameObject tutorialAtaque,tutorialAtaque2;   
     bool podePegar;
     bool podePegarDash;
     Animator mesaAnimator;
@@ -46,6 +45,8 @@ public class Alexandre : Personagem
     
     public override void Start()
     {
+        sons = GetComponent<PersonagemSom>();
+
         if(data.position != Vector3.zero && data.atualCena == SceneManager.GetActiveScene().buildIndex)
             transform.position = data.position;
 
@@ -143,7 +144,7 @@ public class Alexandre : Personagem
                 objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
             }
-
+            sons.PlayAdagaSom();
             spriteAnimation.SetBool("AtacouNormal", true);
             habilidadeAdagaAtiva = false;
             StartCoroutine(nameof(BloqueandoRotacao));
@@ -193,7 +194,7 @@ public class Alexandre : Personagem
                if(objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation != null) objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
             }
-
+            sons.PlayEspadaSom();
             spriteAnimation.SetBool("AtacouEspada", true);
             habilidadeEspadaAtiva = false;
             StartCoroutine(nameof(BloqueandoMovimentacao));
@@ -246,7 +247,7 @@ public class Alexandre : Personagem
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {            
             rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f),ForceMode2D.Impulse);
-
+            sons.PlayDashSom();
             spriteAnimation.SetBool("Dash", true);
             this.GetComponent<GhostEffect>().makeGhost = true;
 
@@ -279,11 +280,6 @@ public class Alexandre : Personagem
             {
                 this.DarDano(collision.collider.GetComponent<Escorpiao>().dano);                
             }                        
-        }
-
-        if(collision.collider.name == "Barco" && bossController.hpBoss <=0)
-        {
-            SceneManager.LoadScene("CenaFase2", LoadSceneMode.Single);
         }
 
     }

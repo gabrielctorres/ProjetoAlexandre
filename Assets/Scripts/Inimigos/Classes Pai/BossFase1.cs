@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class BossFase1 : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class BossFase1 : MonoBehaviour
     {
         lifeImage.fillAmount = hpBoss / 7;
         OrganizacaoInimigos();
+        LifeControle();
     }
 
 
@@ -60,6 +62,15 @@ public class BossFase1 : MonoBehaviour
         }        
     }
 
+
+    public void LifeControle()
+    {
+        if(hpBoss <= 0)
+        {
+            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(nextIndex, LoadSceneMode.Single);
+        }
+    }
 
     public void SetMarinheiro(int i)
     {

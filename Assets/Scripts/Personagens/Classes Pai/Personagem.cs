@@ -19,7 +19,7 @@ public abstract class Personagem : MonoBehaviour
     public GameObject uiLife;
     public GameObject menuDead;
     public TextMeshProUGUI textReliquias;
-
+    [HideInInspector] public PersonagemSom sons;
     public GameObject menuPause;
 
     public int numReliquias;
@@ -116,6 +116,7 @@ public abstract class Personagem : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.velocity += Vector2.up.normalized * forcaPulo;
             spriteAnimation.SetBool("Pulando", true);
+            sons.PlayPuloSom();
         }
         else if (Input.GetButton("Jump") && !estaNoChao && deslizandoParede && !segurandoCorda)
         {
@@ -123,6 +124,7 @@ public abstract class Personagem : MonoBehaviour
             Vector2 forca = new Vector2(4.5f * direcaoPulo.x * -direcaoOlhar, 4.5f * direcaoPulo.y);
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.velocity += Vector2.up.normalized * forcaPulo;
+            sons.PlayPuloSom();
             spriteAnimation.SetBool("Pulando", true);            
             StartCoroutine(nameof(PararDeMover));
         }
@@ -175,6 +177,7 @@ public abstract class Personagem : MonoBehaviour
         if (vida > 0)
         {
             vida -= damage;
+            sons.PlayDanoSom();
             StartCoroutine(FicarInvulneravel());
         }        
     }

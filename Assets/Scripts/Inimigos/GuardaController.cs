@@ -29,12 +29,5 @@ public class GuardaController : MonoBehaviour
             }
                         
         }
-
-        if(guarda == null)
-        {
-            SceneManager.LoadScene("CenaFase1", LoadSceneMode.Single);
-        }
-
-
     }
 }
