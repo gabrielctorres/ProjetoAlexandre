@@ -24,6 +24,7 @@ public class Escaravelho : EntidadeBase
     public void Update()
     {
         VerifyState();
+        VerificarMorte();
     }
 
     public override void VerifyState()
@@ -79,6 +80,12 @@ public class Escaravelho : EntidadeBase
         if (canAttack && collision.GetComponent<Personagem>() != null)
         {
             collision.GetComponent<Personagem>().DarDano(1f);
+        }
+
+        if(collision.GetComponent<Personagem>() != null && enemyState == EnemyState.Patrolling)
+        {
+            Vector2 direction = collision.transform.position;
+            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x,0f) - new Vector2(transform.position.x,0f)  * 130f, ForceMode2D.Force);
         }
     }
 

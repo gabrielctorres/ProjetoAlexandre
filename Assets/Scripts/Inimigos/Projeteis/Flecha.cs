@@ -35,7 +35,7 @@ public class Flecha : MonoBehaviour
 
         if(collision.GetComponent<Personagem>() != null)
         {
-            collision.GetComponent<Personagem>().DarDano(1f);
+            collision.GetComponent<Personagem>().DarDano(0.5f);
             collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.GetComponent<Personagem>().direcaoOlhar * -1, 0) * 1.2f, ForceMode2D.Impulse);
         }
 

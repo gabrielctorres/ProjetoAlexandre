@@ -45,9 +45,8 @@ public class Alexandre : Personagem
     
     public override void Start()
     {
-        sons = GetComponent<PersonagemSom>();
-
-        if(data.position != Vector3.zero && data.atualCena == SceneManager.GetActiveScene().buildIndex)
+        sons = GameObject.Find("Sons Player").GetComponent<PersonagemSom>();
+        if(data.position != Vector3.zero)
             transform.position = data.position;
 
         numReliquias = data.quantidadeReliquias;        
@@ -79,12 +78,12 @@ public class Alexandre : Personagem
         if(vidaImagem !=null) vidaImagem.fillAmount = vida / vidaMax;
         spriteAnimation.SetBool("SemArma", semArma);
 
-        if (Input.GetKeyDown(KeyCode.Z) && podePegar)
+        if (Input.GetButtonDown("Interaction") && podePegar)
         {
             PegaArma();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && podePegarDash)
+        if (Input.GetButtonDown("Interaction") && podePegarDash)
         {
             temDash = true;
             botaoShifit.SetActive(true);
@@ -121,7 +120,7 @@ public class Alexandre : Personagem
         
         if(timerImageAdaga != null ) timerImageAdaga.fillAmount = timerSkillOne / timerSkillOneMax;
 
-        if (Input.GetButtonDown("PrimeiroAtaque") && habilidadeAdagaAtiva && !canStun )
+        if (Input.GetButtonDown("FirstSkill") && habilidadeAdagaAtiva && !canStun )
         {
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
             Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(pointAdaga.position,tamanhoAdaga,hitMask);
@@ -170,7 +169,7 @@ public class Alexandre : Personagem
         }
 
         if(timerImageAdaga != null ) timerImageEspada.fillAmount = timerSkillTwo / timerSkillTwoMax;
-        if (Input.GetButtonDown("SegundoAtaque") && habilidadeEspadaAtiva && !canStun)
+        if (Input.GetButtonDown("SecondSkill") && habilidadeEspadaAtiva && !canStun)
         {         
 
             //Guardando cada inimigo dependendo da layer que a adaga colidiu
@@ -244,7 +243,7 @@ public class Alexandre : Personagem
         if (!habilidadeDesh)
             return;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetButtonDown("Third Skill"))
         {            
             rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f),ForceMode2D.Impulse);
             sons.PlayDashSom();
@@ -262,12 +261,6 @@ public class Alexandre : Personagem
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.name == "BonecoTeste")
-        {
-            DarDano(0.5f);
-            Debug.Log("a");
-        }
-
         if (collision.collider.CompareTag("Mesa") && semArma)
         {
             podePegar = true;

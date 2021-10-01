@@ -47,6 +47,8 @@ public class Fauno : EntidadeBase
     private Transform jogadorPosicao;
 
     public CinemachineVirtualCamera cam;
+
+    public StartData data;
     
     private bool vendoPlayer;
     private float atktempoderecarga = 0;
@@ -139,7 +141,8 @@ public class Fauno : EntidadeBase
         {           
 
             Destroy(this.gameObject);
-            SceneManager.LoadScene("CenaFase3", LoadSceneMode.Single);           
+            SceneManager.LoadScene("CenaFase3", LoadSceneMode.Single);
+            data.position = Vector3.zero;
         }           
 
     }

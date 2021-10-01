@@ -43,7 +43,7 @@ public class PlataformaBalestra : MonoBehaviour
                 if (projetilInstanciado == null)
                     projetilInstanciado = Instantiate(projetil, spawnProjetil.position, balestra.rotation);
 
-                projetilInstanciado.GetComponent<Rigidbody2D>().velocity = (spawnProjetil.position - balestra.transform.position) * 30f;
+                projetilInstanciado.GetComponent<Rigidbody2D>().velocity = (spawnProjetil.position - balestra.transform.position) * 50f;
             }
             Destroy(projetilInstanciado, 5f);
         }

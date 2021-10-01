@@ -166,5 +166,7 @@ MonoBehaviour:
   proximoAtaque: 0
   taxaAtaque: 3
   dano: 0.6
+  distanceMax: 7
   prefabProjetil: {fileID: 1572598029245634448, guid: e8fd0964775806b49b66c4079f70255e,
     type: 3}
+  oldVelocity: {x: 0, y: 0}

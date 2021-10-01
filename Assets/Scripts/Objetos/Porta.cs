@@ -12,7 +12,7 @@ public class Porta : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && podeEntrar)
+        if (Input.GetButtonDown("Interaction") && podeEntrar)
         {
             playerTransform.position = posicaoSaida.position;
         }

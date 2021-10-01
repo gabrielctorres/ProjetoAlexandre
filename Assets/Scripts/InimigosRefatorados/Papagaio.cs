@@ -45,9 +45,7 @@ public class Papagaio: EnemyRanged
     public override void Andar()
     {
         Vector2 direction = oldVelocity;
-        Debug.Log(oldVelocity);
         float distance = Vector2.Distance(transform.position, pointB);
-        Debug.Log(distance);
         if (distance <= 1.2f)
         {
             transform.localScale = new Vector3(-0.8f, 0.8f, 0);

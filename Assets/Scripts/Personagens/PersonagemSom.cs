@@ -8,7 +8,6 @@ public class PersonagemSom : MonoBehaviour
     public void PlayAdagaSom()
     {
         listaSom[0].Play();
-        Debug.Log("aaa");
     }
 
     public void PlayEspadaSom()
@@ -28,7 +27,10 @@ public class PersonagemSom : MonoBehaviour
 
     public void PlayAndarSom()
     {
-        listaSom[4].Play();
+        if (!listaSom[4].isPlaying)
+        {
+            listaSom[4].Play();
+        }
     }
     
     public void PlayDashSom()

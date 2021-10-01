@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class BossFase1 : MonoBehaviour
 {
-
+    public StartData data;
     public List<GameObject> inimigos = new List<GameObject>();   
 
     public Transform posicaoDoJogador;
@@ -69,6 +69,7 @@ public class BossFase1 : MonoBehaviour
         {
             int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextIndex, LoadSceneMode.Single);
+            data.position = Vector3.zero;
         }
     }
 

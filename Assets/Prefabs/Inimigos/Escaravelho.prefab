@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1923606240446915481}
   - component: {fileID: 1923606240446915486}
   - component: {fileID: 1701965924481051195}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Escaravelho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   enemyState: 0
   target: {fileID: 0}
   vida: 5
-  vidaMax: 3
+  vidaMax: 5
   velocidade: 2
   spriteAnimacao: {fileID: 0}
   rb2d: {fileID: 0}
