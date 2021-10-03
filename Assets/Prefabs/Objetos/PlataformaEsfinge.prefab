@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03220606, y: -0.06978023}
+  m_Offset: {x: -0.06642532, y: -0.05951464}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.332797, y: 0.3236692}
+  m_Size: {x: 1.0795784, y: 0.30313802}
   m_EdgeRadius: 0
 --- !u!1 &2523428130105019434
 GameObject:
@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 4799429307596450141}
   - component: {fileID: 3108166078370919925}
   - component: {fileID: 1525962955214617824}
-  - component: {fileID: 6431521353870105123}
   m_Layer: 8
   m_Name: PlataformaEsfinge
   m_TagString: Untagged
@@ -311,6 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a1aa92d143e8c4f9e9098d8ecf1f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageEspinho: 0.2
+  damageLaser: 0.5
   movimentType: 0
   attackType: 0
   timer: 6
@@ -334,31 +335,5 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: e2e581c0276d7b8459de016c3a2c75b0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &6431521353870105123
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4799429307596450142}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0060548782, y: -0.49394524}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 1}
-    oldSize: {x: 2, y: 1}
-    newSize: {x: 2, y: 7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3582058, y: 0.26133227}
-  m_EdgeRadius: 0

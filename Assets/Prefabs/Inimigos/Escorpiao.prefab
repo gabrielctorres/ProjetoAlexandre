@@ -172,9 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyState: 1
   target: {fileID: 0}
-  vida: 2
-  vidaMax: 2
-  velocidade: 2
+  vida: 6
+  vidaMax: 6
+  velocidade: 1.2
   spriteAnimacao: {fileID: 0}
   rb2d: {fileID: 0}
   pointA: {x: -6, y: -3}

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using TMPro;
 using UnityEngine.UI;
 public class Esfinge : EntidadeBase
@@ -27,6 +28,8 @@ public class Esfinge : EntidadeBase
     private Animator spriteAnimator;
 
     public CinemachineVirtualCamera cam;
+
+    public GameObject olhos;
 
     [Header("Interface")]
     public GameObject bossLife;
@@ -56,6 +59,8 @@ public class Esfinge : EntidadeBase
             Time.timeScale = 0;
         }   
     }
+    
+    
 
 
     public override void VerifyState()
@@ -277,9 +282,11 @@ public class Esfinge : EntidadeBase
             vendoPlayer = true;
             Target = collision.transform;
             this.GetComponent<CircleCollider2D>().radius = 3.5f;
+            collision.GetComponentInChildren<Light2D>().intensity = 0f;
         }
 
     }
+
 
 
     private void OnDrawGizmos()
@@ -296,5 +303,17 @@ public class Esfinge : EntidadeBase
     {
         throw new System.NotImplementedException();
     }
+    public override void TomarDano(float dano)
+    {
+        vida -= dano;
+        StartCoroutine(EfeitoDanoEsfinge());
+    }
 
+    public IEnumerator EfeitoDanoEsfinge()
+    {
+        olhos.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        olhos.GetComponent<SpriteRenderer>().color = Color.white;
+        StopCoroutine(EfeitoDanoEsfinge());
+    }
 }

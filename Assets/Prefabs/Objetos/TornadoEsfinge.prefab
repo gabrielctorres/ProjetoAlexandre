@@ -126,7 +126,7 @@ MonoBehaviour:
   - {x: 75, y: 109}
   - {x: 80, y: 98}
   - {x: 75, y: 87}
-  force: 10
+  force: 20
 --- !u!70 &1333802255270656911
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

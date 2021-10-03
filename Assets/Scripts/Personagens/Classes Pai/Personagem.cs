@@ -110,9 +110,16 @@ public abstract class Personagem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!menuPause.activeInHierarchy)
+            {
                 menuPause.SetActive(true);
+                Time.timeScale = 0f;
+            }
             else
+            {
+                Time.timeScale = 1f;
                 menuPause.SetActive(false);
+            }
+                
         }
     }
     public void Pular()
@@ -179,13 +186,13 @@ public abstract class Personagem : MonoBehaviour
 
     }
     public void DarDano( float  damage)
-    {
-        invulneravel = true;
-        if (vida > 0)
+    {     
+        if (vida > 0 && !invulneravel)
         {
             vida -= damage;
             sons.PlayDanoSom();
             StartCoroutine(FicarInvulneravel());
+            invulneravel = true;
         }        
     }
 
@@ -198,8 +205,8 @@ public abstract class Personagem : MonoBehaviour
             sprite.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
-
         invulneravel = false;
+        StopCoroutine(FicarInvulneravel());
     }
 
     public void VerificarMorte()

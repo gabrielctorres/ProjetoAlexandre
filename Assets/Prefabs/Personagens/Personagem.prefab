@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 2150851427342254225}
   - component: {fileID: 2150851427342254238}
   - component: {fileID: 2150851427342254234}
+  - component: {fileID: 7080236660587153769}
   m_Layer: 13
   m_Name: Personagem
   m_TagString: Untagged
@@ -209,7 +210,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -225,11 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad6d15e76162f34c809e765b35fe5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cena: 0
   vidaImagem: {fileID: 0}
   uiHabilidades: {fileID: 0}
   uiLife: {fileID: 0}
   menuDead: {fileID: 0}
   textReliquias: {fileID: 0}
+  sons: {fileID: 0}
+  menuPause: {fileID: 0}
   numReliquias: 0
   direcaoOlhar: 1
   vida: 5
@@ -240,9 +244,12 @@ MonoBehaviour:
   dano: 6
   semArma: 0
   invulneravel: 0
+  data: {fileID: 0}
   tutorialAtaque: {fileID: 0}
   tutorialAtaque2: {fileID: 0}
+  botaoShifit: {fileID: 0}
   bossController: {fileID: 0}
+  temDash: 0
   timerImageAdaga: {fileID: 0}
   timerImageEspada: {fileID: 0}
   pointAdaga: {fileID: 2150851427792013791}
@@ -299,6 +306,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7080236660587153769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2150851427342254224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c9cead797e134abc2d71defe79f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2150851427792013790
 GameObject:
   m_ObjectHideFlags: 0

@@ -273,7 +273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4220001442653117345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -6.1, z: -1}
+  m_LocalPosition: {x: -0, y: -7.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4220001442476771557}
@@ -291,7 +291,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 7.48455, y: 9.111471, z: 1.6}
-  m_Center: {x: 0.08167529, y: 5.136798, z: 0}
+  m_Center: {x: 0.08167529, y: 5.136798, z: -1}
 --- !u!114 &4220001442653117346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,8 +306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGlobal: 0
   priority: 0
-  blendDistance: 10
-  weight: 1
+  blendDistance: 11
+  weight: 0.297
   sharedProfile: {fileID: 11400000, guid: 696794229b1ac454589ab9341fa35174, type: 2}
 --- !u!1 &4220001443172331230
 GameObject:
@@ -774,9 +774,9 @@ MonoBehaviour:
   spriteAnimacao: {fileID: 0}
   rb2d: {fileID: 0}
   pointA: {x: 53, y: 100.7}
-  pointB: {x: 63.5, y: 95}
+  pointB: {x: 63, y: 95}
   ataqueMax: 3
-  tempoMaximoDescansado: 5
+  tempoMaximoDescansado: 15
   prefabPlataformaVertical: {fileID: 5415385120212074159, guid: f2f423287c962b84ea4c0cb1572e786c,
     type: 3}
   prefabPlataforma: {fileID: 4799429307596450142, guid: 4d3ac75624d478949abf7716506089fc,
@@ -785,6 +785,10 @@ MonoBehaviour:
     type: 3}
   plataformas: []
   cam: {fileID: 0}
+  bossLife: {fileID: 0}
+  bossImage: {fileID: 0}
+  nameText: {fileID: 0}
+  menuDead: {fileID: 0}
 --- !u!58 &4220001443760210653
 CircleCollider2D:
   m_ObjectHideFlags: 0

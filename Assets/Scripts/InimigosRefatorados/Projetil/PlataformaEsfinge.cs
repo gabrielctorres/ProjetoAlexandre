@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+
 public enum MovimentType
 {
     MoveHorizontal,
@@ -19,6 +21,9 @@ public enum AttackType
 
 public class PlataformaEsfinge : MonoBehaviour
 {
+    public float damageEspinho = 0.2f;
+    public float damageLaser = 0.5f;
+
     [SerializeField] private MovimentType movimentType;
     [SerializeField] private AttackType attackType;
 
@@ -53,6 +58,7 @@ public class PlataformaEsfinge : MonoBehaviour
     void Update()
     {
         VerifyState();
+        
     }
 
     public void VerifyState()
@@ -134,11 +140,11 @@ public class PlataformaEsfinge : MonoBehaviour
         if (collision.GetComponent<Personagem>() != null)
         {
             if (attackType == AttackType.Espinho)
-                Debug.Log("DanoEspinho");
+                collision.GetComponent<Personagem>().DarDano(damageEspinho);
             else
             {
                 spriteAnimator.SetBool("laser", true);
-                Debug.Log("DanoLaser");
+                collision.GetComponent<Personagem>().DarDano(damageLaser);
             }
         }
        

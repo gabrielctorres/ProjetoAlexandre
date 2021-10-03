@@ -36,7 +36,6 @@ public class EnemyRanged : EntidadeBase
     public override void Andar()
     {
         spriteAnimacao.SetBool("podeAtacar", false);
-
         Vector2 direction = oldVelocity;
         Debug.Log(oldVelocity);
         float distance = Vector2.Distance(transform.position, pointB);
@@ -111,6 +110,7 @@ public class EnemyRanged : EntidadeBase
     public virtual void VerifyDistance()
     {
         float distance = Vector3.Distance(Target.position, transform.position);
+        Debug.Log(distance);
         if (distance <= distanceMax)
             enemyState = EnemyState.Attacking;
         else if (distance >= distanceMax)

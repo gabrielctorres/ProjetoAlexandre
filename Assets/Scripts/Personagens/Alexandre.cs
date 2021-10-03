@@ -243,9 +243,9 @@ public class Alexandre : Personagem
         if (!habilidadeDesh)
             return;
 
-        if (Input.GetButtonDown("Third Skill"))
-        {            
-            rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f),ForceMode2D.Impulse);
+        if (Input.GetButtonDown("Third Skill") && rb2d.velocity.x != 0f)
+        {             
+            rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f) , ForceMode2D.Impulse);
             sons.PlayDashSom();
             spriteAnimation.SetBool("Dash", true);
             this.GetComponent<GhostEffect>().makeGhost = true;

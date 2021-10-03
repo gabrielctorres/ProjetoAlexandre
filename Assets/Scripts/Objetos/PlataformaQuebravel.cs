@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlataformaQuebravel : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject particula;
     void Start()
     {
         
@@ -21,6 +21,10 @@ public class PlataformaQuebravel : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(Quebrar());
+            GameObject particulaInstanciada = null;
+            if(particulaInstanciada == null)
+                particulaInstanciada = Instantiate(particula, transform.position, Quaternion.identity, this.transform);
+            particulaInstanciada.GetComponent<ParticleSystem>().Play();
         }
     }
 

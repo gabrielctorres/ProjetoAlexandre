@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projetil: {fileID: 0}
+  balestra: {fileID: 0}
   spawnProjetil: {fileID: 0}
-  direcaoOlhar: 0
 --- !u!50 &8054201075193872014
 Rigidbody2D:
   serializedVersion: 4

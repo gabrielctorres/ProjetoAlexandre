@@ -44,8 +44,11 @@ public class Papagaio: EnemyRanged
 
     public override void Andar()
     {
+        spriteAnimacao.SetBool("podeAtacar", false);
+        this.GetComponent<GhostEffect>().makeGhost = false;
         Vector2 direction = oldVelocity;
         float distance = Vector2.Distance(transform.position, pointB);
+
         if (distance <= 1.2f)
         {
             transform.localScale = new Vector3(-0.8f, 0.8f, 0);
@@ -81,7 +84,9 @@ public class Papagaio: EnemyRanged
     public override void Atacar()
     {
         float distanceToAttack = Vector3.Distance(Target.position, transform.position);
-        if (distanceToAttack <= 7.6f)
+
+        Debug.Log(distanceToAttack);
+        if (distanceToAttack <= 2.6f)
         {
             spriteAnimacao.SetBool("podeAtacar", true);
             this.GetComponent<GhostEffect>().makeGhost = true;

@@ -5,8 +5,11 @@ using UnityEngine;
 public class Escaravelho : EntidadeBase
 {
 
-    private bool canAttack = false;
+    private bool canAttack = false;    
     private SpriteRenderer sprite;
+
+
+    float timeParado = 4;
 
     public bool CanAttack { get => canAttack; set => canAttack = value; }
 
@@ -23,8 +26,7 @@ public class Escaravelho : EntidadeBase
 
     public void Update()
     {
-        VerifyState();
-        VerificarMorte();
+        VerifyState();       
     }
 
     public override void VerifyState()
@@ -36,6 +38,9 @@ public class Escaravelho : EntidadeBase
                 break;
             case EnemyState.Attacking:
                 Attack();
+                break;
+            case EnemyState.Resting:
+                Parado();
                 break;
             default:
                 break;
@@ -64,7 +69,38 @@ public class Escaravelho : EntidadeBase
             rb2d.velocity = direction * velocidade;
         }
 
+        if (rb2d.velocity == Vector2.zero)
+        {
+            float randomDirection = Random.Range(1, 2);
+            if (randomDirection == 1)
+                rb2d.velocity = Vector2.left * velocidade;
+            else
+                rb2d.velocity = Vector2.right * velocidade;
+        }
+    }
+    public void Parado()
+    {
 
+        if(timeParado > 0)
+        {
+            rb2d.velocity = Vector2.zero;
+            this.GetComponent<SpriteRenderer>().color = Color.cyan;
+            timeParado -= Time.deltaTime;
+        }            
+        else
+        {
+            this.GetComponent<SpriteRenderer>().color = Color.white;
+            enemyState = EnemyState.Patrolling;
+            timeParado = 4f;            
+        }
+       
+
+
+    }
+
+    public override void TomarDano(float dano)
+    {
+        enemyState = EnemyState.Resting;
     }
 
     private void OnDrawGizmos()
@@ -85,7 +121,7 @@ public class Escaravelho : EntidadeBase
         if(collision.GetComponent<Personagem>() != null && enemyState == EnemyState.Patrolling)
         {
             Vector2 direction = collision.transform.position;
-            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x,0f) - new Vector2(transform.position.x,0f)  * 130f, ForceMode2D.Force);
+            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x,0f) - new Vector2(transform.position.x,0f) * 170f, ForceMode2D.Force);
         }
     }
 
