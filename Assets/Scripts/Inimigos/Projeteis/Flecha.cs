@@ -7,12 +7,13 @@ public class Flecha : MonoBehaviour
     Rigidbody2D rb2d;
     BoxCollider2D box2d;
 
+    public bool isCanFlip;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         box2d = GetComponent<BoxCollider2D>();
         box2d.isTrigger = true;
-        box2d.usedByEffector = false;
+        box2d.usedByEffector = false;     
     }
 
     // Update is called once per frame

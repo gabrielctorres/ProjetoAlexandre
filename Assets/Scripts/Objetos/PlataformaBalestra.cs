@@ -14,6 +14,8 @@ public class PlataformaBalestra : MonoBehaviour
     GameObject projetilInstanciado = null;
 
     bool canSpawn;
+
+    public int offSetEffector;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class PlataformaBalestra : MonoBehaviour
                     projetilInstanciado = Instantiate(projetil, spawnProjetil.position, balestra.rotation);
 
                 projetilInstanciado.GetComponent<Rigidbody2D>().velocity = (spawnProjetil.position - balestra.transform.position) * 50f;
+                projetilInstanciado.GetComponent<PlatformEffector2D>().rotationalOffset = offSetEffector;
             }
             Destroy(projetilInstanciado, 5f);
         }

@@ -253,7 +253,7 @@ MonoBehaviour:
   timerImageAdaga: {fileID: 0}
   timerImageEspada: {fileID: 0}
   pointAdaga: {fileID: 2150851427792013791}
-  tamanhoAdaga: 0.5
+  tamanhoAdaga: 0.6
   danoAdaga: 2
   pointEspada: {fileID: 2150851427285227599}
   tamanhoEspada: 0.7
