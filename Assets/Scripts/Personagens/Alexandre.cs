@@ -49,7 +49,7 @@ public class Alexandre : Personagem
         if(data.position != Vector3.zero)
             transform.position = data.position;
 
-        numReliquias = data.quantidadeReliquias;        
+        numEstrelas = data.quantidadeEstrelas;        
         base.Start();
     }   
 
@@ -91,7 +91,7 @@ public class Alexandre : Personagem
 
 
         if (textReliquias != null)
-            textReliquias.text = "Reliquias Coletadas: " + numReliquias;
+            textReliquias.text = "Reliquias Coletadas: " + numEstrelas;
 
 
         if (!deslizandoParede || !tocandoNaParede || estaNoChao || !canStun)
@@ -281,8 +281,9 @@ public class Alexandre : Personagem
     {
         if (collision.GetComponent<Reliquias>() != null)
         {
-            numReliquias++;
-            Destroy(collision.gameObject);
+            numEstrelas++;
+            collision.gameObject.SetActive(false);
+            collision.GetComponent<Reliquias>().data.reliquiaAtivada = false;
         }
 
 

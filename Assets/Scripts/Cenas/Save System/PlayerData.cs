@@ -6,13 +6,13 @@ using UnityEngine;
 public class PlayerData
 {
     public int atualCena;
-    public int quantidadeReliquias;
+    public int quantidadeEstrelas;
     public float[] position;
 
     public PlayerData (Personagem personagem)
     {
         atualCena = personagem.cena;
-        quantidadeReliquias = personagem.numReliquias;
+        quantidadeEstrelas = personagem.numEstrelas;
 
         position = new float[3];
         position[0] = personagem.transform.position.x;

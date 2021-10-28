@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -537,7 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startData: {fileID: 0}
+  startPlayerData: {fileID: 0}
+  startReliquiasDatas: []
   textPlay: {fileID: 0}
 --- !u!114 &676471408
 MonoBehaviour:
@@ -783,7 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startData: {fileID: 0}
+  startPlayerData: {fileID: 0}
+  startReliquiasDatas: []
   textPlay: {fileID: 0}
 --- !u!114 &1137186111
 MonoBehaviour:
@@ -1211,7 +1213,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187ba871f8f6b4d8a26249f41ca3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startData: {fileID: 11400000, guid: faeff645cba54dc4d85a1493d3d5df42, type: 2}
+  startPlayerData: {fileID: 11400000, guid: faeff645cba54dc4d85a1493d3d5df42, type: 2}
+  startReliquiasDatas:
+  - {fileID: 11400000, guid: c85d4ca512b650a47a86782875d7f23b, type: 2}
+  - {fileID: 11400000, guid: 4743e75c6a42aab44b5e213b616a5b3c, type: 2}
+  - {fileID: 11400000, guid: dc0cefd3fa8b53b428e1403767516e43, type: 2}
+  - {fileID: 11400000, guid: 3448b0c251fe0ea408b8fad5b59aaa85, type: 2}
+  - {fileID: 11400000, guid: 93b5d66805faac648bef5c9e8fa06a84, type: 2}
+  - {fileID: 11400000, guid: 5d954eccfc81ae142b6c31667f92b649, type: 2}
   textPlay: {fileID: 127762925}
 --- !u!114 &2128061455
 MonoBehaviour:

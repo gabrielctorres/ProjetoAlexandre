@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 using System.IO;
 public class Buttons : MonoBehaviour
 {
-    public StartData startData;
+    public StartData startPlayerData;    
 
     public TextMeshProUGUI textPlay;
     public void ResetaFase()
     {
         string path = Application.persistentDataPath + "/player.smite";
-
         if (File.Exists(path))
             CarregarSave();
         else
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 
@@ -29,7 +28,6 @@ public class Buttons : MonoBehaviour
     public void ChangeText()
     {
         string path = Application.persistentDataPath + "/player.smite";
-
         if (File.Exists(path))
             textPlay.text = "CONTINUAR";
         else
@@ -40,7 +38,6 @@ public class Buttons : MonoBehaviour
     public void Jogar()
     {
         string path = Application.persistentDataPath + "/player.smite";
-
         if (File.Exists(path))        
             CarregarSave();
         else        
@@ -53,10 +50,10 @@ public class Buttons : MonoBehaviour
     public void CarregarSave()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-        SceneManager.LoadScene(data.atualCena);
-        startData.position.x = data.position[0];
-        startData.position.y = data.position[1];
-        startData.position.z = data.position[2];
-        startData.quantidadeReliquias = data.quantidadeReliquias;
+        SceneManager.LoadScene(data.atualCena, LoadSceneMode.Single);
+        startPlayerData.position.x = data.position[0];
+        startPlayerData.position.y = data.position[1];
+        startPlayerData.position.z = data.position[2];
+        startPlayerData.quantidadeEstrelas = data.quantidadeEstrelas;
     }
 }
