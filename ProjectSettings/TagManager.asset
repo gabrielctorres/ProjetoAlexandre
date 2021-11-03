@@ -18,6 +18,7 @@ TagManager:
   - FonteMagica
   - ObjetoQuebravelSimples
   - ParedeFlecha
+  - ColisionEspinho
   layers:
   - Default
   - TransparentFX

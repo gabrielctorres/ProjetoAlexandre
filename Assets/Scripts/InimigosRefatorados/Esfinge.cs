@@ -120,11 +120,12 @@ public class Esfinge : EntidadeBase
 
 
             yield return new WaitForSeconds(0.9f);
+            spriteAnimator.SetBool("laser", true);
+            yield return new WaitForSeconds(6f);
+            spriteAnimator.SetBool("laser", false);
         }          
 
-        spriteAnimator.SetBool("laser", true);
-        yield return new WaitForSeconds(6f);
-        spriteAnimator.SetBool("laser", false);        
+
     }
 
     public IEnumerator AttackTornado()
@@ -186,9 +187,9 @@ public class Esfinge : EntidadeBase
             if (random == 1)
                 ataques.Enqueue("AttackLaser");
             else if (random == 2)
-                ataques.Enqueue("AttackTornado");
+                ataques.Enqueue("AttackLaser"); //AttackTornado
             else if(random == 3)
-                ataques.Enqueue("AttackWall");            
+                ataques.Enqueue("AttackLaser"); // AttackWall        
         }
 
     }

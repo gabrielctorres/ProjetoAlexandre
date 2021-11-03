@@ -374,7 +374,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29979961}
-  m_LocalRotation: {x: 0, y: 0, z: 0.000004452215, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0000044627814, w: 1}
   m_LocalPosition: {x: -34.079, y: -2.223, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44319,6 +44319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6072b954fcbadf4fafc646a426def8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: dc0cefd3fa8b53b428e1403767516e43, type: 2}
 --- !u!58 &671161123
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -49332,6 +49333,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
+      propertyPath: dashUI
+      value: 
+      objectReference: {fileID: 1175107474}
+    - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
+        type: 3}
       propertyPath: uiLife
       value: 
       objectReference: {fileID: 1175107468}
@@ -49390,6 +49396,11 @@ PrefabInstance:
       propertyPath: hitMask.m_Bits
       value: 2048
       objectReference: {fileID: 0}
+    - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
+        type: 3}
+      propertyPath: timerImageDash
+      value: 
+      objectReference: {fileID: 1175107473}
     - target: {fileID: 2150851427342254225, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
       propertyPath: timerImageAdaga
@@ -51906,6 +51917,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8801530997539177219, guid: ddfafc90ff0c28746bbaa15837957afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddfafc90ff0c28746bbaa15837957afa, type: 3}
 --- !u!114 &1175107463 stripped
@@ -52001,6 +52017,24 @@ MonoBehaviour:
 --- !u!1 &1175107472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6301736249670318217, guid: ddfafc90ff0c28746bbaa15837957afa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1175107462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1175107473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4944171920620527100, guid: ddfafc90ff0c28746bbaa15837957afa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1175107462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1175107474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8801530997539177219, guid: ddfafc90ff0c28746bbaa15837957afa,
     type: 3}
   m_PrefabInstance: {fileID: 1175107462}
   m_PrefabAsset: {fileID: 0}
@@ -57413,6 +57447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6072b954fcbadf4fafc646a426def8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3448b0c251fe0ea408b8fad5b59aaa85, type: 2}
 --- !u!58 &1956964966
 CircleCollider2D:
   m_ObjectHideFlags: 0
