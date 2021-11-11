@@ -14,6 +14,7 @@ public class Porta : MonoBehaviour
     {
         if (Input.GetButtonDown("Interaction") && podeEntrar)
         {
+            if(this.GetComponent<AudioSource>() != null) this.GetComponent<AudioSource>().Play();
             playerTransform.position = posicaoSaida.position;
         }
     }

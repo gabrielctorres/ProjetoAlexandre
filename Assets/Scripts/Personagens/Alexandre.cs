@@ -156,6 +156,7 @@ public class Alexandre : Personagem
             {
                 objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
+                objeto.GetComponent<ObjetosQuebraveis>().somObjeto.Play();
             }
             sons.PlayAdagaSom();
             spriteAnimation.SetBool("AtacouNormal", true);
@@ -206,6 +207,7 @@ public class Alexandre : Personagem
             {
                if(objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation != null) objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
+                objeto.GetComponent<ObjetosQuebraveis>().somObjeto.Play();
             }
             sons.PlayEspadaSom();
             spriteAnimation.SetBool("AtacouEspada", true);
@@ -296,6 +298,7 @@ public class Alexandre : Personagem
             numEstrelas++;
             collision.gameObject.SetActive(false);
             collision.GetComponent<Reliquias>().data.reliquiaAtivada = false;
+            collision.GetComponent<AudioSource>().Play();
         }
 
 

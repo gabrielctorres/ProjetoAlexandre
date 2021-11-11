@@ -43,6 +43,7 @@ public class Laranja : MonoBehaviour
             }
         }        
         Debug.Log("Vida: " + personagemScript.vida);
+        this.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(_delay);        
         Destroy(this.gameObject);
     }
