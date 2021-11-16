@@ -7,6 +7,8 @@ public class Papagaio: EnemyRanged
 
     private AIPath path;
     public GameObject effectDead;
+
+    public AudioSource somIdle;
     public override void Start()
     {
         distanceMax = 3f;
@@ -31,10 +33,12 @@ public class Papagaio: EnemyRanged
         {
             case EnemyState.Patrolling:
                 path.enabled = false;
+                somIdle.mute = false;
                 Andar();
                 break;
             case EnemyState.Attacking:
                 path.enabled = true;
+                somIdle.mute = true;
                 Atacar();
                 break;
             default:
@@ -103,11 +107,13 @@ public class Papagaio: EnemyRanged
     {
         if(collision.GetComponent<Personagem>() != null)
         {
+            
+
             GameObject explosion = null;
             if(explosion == null)
-                Instantiate(effectDead, transform.position, Quaternion.identity);
+                Instantiate(effectDead, transform.position, Quaternion.identity);          
             collision.GetComponent<Personagem>().DarDano(dano);
-
+            
             Destroy(this.gameObject);
         }
     }

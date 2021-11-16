@@ -268,14 +268,14 @@ public abstract class Personagem : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x + 0.3f, transform.position.y - 0.8f), 0.25f);       
     }
 
-    void OnGUI()
+    /*void OnGUI()
      {
          GUI.contentColor = Color.green;
          GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);
          GUI.Label(new Rect(25, 65, 650, 30), "Tocando a Parede: " + tocandoNaParede);
          GUI.Label(new Rect(25, 80, 650, 30), "Deslizando Parede: " + deslizandoParede);
          GUI.Label(new Rect(25, 95, 650, 30), "Velocidade: " + rb2d.velocity);
-     }
+     }*/
     
     public void Stun()
     {
