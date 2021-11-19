@@ -374,8 +374,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29979961}
-  m_LocalRotation: {x: 0, y: 0, z: 0.000004798768, w: 1}
-  m_LocalPosition: {x: -34.079, y: -2.223, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0.000004841462, w: 1}
+  m_LocalPosition: {x: 270, y: -2.223, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 296501138}
@@ -49632,7 +49632,7 @@ PrefabInstance:
     - target: {fileID: 2150851427342254237, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.079
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 2150851427342254237, guid: 805be67fc96637747b48b782dc171f98,
         type: 3}
@@ -54880,6 +54880,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1661006606 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5851251414804667036, guid: 68060ddd14457f74d81fd7e008921b53,
+    type: 3}
+  m_PrefabInstance: {fileID: 1186514583363928741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1665867274
 GameObject:
   m_ObjectHideFlags: 0
@@ -57820,7 +57826,7 @@ GameObject:
   - component: {fileID: 1958121893}
   m_Layer: 8
   m_Name: Chao
-  m_TagString: Untagged
+  m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69146,6 +69152,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5851251414804667036, guid: 68060ddd14457f74d81fd7e008921b53,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6834087183459529038, guid: 68060ddd14457f74d81fd7e008921b53,
         type: 3}
       propertyPath: m_Name
@@ -69262,6 +69273,11 @@ PrefabInstance:
       propertyPath: magnitude
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7050425549373204595, guid: 68060ddd14457f74d81fd7e008921b53,
+        type: 3}
+      propertyPath: terremoto
+      value: 
+      objectReference: {fileID: 1661006606}
     - target: {fileID: 7050425549373204595, guid: 68060ddd14457f74d81fd7e008921b53,
         type: 3}
       propertyPath: quantidadeDeAtaque

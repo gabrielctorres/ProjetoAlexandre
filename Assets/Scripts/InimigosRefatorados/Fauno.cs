@@ -55,6 +55,8 @@ public class Fauno : EntidadeBase
     public float tempoMaximoDescanada = 5;
     private float tempoDescanado;
 
+    public AudioSource terremoto;
+
     private void Start()
     {
         
@@ -150,7 +152,7 @@ public class Fauno : EntidadeBase
 
     public void Descansando()
     {
-
+        terremoto.Stop();
         if (tempoDescanado <= 0)
         {
             spriteAnimacao.SetBool("Cansado", false);            
@@ -174,7 +176,7 @@ public class Fauno : EntidadeBase
 
     public IEnumerator AtaqueFogo()
     {
-        
+        terremoto.Stop();
         GameObject bolaFogo = Instantiate(prefabFogo, spawnPosition.position, Quaternion.identity);
         bolaFogo.GetComponent<Rigidbody2D>().velocity = (jogadorPosicao.position - bolaFogo.transform.position) * 2f;
         spriteAnimacao.SetBool("AtaqueFogo",true);
@@ -184,6 +186,7 @@ public class Fauno : EntidadeBase
     public IEnumerator AtaqueTerremoto()
     {
         source.GenerateImpulse();
+        terremoto.Play();
         for (int i = 0; i < quantidadeDeAtaque; i++)
         {
             int random = Random.Range(0, spawnPointsTerremoto.Count);
@@ -197,7 +200,8 @@ public class Fauno : EntidadeBase
         spriteAnimacao.SetBool("AtaqueTerremoto", false);        
     }
     public IEnumerator AtaqueInvestida()
-    {        
+    {
+        terremoto.Stop();
         if (jogadorPosicao.position.x > 0 && !portal.activeInHierarchy)
             portal.transform.position = new Vector3((jogadorPosicao.position.x + 3.5f), portal.transform.position.y, 0f);
         else
