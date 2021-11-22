@@ -114,7 +114,7 @@ public class Esfinge : EntidadeBase
             plataformas.Add(plataformaSegura);
             SetandoPlataforma(0, 0.6f, new Vector2(pointA.x - 6f, 101f), new Vector2(pointB.x + 5f, 101f), MovimentType.MoveHorizontal, AttackType.Laser);
             SetandoPlataforma(1, 0.6f, new Vector2(pointA.x, pointA.y + 2f), new Vector2(pointB.x + 5f, pointB.y), MovimentType.Stop, AttackType.Espinho);
-
+            plataformaLaser.GetComponent<AudioSource>().Play();
             Destroy(plataformaLaser, 5f);
             Destroy(plataformaSegura, 5f);
 
@@ -135,6 +135,7 @@ public class Esfinge : EntidadeBase
             GameObject tornado = Instantiate(prefabTornado, new Vector2(transform.position.x, 98.46f), Quaternion.identity);
             tornado.GetComponent<TornadoEsfinge>().RbPersonagem = Target.GetComponent<Rigidbody2D>();
             plataformas.Add(tornado);
+            tornado.GetComponent<AudioSource>().Play();
             Destroy(tornado, 5f);
             yield return new WaitForSeconds(0.9f);
         }             
@@ -185,11 +186,11 @@ public class Esfinge : EntidadeBase
             int random = Random.Range(1, 4);
 
             if (random == 1)
-                ataques.Enqueue("AttackLaser");
+                ataques.Enqueue("AttackTornado");
             else if (random == 2)
-                ataques.Enqueue("AttackLaser"); //AttackTornado
+                ataques.Enqueue("AttackWall"); 
             else if(random == 3)
-                ataques.Enqueue("AttackLaser"); // AttackWall        
+                ataques.Enqueue("AttackLaser");     
         }
 
     }
