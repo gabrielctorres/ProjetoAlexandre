@@ -39,7 +39,7 @@ public class PlataformaBalestra : MonoBehaviour
         {
             oldY = transform.position.y;
             GetComponent<Rigidbody2D>().MovePosition(new Vector2(posX, posY-0.1f));
-
+            this.GetComponent<AudioSource>().Play();
             if (canSpawn)
             {              
                 if (projetilInstanciado == null)
@@ -47,6 +47,7 @@ public class PlataformaBalestra : MonoBehaviour
 
                 projetilInstanciado.GetComponent<Rigidbody2D>().velocity = (spawnProjetil.position - balestra.transform.position) * 50f;
                 projetilInstanciado.GetComponent<PlatformEffector2D>().rotationalOffset = offSetEffector;
+                projetilInstanciado.GetComponent<AudioSource>().Play();
             }
             Destroy(projetilInstanciado, 5f);
         }

@@ -149,22 +149,21 @@ public class PlataformaEsfinge : MonoBehaviour
         }
        
         
-        if (collision.GetComponent<PlataformaEsfinge>() != null && collision.GetComponent<PlataformaEsfinge>().attackType == AttackType.Espinho)
-        {        
-            if(this.attackType == AttackType.Laser)
-            {
-                spriteAnimator.SetBool("laser", true);
+        if (collision.CompareTag("ColisionEspinho"))
+        {
+            Debug.Log("Entrou");
+            spriteAnimator.SetBool("laser", true);
 
-                MaterialPropertyBlock block = new MaterialPropertyBlock();
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
 
-                Renderer render = GetComponent<Renderer>();
-                render.GetPropertyBlock(block);
-                block.SetFloat("_laserValue", 0.5f);
-                render.SetPropertyBlock(block);
-                
+            Renderer render = GetComponent<Renderer>();
+            render.GetPropertyBlock(block);
+            block.SetFloat("_laserValue", 0.5f);
+            render.SetPropertyBlock(block);
 
-                this.transform.GetChild(2).GetComponent<BoxCollider2D>().size = new Vector2(0.4f, 1f);
-            }
+
+            this.transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().offset.x,-1.24f);
+            this.transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().size = new Vector2(transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().size.x, 2.58f);
 
         }
 
@@ -172,19 +171,19 @@ public class PlataformaEsfinge : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlataformaEsfinge>() != null)
+        if (collision.CompareTag("ColisionEspinho"))
         {
-            if (collision.GetComponent<PlataformaEsfinge>().attackType == AttackType.Espinho)
-            {
-                MaterialPropertyBlock block = new MaterialPropertyBlock();
+            Debug.Log("Saiu 1");
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
 
-                Renderer render = GetComponent<Renderer>();
-                render.GetPropertyBlock(block);
-                block.SetFloat("_laserValue", 0f);
-                render.SetPropertyBlock(block);            
+            Renderer render = GetComponent<Renderer>();
+            render.GetPropertyBlock(block);
+            block.SetFloat("_laserValue", 0f);
+            render.SetPropertyBlock(block);
 
-                this.transform.GetChild(2).GetComponent<BoxCollider2D>().size = new Vector2(0.4f, 6f);
-            }
+
+            this.transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().offset.x, -2.91f);
+            this.transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().size = new Vector2(transform.GetChild(2).gameObject.GetComponent<BoxCollider2D>().size.x, 5.96f);
         }
     }
 

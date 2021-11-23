@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Reliquias : MonoBehaviour
 {
+    public StartData data;
     
-    // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.SetActive(data.reliquiaAtivada);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
-
 
 }

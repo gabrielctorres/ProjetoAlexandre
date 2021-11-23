@@ -15,4 +15,23 @@ public class Aranha : EnemyRanged
     {
         base.Update();
     }
+
+
+    public override void VerifyState()
+    {
+
+        switch (enemyState)
+        {
+            case EnemyState.Patrolling:
+                this.GetComponent<AudioSource>().mute = false;
+                Andar();
+                break;
+            case EnemyState.Attacking:
+                Atacar();
+                this.GetComponent<AudioSource>().mute = true;
+                break;
+            default:
+                break;
+        }
+    }
 }

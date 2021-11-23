@@ -12,22 +12,24 @@ public class Alexandre : Personagem
     bool podePegarDash;
     Animator mesaAnimator;
     float timerSkillOne = 0f;
-    float timerSkillOneMax = 1.4f;
+    float timerSkillOneMax = 1f;
     public GameObject botaoShifit; // Tirar daqui 
 
     public  BossFase1 bossController;
 
     float timerSkillTwo = 0;
-    float timerSkillTwoMax = 10;
+    float timerSkillTwoMax = 4;
     bool habilidadeAdagaAtiva = true;
     bool habilidadeEspadaAtiva = true;
 
-    float timerDesh = 2f;
+    float timerDesh = 0f;
+    float timerSkillDashMax = 1f;
     bool habilidadeDesh = true;
     public bool temDash = false;
 
     public Image timerImageAdaga;
     public Image timerImageEspada;
+    public Image timerImageDash;
 
     [Header("Configuração da adaga")]
     public Transform pointAdaga;
@@ -41,6 +43,8 @@ public class Alexandre : Personagem
     public float danoEspada;
 
 
+    public GameObject dashUI;
+
     public LayerMask hitMask;
     
     public override void Start()
@@ -49,7 +53,7 @@ public class Alexandre : Personagem
         if(data.position != Vector3.zero)
             transform.position = data.position;
 
-        numReliquias = data.quantidadeReliquias;        
+        numEstrelas = data.quantidadeEstrelas;        
         base.Start();
     }   
 
@@ -57,7 +61,10 @@ public class Alexandre : Personagem
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        Dash();
+        if (temDash)
+        {
+            Dash();
+        }
     }
 
     public void Update()
@@ -87,17 +94,24 @@ public class Alexandre : Personagem
         {
             temDash = true;
             botaoShifit.SetActive(true);
+            dashUI.SetActive(true);
         }
 
 
         if (textReliquias != null)
-            textReliquias.text = "Reliquias Coletadas: " + numReliquias;
+            textReliquias.text = "Reliquias Coletadas: " + numEstrelas;
 
 
         if (!deslizandoParede || !tocandoNaParede || estaNoChao || !canStun)
             spriteAnimation.SetFloat("Horizontal", Mathf.Abs(horizontal));
 
         Stun();
+
+        if (temDash)
+        {
+            CountDownDesh();
+        }
+       
 
     }
 
@@ -106,7 +120,7 @@ public class Alexandre : Personagem
     {        
         if (!habilidadeAdagaAtiva)
         {
-            if (timerSkillOne <= 1.4f)
+            if (timerSkillOne <= 1f)
             {
                 timerSkillOne += Time.deltaTime;               
             }    
@@ -142,6 +156,7 @@ public class Alexandre : Personagem
             {
                 objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
+                objeto.GetComponent<ObjetosQuebraveis>().somObjeto.Play();
             }
             sons.PlayAdagaSom();
             spriteAnimation.SetBool("AtacouNormal", true);
@@ -156,7 +171,7 @@ public class Alexandre : Personagem
     {
         if (!habilidadeEspadaAtiva)
         {
-            if (timerSkillTwo <= 10)
+            if (timerSkillTwo <= 4f)
             {
                 timerSkillTwo += Time.deltaTime;
             }
@@ -192,6 +207,7 @@ public class Alexandre : Personagem
             {
                if(objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation != null) objeto.GetComponent<ObjetosQuebraveis>().spriteAnimation.SetTrigger("quebrou");
                 objeto.GetComponent<ObjetosQuebraveis>().Destroi();
+                objeto.GetComponent<ObjetosQuebraveis>().somObjeto.Play();
             }
             sons.PlayEspadaSom();
             spriteAnimation.SetBool("AtacouEspada", true);
@@ -221,35 +237,32 @@ public class Alexandre : Personagem
         tutorialAtaque2.SetActive(true);
     }
 
-
-    public void Dash()
+    public void CountDownDesh()
     {
-        if (!temDash)
-            return;
-
-
-
+        
         if (!habilidadeDesh)
-        {           
-            if (timerDesh >= 2)
-                timerDesh -= Time.deltaTime;
+        {
+            if (timerDesh <= 1f)
+                timerDesh += Time.deltaTime;
             else
             {
                 habilidadeDesh = true;
-                timerDesh = 2;
-            }           
+                timerDesh = 0;
+            }
         }
+        if (timerImageDash != null) timerImageDash.fillAmount = timerDesh / timerSkillDashMax;
 
-        if (!habilidadeDesh)
-            return;
+    }
 
-        if (Input.GetButtonDown("Third Skill") && rb2d.velocity.x != 0f)
-        {             
-            rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f) , ForceMode2D.Impulse);
+    public void Dash()
+    {
+
+        if (Input.GetButtonDown("Third Skill") && habilidadeDesh &&rb2d.velocity.x != 0f)
+        {
+            rb2d.AddForce(new Vector2(rb2d.velocity.x * 15f, 0f), ForceMode2D.Impulse);
             sons.PlayDashSom();
             spriteAnimation.SetBool("Dash", true);
             this.GetComponent<GhostEffect>().makeGhost = true;
-
             habilidadeDesh = false;
         }
         else
@@ -257,6 +270,7 @@ public class Alexandre : Personagem
             this.GetComponent<GhostEffect>().makeGhost = false;
             spriteAnimation.SetBool("Dash", false);
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -281,8 +295,10 @@ public class Alexandre : Personagem
     {
         if (collision.GetComponent<Reliquias>() != null)
         {
-            numReliquias++;
-            Destroy(collision.gameObject);
+            numEstrelas++;
+            collision.gameObject.SetActive(false);
+            collision.GetComponent<Reliquias>().data.reliquiaAtivada = false;
+            collision.GetComponent<AudioSource>().Play();
         }
 
 

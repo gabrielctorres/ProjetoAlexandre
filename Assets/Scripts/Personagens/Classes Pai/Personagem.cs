@@ -22,7 +22,7 @@ public abstract class Personagem : MonoBehaviour
     [HideInInspector] public PersonagemSom sons;
     public GameObject menuPause;
 
-    public int numReliquias;
+    public int numEstrelas;
     protected float horizontal;
     private float vertical;
     public float direcaoOlhar = 1f;
@@ -268,7 +268,7 @@ public abstract class Personagem : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x + 0.3f, transform.position.y - 0.8f), 0.25f);       
     }
 
-   /* void OnGUI()
+    /*void OnGUI()
      {
          GUI.contentColor = Color.green;
          GUI.Label(new Rect(25, 25, 650, 30), "Pode Andar: " + podeAndar);

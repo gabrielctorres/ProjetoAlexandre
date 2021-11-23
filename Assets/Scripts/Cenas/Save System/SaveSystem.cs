@@ -6,7 +6,8 @@ public static class SaveSystem
     public static void SavePlayer(Personagem personagem)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.smite";
+        string dataPath = Application.streamingAssetsPath + "/Saves";
+        string path = dataPath + "/player.smite";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(personagem);        
@@ -16,7 +17,8 @@ public static class SaveSystem
     }
     public static PlayerData LoadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.smite";
+        string dataPath = Application.streamingAssetsPath + "/Saves";
+        string path = dataPath + "/player.smite";
 
         if (File.Exists(path))
         {
@@ -35,7 +37,5 @@ public static class SaveSystem
         }
 
     }
-
-
-
+    
 }

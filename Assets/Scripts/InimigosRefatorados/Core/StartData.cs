@@ -6,6 +6,7 @@ using UnityEngine;
 public class StartData : ScriptableObject
 {
     public int atualCena;
-    public int quantidadeReliquias;
+    public int quantidadeEstrelas;
     public Vector3 position;
+    public bool reliquiaAtivada = true;
 }
