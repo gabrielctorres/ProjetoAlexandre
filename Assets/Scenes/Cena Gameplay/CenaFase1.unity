@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -578,11 +578,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 146136308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 669198f25a241244e9bf894384357302, type: 3}
+  m_Script: {fileID: 11500000, guid: fa39c27c9c306f5429b410f640ef2734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 220512550}
-  parallaxEffect: 1
+  cameraPlayer: {fileID: 220512550}
+  speedParallax: 0
 --- !u!212 &146136311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -682,11 +682,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 215886838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 669198f25a241244e9bf894384357302, type: 3}
+  m_Script: {fileID: 11500000, guid: fa39c27c9c306f5429b410f640ef2734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 220512550}
-  parallaxEffect: 0.3
+  cameraPlayer: {fileID: 220512550}
+  speedParallax: 0.3
 --- !u!212 &215886841
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220512550}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0000098508235, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0000098569635, w: 1}
   m_LocalPosition: {x: -8.1, y: -2.12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4364,11 +4364,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 691498671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 669198f25a241244e9bf894384357302, type: 3}
+  m_Script: {fileID: 11500000, guid: fa39c27c9c306f5429b410f640ef2734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 220512550}
-  parallaxEffect: 0.5
+  cameraPlayer: {fileID: 220512550}
+  speedParallax: 0.1
 --- !u!212 &691498674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15376,11 +15376,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1833574115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 669198f25a241244e9bf894384357302, type: 3}
+  m_Script: {fileID: 11500000, guid: fa39c27c9c306f5429b410f640ef2734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 220512550}
-  parallaxEffect: 0.2
+  cameraPlayer: {fileID: 220512550}
+  speedParallax: 0.4
 --- !u!212 &1833574118
 SpriteRenderer:
   m_ObjectHideFlags: 0

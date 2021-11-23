@@ -9,9 +9,16 @@ public class Buttons : MonoBehaviour
     public StartData startPlayerData;    
 
     public TextMeshProUGUI textPlay;
+
+    private void Start()
+    {
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/Saves");
+    }
+
     public void ResetaFase()
     {
-        string path = Application.persistentDataPath + "/player.smite";
+        string dataPath = Application.streamingAssetsPath + "/Saves";
+        string path = dataPath + "/player.smite";
         if (File.Exists(path))
             CarregarSave();
         else
@@ -27,7 +34,8 @@ public class Buttons : MonoBehaviour
 
     public void ChangeText()
     {
-        string path = Application.persistentDataPath + "/player.smite";
+        string dataPath = Application.streamingAssetsPath + "/Saves";
+        string path = dataPath + "/player.smite";
         if (File.Exists(path))
             textPlay.text = "CONTINUAR";
         else
@@ -37,7 +45,8 @@ public class Buttons : MonoBehaviour
 
     public void Jogar()
     {
-        string path = Application.persistentDataPath + "/player.smite";
+        string dataPath = Application.streamingAssetsPath + "/Saves";
+        string path = dataPath + "/player.smite";
         if (File.Exists(path))        
             CarregarSave();
         else        
