@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 2150851427342254225}
   - component: {fileID: 2150851427342254238}
   - component: {fileID: 2150851427342254234}
-  - component: {fileID: 7080236660587153769}
   m_Layer: 13
   m_Name: Personagem
   m_TagString: Untagged
@@ -234,7 +233,7 @@ MonoBehaviour:
   textReliquias: {fileID: 0}
   sons: {fileID: 0}
   menuPause: {fileID: 0}
-  numReliquias: 0
+  numEstrelas: 0
   direcaoOlhar: 1
   vida: 5
   vidaMax: 5
@@ -252,12 +251,14 @@ MonoBehaviour:
   temDash: 0
   timerImageAdaga: {fileID: 0}
   timerImageEspada: {fileID: 0}
+  timerImageDash: {fileID: 0}
   pointAdaga: {fileID: 2150851427792013791}
   tamanhoAdaga: 0.6
   danoAdaga: 2
   pointEspada: {fileID: 2150851427285227599}
   tamanhoEspada: 0.7
   danoEspada: 5
+  dashUI: {fileID: 0}
   hitMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -306,18 +307,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7080236660587153769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2150851427342254224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 862c9cead797e134abc2d71defe79f0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2150851427792013790
 GameObject:
   m_ObjectHideFlags: 0

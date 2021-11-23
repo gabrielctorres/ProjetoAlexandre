@@ -12,4 +12,10 @@ public class ChangeScene : MonoBehaviour
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextIndex, LoadSceneMode.Single);
     }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
 }

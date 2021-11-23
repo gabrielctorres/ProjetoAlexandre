@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Esfinge : EntidadeBase
 {    
     [Header("Controle dos ataques", order = 1)]
@@ -54,10 +55,9 @@ public class Esfinge : EntidadeBase
 
         if (vida <= 0)
         {
-            menuDead.SetActive(true);
-            menuDead.GetComponentInChildren<TextMeshProUGUI>().text = "Obrigado por testar nosso jogo, não esqueça de responder o  formulario";
-            Time.timeScale = 0;
-        }   
+            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(nextIndex, LoadSceneMode.Single);              
+        }
     }
     
     

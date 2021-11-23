@@ -110,7 +110,6 @@ public class EnemyRanged : EntidadeBase
     public virtual void VerifyDistance()
     {
         float distance = Vector3.Distance(Target.position, transform.position);
-        Debug.Log(distance);
         if (distance <= distanceMax)
             enemyState = EnemyState.Attacking;
         else if (distance >= distanceMax)
