@@ -6,6 +6,8 @@ public class Laranja : MonoBehaviour
 {    
     private  Personagem personagemScript;
 
+    public GameObject effectRegen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class Laranja : MonoBehaviour
         if (collision.GetComponent<Personagem>() !=null )
         {
             personagemScript = collision.GetComponent<Personagem>();
+            GameObject effectInstnaciado =  Instantiate(effectRegen, new Vector2(collision.transform.position.x,(collision.transform.position.y -1.19f)), Quaternion.identity, collision.transform);
+            effectInstnaciado.GetComponent<ParticleSystem>().Play();
             StartCoroutine(DelayedBrokenObject(0.2f));           
         }
     }

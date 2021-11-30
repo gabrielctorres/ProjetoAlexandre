@@ -143,7 +143,8 @@ public class Fauno : EntidadeBase
         {           
 
             Destroy(this.gameObject);
-            SceneManager.LoadScene("CenaFase3", LoadSceneMode.Single);
+            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(nextIndex, LoadSceneMode.Single);
             data.position = Vector3.zero;
         }           
 

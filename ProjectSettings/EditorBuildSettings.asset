@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cena Gameplay/CenaFase2.unity
     guid: 4403223d094c11045bb3f7ab48e1fafb
   - enabled: 1
+    path: Assets/Scenes/Cena CutScene/Cutscene_Fase2.unity
+    guid: 43db6e1e34efb4d4e8834bf121e8a881
+  - enabled: 1
     path: Assets/Scenes/Cena CutScene/Cutscene_Pos_Fase2.unity
     guid: 5633ccc95432c3a4183d96a18cfbd085
   - enabled: 1
@@ -47,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cena CutScene/Cutscene_Pos_Fase3.unity
     guid: 2d677f5a4db92084ea6592dc50283b50
+  - enabled: 1
+    path: Assets/Scenes/Cena CutScene/Cutscene_Homenagem.unity
+    guid: 0a3af35c30597294c8e7223d7f2ee8c4
   m_configObjects: {}
